@@ -41,7 +41,7 @@
 
             <div class="col-12 col-lg-2 col-md-6">
               <div class="footer-widget">
-                <h3>About Us</h3>
+                <h3>Quick Links</h3>
                 <ul class="links">
                   <li><a href="javascript:void(0)">Home</a></li>
                   <li><a href="javascript:void(0)">Feature</a></li>
