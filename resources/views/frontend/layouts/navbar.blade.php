@@ -41,12 +41,14 @@
                       <a class="page-scroll" href="#why">Why</a>
                     </li>
                     <li class="nav-item">
-                      <a href="javascript:void(0)">Pricing</a>
+                      <a class="page-scroll" href="{{ route('signup') }}">Signup</a>
                     </li>
-                    <li class="nav-item">
-                      <a href="javascript:void(0)">Clients</a>
-                    </li>
+                    {{-- <li class="nav-item"> --}}
+                    {{-- </li> --}}
                   </ul>
+                  <div class="ms-1">
+                      <a class="btn px-4 rounded-pill bg-dark text-white ms-4" href="{{ route('login') }}">Login</a>
+                  </div>
                 </div>
                 <!-- navbar collapse -->
               </nav>

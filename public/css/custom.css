@@ -15,8 +15,8 @@
     pointer-events: none !important;
 }
 
-.input-group-lg .form-control {
-	border-radius: 20px !important;
+.form-group .form-control {
+	border-radius: 14px !important;
 }
 
 .bg-light-sky {

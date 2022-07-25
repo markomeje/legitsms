@@ -245,7 +245,7 @@
               </div>
             </div>
             <div class="col-12 col-md-6 col-lg-5">
-              <a href="{{ route('signup') }}" class="main-btn btn-hover">
+              <a href="{{ route('signup') }}" class="main-btn bg-white text-primary btn-hover">
                 Signup
               </a>
             </div>

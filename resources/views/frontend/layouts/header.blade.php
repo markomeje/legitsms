@@ -9,17 +9,17 @@
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="/saaspal/images/favicon.png"
+      href="/images/favicon.png"
     />
     <!-- Place favicon.ico in the root directory -->
 
     <!-- ======== CSS here ======== -->
-    <link rel="stylesheet" href="/saaspal/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/saaspal/css/lineicons.css" />
-    <link rel="stylesheet" href="/saaspal/css/animate.css" />
-    <link rel="stylesheet" href="/saaspal/css/main.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/lineicons.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     {{-- Custom Css --}}
-    <link rel="stylesheet" href="/custom/css/style.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
   </head>
   <body>
     <!--[if lte IE 9]>
