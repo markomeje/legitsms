@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Open+Sans&display=swap");
-.hero-section .hero-content .scroll-bottom, .feature-section .single-feature .icon, .box-style .icon, .footer .widget-wrapper .footer-widget .socials li a {
+.hero-section .hero-content .scroll-bottom, .box-style .icon, .footer .widget-wrapper .footer-widget .socials li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -920,7 +920,7 @@ p {
 }
 
 .feature-section .single-feature {
-  text-align: center;
+  /*text-align: center;*/
   padding: 30px 10px;
 }
 
@@ -930,16 +930,16 @@ p {
   }
 }
 
-.feature-section .single-feature .icon {
+.features-icon {
   width: 130px;
   height: 130px;
   border-radius: 50%;
   background: rgba(88, 100, 255, 0.1);
   color: #5864FF;
-  margin: auto;
+  text-align: center;
   margin-bottom: 30px;
-  font-size: 65px;
-  line-height: 1;
+  font-size: 40px;
+  line-height: 130px;
 }
 
 .feature-section .single-feature .content h3 {

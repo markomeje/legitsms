@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/saaspal/css/lineicons.css" />
     <link rel="stylesheet" href="/saaspal/css/animate.css" />
     <link rel="stylesheet" href="/saaspal/css/main.css" />
+    {{-- Custom Css --}}
+    <link rel="stylesheet" href="/custom/css/style.css" />
   </head>
   <body>
     <!--[if lte IE 9]>

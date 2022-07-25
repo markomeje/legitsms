@@ -15,26 +15,31 @@
     ======================================= */
   window.onscroll = function () {
     const headerNavbar = document.querySelector(".navbar-area");
-    const logoText = document.querySelector(".logo-text");
-    const sticky = headerNavbar.offsetTop;
+    if (headerNavbar) {
+      const logoText = document.querySelector(".logo-text");
+      const sticky = headerNavbar.offsetTop;
 
-    if (window.pageYOffset > sticky) {
-      headerNavbar.classList.add("sticky");
-      logoText.classList.add("text-dark");
-      logoText.classList.remove("text-white");
-    } else {
-      headerNavbar.classList.remove("sticky");
-      logoText.classList.remove("text-dark");
-      logoText.classList.add("text-white");
+      if (window.pageYOffset > sticky) {
+        headerNavbar.classList.add("sticky");
+        logoText.classList.add("text-dark");
+        logoText.classList.remove("text-white");
+      } else {
+        headerNavbar.classList.remove("sticky");
+        logoText.classList.remove("text-dark");
+        logoText.classList.add("text-white");
+      }
     }
 
     // show or hide the back-top-top button
     const backToTop = document.querySelector(".scroll-top");
-    if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      backToTop.style.display = "flex";
-    } else {
-      backToTop.style.display = "none";
+    if(backToTop) {
+      if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        backToTop.style.display = "flex";
+      } else {
+        backToTop.style.display = "none";
+      }
     }
+      
   };
 
   // for menu scroll
@@ -80,17 +85,17 @@
   //===== close navbar-collapse when a  clicked
   let navbarToggler = document.querySelector(".navbar-toggler");
   const navbarCollapse = document.querySelector(".navbar-collapse");
-
-  document.querySelectorAll(".page-scroll").forEach((e) =>
-    e.addEventListener("click", () => {
-      navbarToggler.classList.remove("active");
-      navbarCollapse.classList.remove("show");
-    })
-  );
-  navbarToggler.addEventListener("click", function () {
-    navbarToggler.classList.toggle("active");
-  });
-
+  if (navbarToggler) {
+    document.querySelectorAll(".page-scroll").forEach((e) =>
+      e.addEventListener("click", () => {
+        navbarToggler.classList.remove("active");
+        if(navbarCollapse) navbarCollapse.classList.remove("show");
+      })
+    );
+    navbarToggler.addEventListener("click", function () {
+      navbarToggler.classList.toggle("active");
+    });
+  }
   // WOW active
   new WOW().init();
 })();

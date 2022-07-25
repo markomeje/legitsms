@@ -7,7 +7,7 @@
               <div class="footer-widget">
                 {{-- <div class="logo mb-30"> --}}
                     <a class="navbar-brand" href="{{ route('home') }}">
-                    <h3 class="text-white">Legit<span class="text-warning">sms</span></h3>
+                    <h3 class="text-white">Legitsms</h3>
                   </a>
                 {{-- </div> --}}
                 <p class="desc mb-30 text-white">

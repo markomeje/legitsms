@@ -6,7 +6,7 @@
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                  <h3 class="logo-text">Legit<span class="text-warning">sms</span></h3>
+                  <h3 class="logo-text">Legitsms</h3>
                 </a>
                 <button
                   class="navbar-toggler"
