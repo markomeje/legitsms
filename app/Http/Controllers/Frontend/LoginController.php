@@ -45,7 +45,7 @@ class LoginController extends Controller
                 request()->session()->regenerate();
                 return response()->json([
                     'status' => 1,
-                    'info' => 'Operation successful.', 
+                    'info' => 'Login successful. Please wait . . .', 
                     'redirect' => auth()->user()->role === 'admin' ? route('admin.dashboard') : route('user.dashboard'),
                 ]);
             }

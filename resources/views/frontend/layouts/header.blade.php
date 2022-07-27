@@ -6,13 +6,8 @@
     <title>Legitsms | Automated SMS Verification</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="/images/favicon.png"
-    />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png"/>
     <!-- Place favicon.ico in the root directory -->
-
     <!-- ======== CSS here ======== -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/lineicons.css" />
@@ -22,14 +17,13 @@
     <link rel="stylesheet" href="/css/custom.css" />
   </head>
   <body>
-    <!--[if lte IE 9]>
+    {{-- [if lte IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
         your experience and security.
       </p>
-    <![endif]-->
-
+    [endif] --}}
     <!-- ======== preloader start ======== -->
     <div class="preloader">
       <div class="loader">

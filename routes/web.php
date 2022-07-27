@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
     Route::get('/about', [\App\Http\Controllers\Frontend\AboutController::class, 'index'])->name('about');
+    Route::get('/logout', [\App\Http\Controllers\Frontend\LoginController::class, 'logout'])->name('logout');
     
     Route::group(['middleware' => 'guest'], function () {
         Route::prefix('login')->group(function () {
             Route::get('/', [\App\Http\Controllers\Frontend\LoginController::class, 'index'])->name('login');
-            Route::get('/auth', [\App\Http\Controllers\Frontend\LoginController::class, 'index'])->name('login.auth');
+            Route::post('/auth', [\App\Http\Controllers\Frontend\LoginController::class, 'login'])->name('login.auth');
             Route::get('/verify', [\App\Http\Controllers\Frontend\LoginController::class, 'index'])->name('verify');
         });
 
@@ -36,6 +37,6 @@ Route::middleware(['web', 'auth', 'admin', 'revalidate'])->domain(env('ADMIN_URL
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::middleware(['web', 'auth', 'user', 'revalidate', 'profile.setup'])->domain(env('USER_URL'))->group(function() {
+Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
 });

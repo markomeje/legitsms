@@ -1,53 +1,55 @@
-<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="{{ route('admin') }}">
-        <img src="{{ config('app.url') }}/images/logo.png" class="navbar-brand-img h-100" alt="main_logo">
-      </a>
-    </div>
-    <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{ route('admin.clients') }}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Clients</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Staff</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{{ route('admin.layouts') }}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Layouts</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </aside>
+<aside class="sidebar-nav-wrapper">
+  <div class="navbar-logo">
+    <a href="index.html">
+      <img src="assets/images/logo/logo.svg" alt="logo" />
+    </a>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-item nav-item-has-children">
+        <a href="#0" data-bs-toggle="collapse" data-bs-target="#ddmenu_1" aria-controls="ddmenu_1" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon">
+            <svg width="22" height="22" viewBox="0 0 22 22">
+              <path
+                d="M17.4167 4.58333V6.41667H13.75V4.58333H17.4167ZM8.25 4.58333V10.0833H4.58333V4.58333H8.25ZM17.4167 11.9167V17.4167H13.75V11.9167H17.4167ZM8.25 15.5833V17.4167H4.58333V15.5833H8.25ZM19.25 2.75H11.9167V8.25H19.25V2.75ZM10.0833 2.75H2.75V11.9167H10.0833V2.75ZM19.25 10.0833H11.9167V19.25H19.25V10.0833ZM10.0833 13.75H2.75V19.25H10.0833V13.75Z"
+              />
+            </svg>
+          </span>
+          <span class="text">Dashboard</span>
+        </a>
+        <ul id="ddmenu_1" class="collapse show dropdown-nav">
+          <li>
+            <a href="index.html" class="active"> eCommerce </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item nav-item-has-children">
+        <a
+          href="#0"
+          class="collapsed"
+          data-bs-toggle="collapse"
+          data-bs-target="#ddmenu_2"
+          aria-controls="ddmenu_2"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="icon">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.8334 1.83325H5.50008C5.01385 1.83325 4.54754 2.02641 4.20372 2.37022C3.8599 2.71404 3.66675 3.18036 3.66675 3.66659V18.3333C3.66675 18.8195 3.8599 19.2858 4.20372 19.6296C4.54754 19.9734 5.01385 20.1666 5.50008 20.1666H16.5001C16.9863 20.1666 17.4526 19.9734 17.7964 19.6296C18.1403 19.2858 18.3334 18.8195 18.3334 18.3333V7.33325L12.8334 1.83325ZM16.5001 18.3333H5.50008V3.66659H11.9167V8.24992H16.5001V18.3333Z"
+              />
+            </svg>
+          </span>
+          <span class="text">Pages</span>
+        </a>
+      </li>        
+    </ul>
+  </nav>
+</aside>
+<div class="overlay"></div>

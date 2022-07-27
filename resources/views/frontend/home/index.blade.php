@@ -1,4 +1,4 @@
-@include('frontend.layouts.header')
+@include('layouts.header')
   @include('frontend.layouts.navbar')
 <!-- ======== hero-section start ======== -->
     <section id="home" class="hero-section">
@@ -253,10 +253,5 @@
         </div>
       </div>
     </section>
-    @include('frontend.layouts.bottom')
-    <!-- ======== scroll-top ======== -->
-    <a href="#" class="scroll-top btn-hover">
-      <i class="lni lni-chevron-up"></i>
-    </a>
-    <!-- ======== subscribe-section end ======== -->
-@include('frontend.layouts.footer')
+    @include('frontend.layouts.footer')
+@include('layouts.scripts')

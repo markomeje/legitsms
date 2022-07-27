@@ -28,7 +28,7 @@ class SignupController extends Controller
             'password' => ['required', 'string'],
             'retype' => ['required', 'same:password'],
             'agree' => ['required', 'string'],
-        ], ['retype.required' => 'Please enter a password', 'agree.required' => 'You have to agree to our terms and conditions', 'retype.same:password' => 'Retype thesame password']);
+        ], ['retype.required' => 'Please enter same password', 'agree.required' => 'You have to agree to our terms and conditions', 'retype.same:password' => 'Retype thesame password']);
 
         if ($validator->fails()) {
             return response()->json([
@@ -38,12 +38,12 @@ class SignupController extends Controller
         }
 
         try {
-            $email = $data['email'] ?? '';
             $user = User::create([
-                'email' => $email,
+                'email' => $data['email'] ,
                 'password' => Hash::make($data['password']),
-                'role' => 'client',
+                'role' => 'user',
                 'status' => 'inactive',
+                'activated' => false,
             ]);
 
             if (empty($user)) {
@@ -74,7 +74,7 @@ class SignupController extends Controller
             return response()->json([
                 'status' => 1,
                 'info' => 'Signup successful. Please wait . . .',
-                'redirect' => route('signup.ui', ['success' => 'true']),
+                'redirect' => route('login', ['from' => 'signup']),
             ]);
 
         } catch (Exception $error) {

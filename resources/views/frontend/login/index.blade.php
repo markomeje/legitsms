@@ -1,4 +1,4 @@
-@include('frontend.layouts.header')
+@include('layouts.header')
 <div class="bg-light-sky min-vh-100">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -9,7 +9,7 @@
 					</div>
 					<form class="login-form p-4 bg-white mb-4" method="post" action="javascript:;" data-action="{{ route('login.auth') }}">
 						@csrf
-						<div class="row">
+						<div class="row mb-2">
 							<div class="form-group input-group-lg col-12 mb-3">
 								<label class="text-muted mb-1">Email</label>
 								<input type="email" name="email" class="form-control email" placeholder="Enter email">
@@ -21,17 +21,9 @@
 								<small class="error text-danger password-error"></small>
 							</div>
 						</div>
-						<div class="d-flex align-items-center justify-content-between mb-3">
-					    	<div class="custom-control custom-switch">
-							  	<input type="checkbox" class="custom-control-input agree" id="agree" name="agree" value="on">
-							  	<label class="custom-control-label cursor-pointer" for="agree">
-							  		<small class="text-main-dark">Agree to terms and conditions</small>
-							  	</label>
-							</div>
-					    </div>
 					    <button type="submit" class="main-btn btn-hover btn-block text-white login-button mb-4">
 					        <img src="/images/spinner.svg" class="mr-2 d-none login-spinner mb-1">
-					        Signup
+					        Login
 					    </button>
 					    <div class="alert px-3 login-message d-none mb-3"></div>
 					</form>
@@ -45,4 +37,4 @@
 		</div>
 	</div>
 </div>
-@include('frontend.layouts.footer')
+@include('layouts.scripts')

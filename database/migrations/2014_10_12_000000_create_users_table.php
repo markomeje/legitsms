@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('status')->default('inactive');
-            $table->string('phone')->unique();
-            $table->string('role')->default('client');
-            $table->integer('verified')->default(0);
+            $table->string('role')->default('user');
+            $table->boolean('activated')->default(false);
             $table->string('password');
+            $table->string('token')->nullable();
+            $table->string('expiry')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
