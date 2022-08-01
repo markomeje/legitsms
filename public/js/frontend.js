@@ -16,34 +16,34 @@
   /*=====================================
     Sticky
     ======================================= */
-  window.onscroll = function () {
-    const headerNavbar = document.querySelector(".navbar-area");
-    if (headerNavbar) {
-      const logoText = document.querySelector(".logo-text");
-      const sticky = headerNavbar.offsetTop;
+  // window.onscroll = function () {
+  //   const headerNavbar = document.querySelector(".navbar-area");
+  //   if (headerNavbar) {
+  //     const logoText = document.querySelector(".logo-text");
+  //     const sticky = headerNavbar.offsetTop;
 
-      if (window.pageYOffset > sticky) {
-        headerNavbar.classList.add("sticky");
-        logoText.classList.add("text-dark");
-        logoText.classList.remove("text-white");
-      } else {
-        headerNavbar.classList.remove("sticky");
-        logoText.classList.remove("text-dark");
-        logoText.classList.add("text-white");
-      }
-    }
+  //     if (window.pageYOffset > sticky) {
+  //       headerNavbar.classList.add("sticky");
+  //       logoText.classList.add("text-dark");
+  //       logoText.classList.remove("text-white");
+  //     } else {
+  //       headerNavbar.classList.remove("sticky");
+  //       logoText.classList.remove("text-dark");
+  //       logoText.classList.add("text-white");
+  //     }
+  //   }
 
-    // show or hide the back-top-top button
-    const backToTop = document.querySelector(".scroll-top");
-    if(backToTop) {
-      if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        backToTop.style.display = "flex";
-      } else {
-        backToTop.style.display = "none";
-      }
-    }
+  //   // show or hide the back-top-top button
+  //   const backToTop = document.querySelector(".scroll-top");
+  //   if(backToTop) {
+  //     if ( document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  //       backToTop.style.display = "flex";
+  //     } else {
+  //       backToTop.style.display = "none";
+  //     }
+  //   }
       
-  };
+  // };
 
   // for menu scroll
   const pageLink = document.querySelectorAll(".page-scroll");

@@ -21,7 +21,9 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
-        'activated',
+        'verified',
+        'token',
+        'expiry',
         'role',
     ];
 
@@ -36,11 +38,18 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * A user may have one account
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function account()
+    {
+        return $this->hasOne(Account::class);
+    }
+
+    /**
+     * A user may have many deposits
+     */
+    public function deposits()
+    {
+        return $this->hasMany(Deposit::class);
+    }
 }

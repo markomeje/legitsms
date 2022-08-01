@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('verifications', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->boolean('verified')->default(false);
-            $table->string('token');
-            $table->dateTime('expiry')->nullable();
+            $table->bigInteger('balance');
+            $table->bigInteger('ledger')->nullable();
             $table->foreignId('user_id');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verifications');
+        Schema::dropIfExists('accounts');
     }
 };

@@ -54,7 +54,7 @@
             <div class="col-12 col-lg-6 col-md-12">
               <div class="footer-widget">
                 <h3 class="mb-3">Send Message</h3>
-                <div>
+                <div class="p-4 border">
                   <form>
                     <div class="row">
                       <div class="form-group col-12 col-md-6 mb-2 input-group-lg">

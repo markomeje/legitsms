@@ -585,13 +585,13 @@ p {
 
 /*===== NAVBAR =====*/
 .navbar-area {
-  position: absolute;
-  top: 0;
-  left: 0;
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
   width: 100%;
   z-index: 99;
-  -webkit-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
+  /*-webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;*/
 }
 
 .sticky {
@@ -664,7 +664,7 @@ p {
 .navbar-toggler .toggler-icon {
   width: 30px;
   height: 2px;
-  background-color: #fff;
+  background-color: #222;
   display: block;
   margin: 5px 0;
   position: relative;

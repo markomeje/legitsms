@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Rules\EmailRule;
 use Validator;
+use Cookie;
 use Hash;
 use Mail;
 
@@ -41,6 +43,13 @@ class LoginController extends Controller
                 ]);
             }
 
+            if ($user->verified === true) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Please verify your email. A verification link was sent to your email during signup.'
+                ]);
+            }
+
             if (auth()->attempt(['email' => $user->email, 'password' => $data['password']])) {
                 request()->session()->regenerate();
                 return response()->json([
@@ -63,9 +72,17 @@ class LoginController extends Controller
         }
     }
 
-    //
-    public function verify()
+    public function logout()
     {
-        return view('auth.signup.verify', ['title' => "Signup Verification | Geoprecise Services Limited"]);
+        auth()->logout();
+        request()->session()->flush();
+        request()->session()->invalidate();
+
+        foreach(request()->cookie() as $name => $value) {
+            Cookie::queue(Cookie::forget($name));
+        }
+
+        $redirect = request()->query('redirect');
+        return Route::has($redirect) ? redirect()->route($redirect) : redirect()->route('login');
     }
 }

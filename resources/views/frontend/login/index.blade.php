@@ -21,7 +21,7 @@
 								<small class="error text-danger password-error"></small>
 							</div>
 						</div>
-					    <button type="submit" class="main-btn btn-hover btn-block text-white login-button mb-4">
+					    <button type="submit" class="main-btn btn-hover w-100 text-white login-button mb-4">
 					        <img src="/images/spinner.svg" class="mr-2 d-none login-spinner mb-1">
 					        Login
 					    </button>

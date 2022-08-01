@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\Models\{User, Verification};
-use CraigPaul\Mail\TemplatedMailable;
+use App\Mail\VerificationMail;
 use App\Rules\EmailRule;
 use Carbon\Carbon;
 use Validator;
@@ -22,6 +22,7 @@ class SignupController extends Controller
     //
     public function signup()
     {
+        User::truncate();
         $data = request()->all();
         $validator = Validator::make($data, [ 
             'email' => ['required', (new EmailRule), 'unique:users'],  
@@ -38,12 +39,16 @@ class SignupController extends Controller
         }
 
         try {
+            $email = $data['email'] ?? null;
+            $token = Str::random(64);
             $user = User::create([
-                'email' => $data['email'] ,
+                'email' => $email,
                 'password' => Hash::make($data['password']),
                 'role' => 'user',
                 'status' => 'inactive',
-                'activated' => false,
+                'token' => $token,
+                'expiry' => Carbon::now()->addMinutes(2),
+                'verified' => false,
             ]);
 
             if (empty($user)) {
@@ -53,28 +58,17 @@ class SignupController extends Controller
                 ]);
             }
 
-            $token = Str::random(64);
-            Verification::create([
-                'token' => $token,
-                'type' => 'email',
-                'expiry' => Carbon::now()->addMinutes(60),
-                'user_id' => $user->id,
-                'verified' => false,
+            $link = route('signup.verify', ['token' => $token]);
+            $mail = new VerificationMail([
+                'link' => $link, 
+                'email' => $email, 
             ]);
 
-            // $company = config('app.name');
-            // Mail::to($email)->send((new TemplatedMailable())->identifier(28625150)->include([
-            //     'product_name' => $company,
-            //     'name' => $fullname,
-            //     'action_url' => route('signup.verify', ['token' => $token]),
-            //     'company_name' => $company,
-            //     'company_address' => config('app.address')
-            // ]));
-
+            Mail::to($email)->send($mail);
             return response()->json([
                 'status' => 1,
                 'info' => 'Signup successful. Please wait . . .',
-                'redirect' => route('login', ['from' => 'signup']),
+                'redirect' => route('signup', ['success' => 'true']),
             ]);
 
         } catch (Exception $error) {
@@ -88,6 +82,57 @@ class SignupController extends Controller
     //
     public function verify()
     {
-        return view('auth.signup.verify', ['title' => "Signup Verification | Geoprecise Services Limited"]);
+        $token = request()->get('token');
+        return view('frontend.signup.verify', ['title' => "Signup Verification | Legitsms", 'token' => $token]);
+    }
+
+    //
+    public function resend()
+    {
+        $data = request()->all();
+        $validator = Validator::make($data, [ 
+            'email' => ['required', (new EmailRule)],  
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 0,
+                'error' => $validator->errors()
+            ]);
+        }
+
+        try {
+            $email = $data['email'] ?? null;
+            $token = Str::random(64);
+            $user = User::where(['email' => $email])->first();
+            if (empty($user)) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Unknown error. Try again later',
+                ]);
+            }
+
+            $user->token = $token;
+            $user->expiry = Carbon::now()->addMinutes(2);
+            $user->update();
+            $link = route('signup.verify', ['token' => $token]);
+            $mail = new VerificationMail([
+                'link' => $link, 
+                'email' => $email, 
+            ]);
+
+            Mail::to($email)->send($mail);
+            return response()->json([
+                'status' => 1,
+                'info' => 'Verification email resent. Please wait . . .',
+                'redirect' => route('signup.verify', ['resent' => 'true']),
+            ]);
+
+        } catch (Exception $error) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Unknown error. Try again later',
+            ]);
+        }
     }
 }

@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
     {
         if(config('app.env') !== 'production') {
             $users = [
-                ['email' => 'admin@admin.io', 'role' => 'admin', 'password' => Hash::make('1234'), 'status' => 'active'],
-                ['email' => 'user@user.io', 'role' => 'user', 'password' => Hash::make('1234'), 'status' => 'active'],
+                ['email' => 'admin@admin.io', 'role' => 'admin', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true],
+                ['email' => 'user@user.io', 'role' => 'user', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true],
             ];
 
-            User::where('id', '>', 0)->delete();
+            User::truncate();
             foreach ($users as $user) {
                 User::create($user);
             }

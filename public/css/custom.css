@@ -22,3 +22,7 @@
 .bg-light-sky {
 	background-color: rgba(88, 100, 255, 0.1) !important;
 }
+
+.btn-close {
+    font-size: 10px !important;
+}

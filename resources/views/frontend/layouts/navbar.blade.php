@@ -1,6 +1,6 @@
 <!-- ======== header start ======== -->
-    <header class="header">
-      <div class="navbar-area">
+    <header class="bg-white position-sticky sticky-top">
+      <div class="navbar-area bg-white">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-12">
@@ -9,7 +9,7 @@
                   <h3 class="logo-text">Legitsms</h3>
                 </a>
                 <button
-                  class="navbar-toggler"
+                  class="navbar-toggler text-dark"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent"
@@ -28,26 +28,22 @@
                 >
                   <ul id="nav" class="navbar-nav ms-auto">
                     <li class="nav-item">
-                      <a class="page-scroll active" href="#home">Home</a>
+                      <a class="text-dark" href="">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="page-scroll" href="#features">Features</a>
+                      <a class="text-dark" href="{{ route('faq') }}">Faq</a>
                     </li>
                     <li class="nav-item">
-                      <a class="page-scroll" href="#about">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#why">Why</a>
+                      <a class="text-dark" href="">Reviews</a>
                     </li>
                     <li class="nav-item">
-                      <a class="page-scroll" href="{{ route('signup') }}">Signup</a>
+                      <a class="text-dark" href="{{ route('signup') }}">Signup</a>
                     </li>
                     {{-- <li class="nav-item"> --}}
                     {{-- </li> --}}
                   </ul>
                   <div class="ms-1">
-                      <a class="btn px-4 rounded-pill bg-dark text-white ms-4" href="{{ route('login') }}">Login</a>
+                      <a class="btn px-4 rounded-pill bg-dark mb-sm-4 mb-lg-0 text-white ms-4" href="{{ route('login') }}">Login</a>
                   </div>
                 </div>
                 <!-- navbar collapse -->
