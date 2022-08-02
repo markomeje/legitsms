@@ -22,7 +22,6 @@ class SignupController extends Controller
     //
     public function signup()
     {
-        User::truncate();
         $data = request()->all();
         $validator = Validator::make($data, [ 
             'email' => ['required', (new EmailRule), 'unique:users'],  

@@ -43,7 +43,7 @@ class LoginController extends Controller
                 ]);
             }
 
-            if ($user->verified === true) {
+            if (false === (boolean)$user->verified) {
                 return response()->json([
                     'status' => 0,
                     'info' => 'Please verify your email. A verification link was sent to your email during signup.'
