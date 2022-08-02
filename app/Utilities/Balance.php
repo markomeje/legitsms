@@ -10,7 +10,7 @@ class Balance
     /**
      * Update user account balance
      */
-    public function save(int $amount) : array
+    public static function save(int $amount) : array
     {
         $account = auth()->user()->account;
         if (empty($account)) {
@@ -21,13 +21,33 @@ class Balance
                 'status' => 'active',
             ]);
 
-            return ($account->id > 0) ? ['status' => 1, 'info' => 'Account created successfully'] : ['status' => 0, 'info' => 'Account creation failed'];
+            return ($account->id > 0) ? [
+                'status' => 1, 
+                'info' => 'Account created successfully'
+            ] : [
+                'status' => 0, 
+                'info' => 'Account creation failed'
+            ];
+        }
+
+        $deposit = $account->deposit;
+        if ('paid' === strtolower($deposit->status) && true === (boolean)$deposit->deposited) {
+            return [
+                'status' => 1,
+                'info' => 'Deposit already updated',
+            ];
         }
 
         $balance = (int)$account->balance;
         $account->ledger = $balance;
-        $account->balance = $balance + amount;
-        return $account->update() ? ['status' => 1, 'info' => 'Account balance updated successfully'] : ['status' => 1, 'info' => 'Account balance update failed'];
+        $account->balance = $balance + $amount;
+        return $account->update() ? [
+            'status' => 1, 
+            'info' => 'Account balance updated successfully'
+        ] : [
+            'status' => 1, 
+            'info' => 'Account balance update failed'
+        ];
     }
 
 }

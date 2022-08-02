@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Utilities;
-use App\Utilities\Paystack;
+use App\Utilities\{Paystack, Balance};
+use App\Models\Deposit;
 use Exception;
 
 
@@ -10,10 +11,10 @@ class Payment
     /**
      * Verify paystack payment
      */
-    public function verify($reference = '') 
+    public static function verify($reference = '') 
     {
         if (empty($reference)) {
-            return = [
+            return [
                 'status' => 0,
                 'info' => 'Invalid payment reference',
             ];
@@ -25,14 +26,14 @@ class Payment
         ])->first();
 
         if (empty($deposit)) {
-            return = [
+            return [
                 'status' => 0,
                 'info' => 'Invalid deposit transaction',
             ];
         }
 
         if ('paid' === strtolower($deposit->status) && true === (boolean)$deposit->deposited) {
-            return = [
+            return [
                 'status' => 1,
                 'info' => 'Deposit already verified',
             ];
@@ -47,23 +48,24 @@ class Payment
         }
 
         $deposit->deposited = true;
-        $deposit->status = 'active';
-        if(!$deposit->update()) {
-            return = [
+        $deposit->status = 'paid';
+        $deposited = $deposit->update();
+        if(!$deposited) {
+            return [
                 'status' => 0,
-                'info' => '',
+                'info' => 'Could not update balance',
             ];
         }
 
-        [$status, $info] = \App\Utilities\Balance::save((int)$deposit->amount);
-        if((int)$status === 1) {
-            return = [
-                'status' => $status,
-                'info' => $info,
+        $balance = Balance::save((int)$deposit->amount);
+        if(1 === (int)$balance['status'] ?? 0) {
+            return [
+                'status' => $balance['status'],
+                'info' => $balance['info'],
             ];
         }
 
-        return = [
+        return [
             'status' => 0,
             'info' => 'Transaction failed. Try again.',
         ];

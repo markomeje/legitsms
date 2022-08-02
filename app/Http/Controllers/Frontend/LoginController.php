@@ -39,7 +39,7 @@ class LoginController extends Controller
             if (empty($user)) {
                 return response()->json([
                     'status' => 0,
-                    'info' => 'Invalid login details.'
+                    'info' => 'Invalid user login details.'
                 ]);
             }
 
