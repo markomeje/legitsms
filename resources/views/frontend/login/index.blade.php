@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-6 col-lg-4">
-				<div class="mt-5">
+				<div class="my-5">
 					<div class="p-4 bg-white mb-4">
 						<h3 class="m-0 text-dark">Welcome to <a href="{{ route('home') }}" class="text-primary">Legitsms</a></h3>
 					</div>

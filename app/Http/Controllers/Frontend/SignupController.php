@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\Models\{User, Verification};
+use Illuminate\Support\Facades\DB;
 use App\Mail\VerificationMail;
 use App\Rules\EmailRule;
 use Carbon\Carbon;
@@ -38,6 +39,7 @@ class SignupController extends Controller
         }
 
         try {
+            DB::rollback();
             $email = $data['email'] ?? null;
             $token = Str::random(64);
             $user = User::create([
@@ -69,8 +71,9 @@ class SignupController extends Controller
                 'info' => 'Signup successful. Please wait . . .',
                 'redirect' => route('signup', ['success' => 'true']),
             ]);
-
+            DB::commit();
         } catch (Exception $error) {
+            DB::rollback();
             return response()->json([
                 'status' => 0,
                 'info' => 'Unknown error. Try again later',
