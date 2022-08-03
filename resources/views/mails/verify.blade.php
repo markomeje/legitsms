@@ -6,8 +6,8 @@
         <p>Please click on the link below to verify your account. If you didn't make this request, please ignore.</p>
         <h3><a href="{{ $verify['link'] }}">Click Here To Verify</a></h3>
         <h4>Regards from {{ config('app.name') }}</h4>
-        <a href="{{ route('home') }}">
-            {{ route('home') }}
+        <a href="http://legitsms.com">
+            http://legitsms.com
         </a>
     </body>
 </html> 
