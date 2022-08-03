@@ -30,14 +30,6 @@ class Balance
             ];
         }
 
-        $deposit = $account->deposit;
-        if ('paid' === strtolower($deposit->status) && true === (boolean)$deposit->deposited) {
-            return [
-                'status' => 1,
-                'info' => 'Deposit already updated',
-            ];
-        }
-
         $balance = (int)$account->balance;
         $account->ledger = $balance;
         $account->balance = $balance + $amount;

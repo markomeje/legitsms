@@ -1,0 +1,2498 @@
+[
+    {
+        "id": 1,
+        "currency": "AFN",
+        "iso2": "AF",
+        "iso3": "AFG",
+        "name": "Afghanistan",
+        "phonecode": 93,
+        "created_at": "2022-08-03 01:34:17",
+        "updated_at": "2022-08-03 01:34:17"
+    },
+    {
+        "id": 2,
+        "currency": "EUR",
+        "iso2": "AX",
+        "iso3": "ALA",
+        "name": "Aland Islands",
+        "phonecode": "+358-18",
+        "created_at": "2022-08-03 01:34:17",
+        "updated_at": "2022-08-03 01:34:17"
+    },
+    {
+        "id": 3,
+        "currency": "ALL",
+        "iso2": "AL",
+        "iso3": "ALB",
+        "name": "Albania",
+        "phonecode": 355,
+        "created_at": "2022-08-03 01:34:17",
+        "updated_at": "2022-08-03 01:34:17"
+    },
+    {
+        "id": 4,
+        "currency": "DZD",
+        "iso2": "DZ",
+        "iso3": "DZA",
+        "name": "Algeria",
+        "phonecode": 213,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 5,
+        "currency": "USD",
+        "iso2": "AS",
+        "iso3": "ASM",
+        "name": "American Samoa",
+        "phonecode": "+1-684",
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 6,
+        "currency": "EUR",
+        "iso2": "AD",
+        "iso3": "AND",
+        "name": "Andorra",
+        "phonecode": 376,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 7,
+        "currency": "AOA",
+        "iso2": "AO",
+        "iso3": "AGO",
+        "name": "Angola",
+        "phonecode": 244,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 8,
+        "currency": "XCD",
+        "iso2": "AI",
+        "iso3": "AIA",
+        "name": "Anguilla",
+        "phonecode": "+1-264",
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 9,
+        "currency": "AAD",
+        "iso2": "AQ",
+        "iso3": "ATA",
+        "name": "Antarctica",
+        "phonecode": 672,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 10,
+        "currency": "XCD",
+        "iso2": "AG",
+        "iso3": "ATG",
+        "name": "Antigua And Barbuda",
+        "phonecode": "+1-268",
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 11,
+        "currency": "ARS",
+        "iso2": "AR",
+        "iso3": "ARG",
+        "name": "Argentina",
+        "phonecode": 54,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 12,
+        "currency": "AMD",
+        "iso2": "AM",
+        "iso3": "ARM",
+        "name": "Armenia",
+        "phonecode": 374,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 13,
+        "currency": "AWG",
+        "iso2": "AW",
+        "iso3": "ABW",
+        "name": "Aruba",
+        "phonecode": 297,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 14,
+        "currency": "AUD",
+        "iso2": "AU",
+        "iso3": "AUS",
+        "name": "Australia",
+        "phonecode": 61,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 15,
+        "currency": "EUR",
+        "iso2": "AT",
+        "iso3": "AUT",
+        "name": "Austria",
+        "phonecode": 43,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 16,
+        "currency": "AZN",
+        "iso2": "AZ",
+        "iso3": "AZE",
+        "name": "Azerbaijan",
+        "phonecode": 994,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 17,
+        "currency": "BSD",
+        "iso2": "BS",
+        "iso3": "BHS",
+        "name": "Bahamas The",
+        "phonecode": "+1-242",
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 18,
+        "currency": "BHD",
+        "iso2": "BH",
+        "iso3": "BHR",
+        "name": "Bahrain",
+        "phonecode": 973,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 19,
+        "currency": "BDT",
+        "iso2": "BD",
+        "iso3": "BGD",
+        "name": "Bangladesh",
+        "phonecode": 880,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 20,
+        "currency": "BBD",
+        "iso2": "BB",
+        "iso3": "BRB",
+        "name": "Barbados",
+        "phonecode": "+1-246",
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 21,
+        "currency": "BYN",
+        "iso2": "BY",
+        "iso3": "BLR",
+        "name": "Belarus",
+        "phonecode": 375,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 22,
+        "currency": "EUR",
+        "iso2": "BE",
+        "iso3": "BEL",
+        "name": "Belgium",
+        "phonecode": 32,
+        "created_at": "2022-08-03 01:34:18",
+        "updated_at": "2022-08-03 01:34:18"
+    },
+    {
+        "id": 23,
+        "currency": "BZD",
+        "iso2": "BZ",
+        "iso3": "BLZ",
+        "name": "Belize",
+        "phonecode": 501,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 24,
+        "currency": "XOF",
+        "iso2": "BJ",
+        "iso3": "BEN",
+        "name": "Benin",
+        "phonecode": 229,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 25,
+        "currency": "BMD",
+        "iso2": "BM",
+        "iso3": "BMU",
+        "name": "Bermuda",
+        "phonecode": "+1-441",
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 26,
+        "currency": "BTN",
+        "iso2": "BT",
+        "iso3": "BTN",
+        "name": "Bhutan",
+        "phonecode": 975,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 27,
+        "currency": "BOB",
+        "iso2": "BO",
+        "iso3": "BOL",
+        "name": "Bolivia",
+        "phonecode": 591,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 28,
+        "currency": "USD",
+        "iso2": "BQ",
+        "iso3": "BES",
+        "name": "Bonaire",
+        "phonecode": "Sint Eustatius and Saba",
+        "created_at": 599,
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 29,
+        "currency": "BAM",
+        "iso2": "BA",
+        "iso3": "BIH",
+        "name": "Bosnia and Herzegovina",
+        "phonecode": 387,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 30,
+        "currency": "BWP",
+        "iso2": "BW",
+        "iso3": "BWA",
+        "name": "Botswana",
+        "phonecode": 267,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 31,
+        "currency": "NOK",
+        "iso2": "BV",
+        "iso3": "BVT",
+        "name": "Bouvet Island",
+        "phonecode": "0055",
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 32,
+        "currency": "BRL",
+        "iso2": "BR",
+        "iso3": "BRA",
+        "name": "Brazil",
+        "phonecode": 55,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 33,
+        "currency": "USD",
+        "iso2": "IO",
+        "iso3": "IOT",
+        "name": "British Indian Ocean Territory",
+        "phonecode": 246,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 34,
+        "currency": "BND",
+        "iso2": "BN",
+        "iso3": "BRN",
+        "name": "Brunei",
+        "phonecode": 673,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 35,
+        "currency": "BGN",
+        "iso2": "BG",
+        "iso3": "BGR",
+        "name": "Bulgaria",
+        "phonecode": 359,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 36,
+        "currency": "XOF",
+        "iso2": "BF",
+        "iso3": "BFA",
+        "name": "Burkina Faso",
+        "phonecode": 226,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 37,
+        "currency": "BIF",
+        "iso2": "BI",
+        "iso3": "BDI",
+        "name": "Burundi",
+        "phonecode": 257,
+        "created_at": "2022-08-03 01:34:19",
+        "updated_at": "2022-08-03 01:34:19"
+    },
+    {
+        "id": 38,
+        "currency": "KHR",
+        "iso2": "KH",
+        "iso3": "KHM",
+        "name": "Cambodia",
+        "phonecode": 855,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 39,
+        "currency": "XAF",
+        "iso2": "CM",
+        "iso3": "CMR",
+        "name": "Cameroon",
+        "phonecode": 237,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 40,
+        "currency": "CAD",
+        "iso2": "CA",
+        "iso3": "CAN",
+        "name": "Canada",
+        "phonecode": 1,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 41,
+        "currency": "CVE",
+        "iso2": "CV",
+        "iso3": "CPV",
+        "name": "Cape Verde",
+        "phonecode": 238,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 42,
+        "currency": "KYD",
+        "iso2": "KY",
+        "iso3": "CYM",
+        "name": "Cayman Islands",
+        "phonecode": "+1-345",
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 43,
+        "currency": "XAF",
+        "iso2": "CF",
+        "iso3": "CAF",
+        "name": "Central African Republic",
+        "phonecode": 236,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 44,
+        "currency": "XAF",
+        "iso2": "TD",
+        "iso3": "TCD",
+        "name": "Chad",
+        "phonecode": 235,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 45,
+        "currency": "CLP",
+        "iso2": "CL",
+        "iso3": "CHL",
+        "name": "Chile",
+        "phonecode": 56,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 46,
+        "currency": "CNY",
+        "iso2": "CN",
+        "iso3": "CHN",
+        "name": "China",
+        "phonecode": 86,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 47,
+        "currency": "AUD",
+        "iso2": "CX",
+        "iso3": "CXR",
+        "name": "Christmas Island",
+        "phonecode": 61,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 48,
+        "currency": "AUD",
+        "iso2": "CC",
+        "iso3": "CCK",
+        "name": "Cocos (Keeling) Islands",
+        "phonecode": 61,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 49,
+        "currency": "COP",
+        "iso2": "CO",
+        "iso3": "COL",
+        "name": "Colombia",
+        "phonecode": 57,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 50,
+        "currency": "KMF",
+        "iso2": "KM",
+        "iso3": "COM",
+        "name": "Comoros",
+        "phonecode": 269,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 51,
+        "currency": "XAF",
+        "iso2": "CG",
+        "iso3": "COG",
+        "name": "Congo",
+        "phonecode": 242,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 52,
+        "currency": "NZD",
+        "iso2": "CK",
+        "iso3": "COK",
+        "name": "Cook Islands",
+        "phonecode": 682,
+        "created_at": "2022-08-03 01:34:20",
+        "updated_at": "2022-08-03 01:34:20"
+    },
+    {
+        "id": 53,
+        "currency": "CRC",
+        "iso2": "CR",
+        "iso3": "CRI",
+        "name": "Costa Rica",
+        "phonecode": 506,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": "54, 'XOF', 'CI', 'CIV', 'Cote D'Ivoire (Ivory Coast)",
+        "currency": 225,
+        "iso2": "2022-08-03 01:34:21",
+        "iso3": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 55,
+        "currency": "HRK",
+        "iso2": "HR",
+        "iso3": "HRV",
+        "name": "Croatia",
+        "phonecode": 385,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 56,
+        "currency": "CUP",
+        "iso2": "CU",
+        "iso3": "CUB",
+        "name": "Cuba",
+        "phonecode": 53,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 57,
+        "currency": "ANG",
+        "iso2": "CW",
+        "iso3": "CUW",
+        "name": "Curaçao",
+        "phonecode": 599,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 58,
+        "currency": "EUR",
+        "iso2": "CY",
+        "iso3": "CYP",
+        "name": "Cyprus",
+        "phonecode": 357,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 59,
+        "currency": "CZK",
+        "iso2": "CZ",
+        "iso3": "CZE",
+        "name": "Czech Republic",
+        "phonecode": 420,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 60,
+        "currency": "CDF",
+        "iso2": "CD",
+        "iso3": "COD",
+        "name": "Democratic Republic of the Congo",
+        "phonecode": 243,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 61,
+        "currency": "DKK",
+        "iso2": "DK",
+        "iso3": "DNK",
+        "name": "Denmark",
+        "phonecode": 45,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 62,
+        "currency": "DJF",
+        "iso2": "DJ",
+        "iso3": "DJI",
+        "name": "Djibouti",
+        "phonecode": 253,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 63,
+        "currency": "XCD",
+        "iso2": "DM",
+        "iso3": "DMA",
+        "name": "Dominica",
+        "phonecode": "+1-767",
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 64,
+        "currency": "DOP",
+        "iso2": "DO",
+        "iso3": "DOM",
+        "name": "Dominican Republic",
+        "phonecode": "+1-809 and 1-829",
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 65,
+        "currency": "USD",
+        "iso2": "TL",
+        "iso3": "TLS",
+        "name": "East Timor",
+        "phonecode": 670,
+        "created_at": "2022-08-03 01:34:21",
+        "updated_at": "2022-08-03 01:34:21"
+    },
+    {
+        "id": 66,
+        "currency": "USD",
+        "iso2": "EC",
+        "iso3": "ECU",
+        "name": "Ecuador",
+        "phonecode": 593,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 67,
+        "currency": "EGP",
+        "iso2": "EG",
+        "iso3": "EGY",
+        "name": "Egypt",
+        "phonecode": 20,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 68,
+        "currency": "USD",
+        "iso2": "SV",
+        "iso3": "SLV",
+        "name": "El Salvador",
+        "phonecode": 503,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 69,
+        "currency": "XAF",
+        "iso2": "GQ",
+        "iso3": "GNQ",
+        "name": "Equatorial Guinea",
+        "phonecode": 240,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 70,
+        "currency": "ERN",
+        "iso2": "ER",
+        "iso3": "ERI",
+        "name": "Eritrea",
+        "phonecode": 291,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 71,
+        "currency": "EUR",
+        "iso2": "EE",
+        "iso3": "EST",
+        "name": "Estonia",
+        "phonecode": 372,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 72,
+        "currency": "ETB",
+        "iso2": "ET",
+        "iso3": "ETH",
+        "name": "Ethiopia",
+        "phonecode": 251,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 73,
+        "currency": "FKP",
+        "iso2": "FK",
+        "iso3": "FLK",
+        "name": "Falkland Islands",
+        "phonecode": 500,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 74,
+        "currency": "DKK",
+        "iso2": "FO",
+        "iso3": "FRO",
+        "name": "Faroe Islands",
+        "phonecode": 298,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 75,
+        "currency": "FJD",
+        "iso2": "FJ",
+        "iso3": "FJI",
+        "name": "Fiji Islands",
+        "phonecode": 679,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 76,
+        "currency": "EUR",
+        "iso2": "FI",
+        "iso3": "FIN",
+        "name": "Finland",
+        "phonecode": 358,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 77,
+        "currency": "EUR",
+        "iso2": "FR",
+        "iso3": "FRA",
+        "name": "France",
+        "phonecode": 33,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 78,
+        "currency": "EUR",
+        "iso2": "GF",
+        "iso3": "GUF",
+        "name": "French Guiana",
+        "phonecode": 594,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 79,
+        "currency": "XPF",
+        "iso2": "PF",
+        "iso3": "PYF",
+        "name": "French Polynesia",
+        "phonecode": 689,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 80,
+        "currency": "EUR",
+        "iso2": "TF",
+        "iso3": "ATF",
+        "name": "French Southern Territories",
+        "phonecode": 262,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 81,
+        "currency": "XAF",
+        "iso2": "GA",
+        "iso3": "GAB",
+        "name": "Gabon",
+        "phonecode": 241,
+        "created_at": "2022-08-03 01:34:22",
+        "updated_at": "2022-08-03 01:34:22"
+    },
+    {
+        "id": 82,
+        "currency": "GMD",
+        "iso2": "GM",
+        "iso3": "GMB",
+        "name": "Gambia The",
+        "phonecode": 220,
+        "created_at": "2022-08-03 01:34:23",
+        "updated_at": "2022-08-03 01:34:23"
+    },
+    {
+        "id": 83,
+        "currency": "GEL",
+        "iso2": "GE",
+        "iso3": "GEO",
+        "name": "Georgia",
+        "phonecode": 995,
+        "created_at": "2022-08-03 01:34:23",
+        "updated_at": "2022-08-03 01:34:23"
+    },
+    {
+        "id": 84,
+        "currency": "EUR",
+        "iso2": "DE",
+        "iso3": "DEU",
+        "name": "Germany",
+        "phonecode": 49,
+        "created_at": "2022-08-03 01:34:23",
+        "updated_at": "2022-08-03 01:34:23"
+    },
+    {
+        "id": 85,
+        "currency": "GHS",
+        "iso2": "GH",
+        "iso3": "GHA",
+        "name": "Ghana",
+        "phonecode": 233,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 86,
+        "currency": "GIP",
+        "iso2": "GI",
+        "iso3": "GIB",
+        "name": "Gibraltar",
+        "phonecode": 350,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 87,
+        "currency": "EUR",
+        "iso2": "GR",
+        "iso3": "GRC",
+        "name": "Greece",
+        "phonecode": 30,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 88,
+        "currency": "DKK",
+        "iso2": "GL",
+        "iso3": "GRL",
+        "name": "Greenland",
+        "phonecode": 299,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 89,
+        "currency": "XCD",
+        "iso2": "GD",
+        "iso3": "GRD",
+        "name": "Grenada",
+        "phonecode": "+1-473",
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 90,
+        "currency": "EUR",
+        "iso2": "GP",
+        "iso3": "GLP",
+        "name": "Guadeloupe",
+        "phonecode": 590,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 91,
+        "currency": "USD",
+        "iso2": "GU",
+        "iso3": "GUM",
+        "name": "Guam",
+        "phonecode": "+1-671",
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 92,
+        "currency": "GTQ",
+        "iso2": "GT",
+        "iso3": "GTM",
+        "name": "Guatemala",
+        "phonecode": 502,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 93,
+        "currency": "GBP",
+        "iso2": "GG",
+        "iso3": "GGY",
+        "name": "Guernsey and Alderney",
+        "phonecode": "+44-1481",
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 94,
+        "currency": "GNF",
+        "iso2": "GN",
+        "iso3": "GIN",
+        "name": "Guinea",
+        "phonecode": 224,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 95,
+        "currency": "XOF",
+        "iso2": "GW",
+        "iso3": "GNB",
+        "name": "Guinea-Bissau",
+        "phonecode": 245,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 96,
+        "currency": "GYD",
+        "iso2": "GY",
+        "iso3": "GUY",
+        "name": "Guyana",
+        "phonecode": 592,
+        "created_at": "2022-08-03 01:34:24",
+        "updated_at": "2022-08-03 01:34:24"
+    },
+    {
+        "id": 97,
+        "currency": "HTG",
+        "iso2": "HT",
+        "iso3": "HTI",
+        "name": "Haiti",
+        "phonecode": 509,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 98,
+        "currency": "AUD",
+        "iso2": "HM",
+        "iso3": "HMD",
+        "name": "Heard Island and McDonald Islands",
+        "phonecode": 672,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 99,
+        "currency": "HNL",
+        "iso2": "HN",
+        "iso3": "HND",
+        "name": "Honduras",
+        "phonecode": 504,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 100,
+        "currency": "HKD",
+        "iso2": "HK",
+        "iso3": "HKG",
+        "name": "Hong Kong S.A.R.",
+        "phonecode": 852,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 101,
+        "currency": "HUF",
+        "iso2": "HU",
+        "iso3": "HUN",
+        "name": "Hungary",
+        "phonecode": 36,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 102,
+        "currency": "ISK",
+        "iso2": "IS",
+        "iso3": "ISL",
+        "name": "Iceland",
+        "phonecode": 354,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 103,
+        "currency": "INR",
+        "iso2": "IN",
+        "iso3": "IND",
+        "name": "India",
+        "phonecode": 91,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 104,
+        "currency": "IDR",
+        "iso2": "ID",
+        "iso3": "IDN",
+        "name": "Indonesia",
+        "phonecode": 62,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 105,
+        "currency": "IRR",
+        "iso2": "IR",
+        "iso3": "IRN",
+        "name": "Iran",
+        "phonecode": 98,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 106,
+        "currency": "IQD",
+        "iso2": "IQ",
+        "iso3": "IRQ",
+        "name": "Iraq",
+        "phonecode": 964,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 107,
+        "currency": "EUR",
+        "iso2": "IE",
+        "iso3": "IRL",
+        "name": "Ireland",
+        "phonecode": 353,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 108,
+        "currency": "ILS",
+        "iso2": "IL",
+        "iso3": "ISR",
+        "name": "Israel",
+        "phonecode": 972,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 109,
+        "currency": "EUR",
+        "iso2": "IT",
+        "iso3": "ITA",
+        "name": "Italy",
+        "phonecode": 39,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 110,
+        "currency": "JMD",
+        "iso2": "JM",
+        "iso3": "JAM",
+        "name": "Jamaica",
+        "phonecode": "+1-876",
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 111,
+        "currency": "JPY",
+        "iso2": "JP",
+        "iso3": "JPN",
+        "name": "Japan",
+        "phonecode": 81,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 112,
+        "currency": "GBP",
+        "iso2": "JE",
+        "iso3": "JEY",
+        "name": "Jersey",
+        "phonecode": "+44-1534",
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 113,
+        "currency": "JOD",
+        "iso2": "JO",
+        "iso3": "JOR",
+        "name": "Jordan",
+        "phonecode": 962,
+        "created_at": "2022-08-03 01:34:25",
+        "updated_at": "2022-08-03 01:34:25"
+    },
+    {
+        "id": 114,
+        "currency": "KZT",
+        "iso2": "KZ",
+        "iso3": "KAZ",
+        "name": "Kazakhstan",
+        "phonecode": 7,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 115,
+        "currency": "KES",
+        "iso2": "KE",
+        "iso3": "KEN",
+        "name": "Kenya",
+        "phonecode": 254,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 116,
+        "currency": "AUD",
+        "iso2": "KI",
+        "iso3": "KIR",
+        "name": "Kiribati",
+        "phonecode": 686,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 117,
+        "currency": "EUR",
+        "iso2": "XK",
+        "iso3": "XKX",
+        "name": "Kosovo",
+        "phonecode": 383,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 118,
+        "currency": "KWD",
+        "iso2": "KW",
+        "iso3": "KWT",
+        "name": "Kuwait",
+        "phonecode": 965,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 119,
+        "currency": "KGS",
+        "iso2": "KG",
+        "iso3": "KGZ",
+        "name": "Kyrgyzstan",
+        "phonecode": 996,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 120,
+        "currency": "LAK",
+        "iso2": "LA",
+        "iso3": "LAO",
+        "name": "Laos",
+        "phonecode": 856,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 121,
+        "currency": "EUR",
+        "iso2": "LV",
+        "iso3": "LVA",
+        "name": "Latvia",
+        "phonecode": 371,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 122,
+        "currency": "LBP",
+        "iso2": "LB",
+        "iso3": "LBN",
+        "name": "Lebanon",
+        "phonecode": 961,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 123,
+        "currency": "LSL",
+        "iso2": "LS",
+        "iso3": "LSO",
+        "name": "Lesotho",
+        "phonecode": 266,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 124,
+        "currency": "LRD",
+        "iso2": "LR",
+        "iso3": "LBR",
+        "name": "Liberia",
+        "phonecode": 231,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 125,
+        "currency": "LYD",
+        "iso2": "LY",
+        "iso3": "LBY",
+        "name": "Libya",
+        "phonecode": 218,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 126,
+        "currency": "CHF",
+        "iso2": "LI",
+        "iso3": "LIE",
+        "name": "Liechtenstein",
+        "phonecode": 423,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 127,
+        "currency": "EUR",
+        "iso2": "LT",
+        "iso3": "LTU",
+        "name": "Lithuania",
+        "phonecode": 370,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 128,
+        "currency": "EUR",
+        "iso2": "LU",
+        "iso3": "LUX",
+        "name": "Luxembourg",
+        "phonecode": 352,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 129,
+        "currency": "MOP",
+        "iso2": "MO",
+        "iso3": "MAC",
+        "name": "Macau S.A.R.",
+        "phonecode": 853,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 130,
+        "currency": "MKD",
+        "iso2": "MK",
+        "iso3": "MKD",
+        "name": "Macedonia",
+        "phonecode": 389,
+        "created_at": "2022-08-03 01:34:26",
+        "updated_at": "2022-08-03 01:34:26"
+    },
+    {
+        "id": 131,
+        "currency": "MGA",
+        "iso2": "MG",
+        "iso3": "MDG",
+        "name": "Madagascar",
+        "phonecode": 261,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 132,
+        "currency": "MWK",
+        "iso2": "MW",
+        "iso3": "MWI",
+        "name": "Malawi",
+        "phonecode": 265,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 133,
+        "currency": "MYR",
+        "iso2": "MY",
+        "iso3": "MYS",
+        "name": "Malaysia",
+        "phonecode": 60,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 134,
+        "currency": "MVR",
+        "iso2": "MV",
+        "iso3": "MDV",
+        "name": "Maldives",
+        "phonecode": 960,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 135,
+        "currency": "XOF",
+        "iso2": "ML",
+        "iso3": "MLI",
+        "name": "Mali",
+        "phonecode": 223,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 136,
+        "currency": "EUR",
+        "iso2": "MT",
+        "iso3": "MLT",
+        "name": "Malta",
+        "phonecode": 356,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 137,
+        "currency": "GBP",
+        "iso2": "IM",
+        "iso3": "IMN",
+        "name": "Man (Isle of)",
+        "phonecode": "+44-1624",
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 138,
+        "currency": "USD",
+        "iso2": "MH",
+        "iso3": "MHL",
+        "name": "Marshall Islands",
+        "phonecode": 692,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 139,
+        "currency": "EUR",
+        "iso2": "MQ",
+        "iso3": "MTQ",
+        "name": "Martinique",
+        "phonecode": 596,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 140,
+        "currency": "MRO",
+        "iso2": "MR",
+        "iso3": "MRT",
+        "name": "Mauritania",
+        "phonecode": 222,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 141,
+        "currency": "MUR",
+        "iso2": "MU",
+        "iso3": "MUS",
+        "name": "Mauritius",
+        "phonecode": 230,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 142,
+        "currency": "EUR",
+        "iso2": "YT",
+        "iso3": "MYT",
+        "name": "Mayotte",
+        "phonecode": 262,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 143,
+        "currency": "MXN",
+        "iso2": "MX",
+        "iso3": "MEX",
+        "name": "Mexico",
+        "phonecode": 52,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 144,
+        "currency": "USD",
+        "iso2": "FM",
+        "iso3": "FSM",
+        "name": "Micronesia",
+        "phonecode": 691,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 145,
+        "currency": "MDL",
+        "iso2": "MD",
+        "iso3": "MDA",
+        "name": "Moldova",
+        "phonecode": 373,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 146,
+        "currency": "EUR",
+        "iso2": "MC",
+        "iso3": "MCO",
+        "name": "Monaco",
+        "phonecode": 377,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 147,
+        "currency": "MNT",
+        "iso2": "MN",
+        "iso3": "MNG",
+        "name": "Mongolia",
+        "phonecode": 976,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 148,
+        "currency": "EUR",
+        "iso2": "ME",
+        "iso3": "MNE",
+        "name": "Montenegro",
+        "phonecode": 382,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 149,
+        "currency": "XCD",
+        "iso2": "MS",
+        "iso3": "MSR",
+        "name": "Montserrat",
+        "phonecode": "+1-664",
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 150,
+        "currency": "MAD",
+        "iso2": "MA",
+        "iso3": "MAR",
+        "name": "Morocco",
+        "phonecode": 212,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 151,
+        "currency": "MZN",
+        "iso2": "MZ",
+        "iso3": "MOZ",
+        "name": "Mozambique",
+        "phonecode": 258,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 152,
+        "currency": "MMK",
+        "iso2": "MM",
+        "iso3": "MMR",
+        "name": "Myanmar",
+        "phonecode": 95,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 153,
+        "currency": "NAD",
+        "iso2": "NA",
+        "iso3": "NAM",
+        "name": "Namibia",
+        "phonecode": 264,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 154,
+        "currency": "AUD",
+        "iso2": "NR",
+        "iso3": "NRU",
+        "name": "Nauru",
+        "phonecode": 674,
+        "created_at": "2022-08-03 01:34:27",
+        "updated_at": "2022-08-03 01:34:27"
+    },
+    {
+        "id": 155,
+        "currency": "NPR",
+        "iso2": "NP",
+        "iso3": "NPL",
+        "name": "Nepal",
+        "phonecode": 977,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 156,
+        "currency": "EUR",
+        "iso2": "NL",
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "phonecode": 31,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 157,
+        "currency": "XPF",
+        "iso2": "NC",
+        "iso3": "NCL",
+        "name": "New Caledonia",
+        "phonecode": 687,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 158,
+        "currency": "NZD",
+        "iso2": "NZ",
+        "iso3": "NZL",
+        "name": "New Zealand",
+        "phonecode": 64,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 159,
+        "currency": "NIO",
+        "iso2": "NI",
+        "iso3": "NIC",
+        "name": "Nicaragua",
+        "phonecode": 505,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 160,
+        "currency": "XOF",
+        "iso2": "NE",
+        "iso3": "NER",
+        "name": "Niger",
+        "phonecode": 227,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 161,
+        "currency": "NGN",
+        "iso2": "NG",
+        "iso3": "NGA",
+        "name": "Nigeria",
+        "phonecode": 234,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 162,
+        "currency": "NZD",
+        "iso2": "NU",
+        "iso3": "NIU",
+        "name": "Niue",
+        "phonecode": 683,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 163,
+        "currency": "AUD",
+        "iso2": "NF",
+        "iso3": "NFK",
+        "name": "Norfolk Island",
+        "phonecode": 672,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 164,
+        "currency": "KPW",
+        "iso2": "KP",
+        "iso3": "PRK",
+        "name": "North Korea",
+        "phonecode": 850,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 165,
+        "currency": "USD",
+        "iso2": "MP",
+        "iso3": "MNP",
+        "name": "Northern Mariana Islands",
+        "phonecode": "+1-670",
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 166,
+        "currency": "NOK",
+        "iso2": "NO",
+        "iso3": "NOR",
+        "name": "Norway",
+        "phonecode": 47,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 167,
+        "currency": "OMR",
+        "iso2": "OM",
+        "iso3": "OMN",
+        "name": "Oman",
+        "phonecode": 968,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 168,
+        "currency": "PKR",
+        "iso2": "PK",
+        "iso3": "PAK",
+        "name": "Pakistan",
+        "phonecode": 92,
+        "created_at": "2022-08-03 01:34:28",
+        "updated_at": "2022-08-03 01:34:28"
+    },
+    {
+        "id": 169,
+        "currency": "USD",
+        "iso2": "PW",
+        "iso3": "PLW",
+        "name": "Palau",
+        "phonecode": 680,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 170,
+        "currency": "ILS",
+        "iso2": "PS",
+        "iso3": "PSE",
+        "name": "Palestinian Territory Occupied",
+        "phonecode": 970,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 171,
+        "currency": "PAB",
+        "iso2": "PA",
+        "iso3": "PAN",
+        "name": "Panama",
+        "phonecode": 507,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 172,
+        "currency": "PGK",
+        "iso2": "PG",
+        "iso3": "PNG",
+        "name": "Papua new Guinea",
+        "phonecode": 675,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 173,
+        "currency": "PYG",
+        "iso2": "PY",
+        "iso3": "PRY",
+        "name": "Paraguay",
+        "phonecode": 595,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 174,
+        "currency": "PEN",
+        "iso2": "PE",
+        "iso3": "PER",
+        "name": "Peru",
+        "phonecode": 51,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 175,
+        "currency": "PHP",
+        "iso2": "PH",
+        "iso3": "PHL",
+        "name": "Philippines",
+        "phonecode": 63,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 176,
+        "currency": "NZD",
+        "iso2": "PN",
+        "iso3": "PCN",
+        "name": "Pitcairn Island",
+        "phonecode": 870,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 177,
+        "currency": "PLN",
+        "iso2": "PL",
+        "iso3": "POL",
+        "name": "Poland",
+        "phonecode": 48,
+        "created_at": "2022-08-03 01:34:29",
+        "updated_at": "2022-08-03 01:34:29"
+    },
+    {
+        "id": 178,
+        "currency": "EUR",
+        "iso2": "PT",
+        "iso3": "PRT",
+        "name": "Portugal",
+        "phonecode": 351,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 179,
+        "currency": "USD",
+        "iso2": "PR",
+        "iso3": "PRI",
+        "name": "Puerto Rico",
+        "phonecode": "+1-787 and 1-939",
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 180,
+        "currency": "QAR",
+        "iso2": "QA",
+        "iso3": "QAT",
+        "name": "Qatar",
+        "phonecode": 974,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 181,
+        "currency": "EUR",
+        "iso2": "RE",
+        "iso3": "REU",
+        "name": "Reunion",
+        "phonecode": 262,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 182,
+        "currency": "RON",
+        "iso2": "RO",
+        "iso3": "ROU",
+        "name": "Romania",
+        "phonecode": 40,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 183,
+        "currency": "RUB",
+        "iso2": "RU",
+        "iso3": "RUS",
+        "name": "Russia",
+        "phonecode": 7,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 184,
+        "currency": "RWF",
+        "iso2": "RW",
+        "iso3": "RWA",
+        "name": "Rwanda",
+        "phonecode": 250,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 185,
+        "currency": "SHP",
+        "iso2": "SH",
+        "iso3": "SHN",
+        "name": "Saint Helena",
+        "phonecode": 290,
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 186,
+        "currency": "XCD",
+        "iso2": "KN",
+        "iso3": "KNA",
+        "name": "Saint Kitts And Nevis",
+        "phonecode": "+1-869",
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 187,
+        "currency": "XCD",
+        "iso2": "LC",
+        "iso3": "LCA",
+        "name": "Saint Lucia",
+        "phonecode": "+1-758",
+        "created_at": "2022-08-03 01:34:30",
+        "updated_at": "2022-08-03 01:34:30"
+    },
+    {
+        "id": 188,
+        "currency": "EUR",
+        "iso2": "PM",
+        "iso3": "SPM",
+        "name": "Saint Pierre and Miquelon",
+        "phonecode": 508,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 189,
+        "currency": "XCD",
+        "iso2": "VC",
+        "iso3": "VCT",
+        "name": "Saint Vincent And The Grenadines",
+        "phonecode": "+1-784",
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 190,
+        "currency": "EUR",
+        "iso2": "BL",
+        "iso3": "BLM",
+        "name": "Saint-Barthelemy",
+        "phonecode": 590,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 191,
+        "currency": "EUR",
+        "iso2": "MF",
+        "iso3": "MAF",
+        "name": "Saint-Martin (French part)",
+        "phonecode": 590,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 192,
+        "currency": "WST",
+        "iso2": "WS",
+        "iso3": "WSM",
+        "name": "Samoa",
+        "phonecode": 685,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 193,
+        "currency": "EUR",
+        "iso2": "SM",
+        "iso3": "SMR",
+        "name": "San Marino",
+        "phonecode": 378,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 194,
+        "currency": "STD",
+        "iso2": "ST",
+        "iso3": "STP",
+        "name": "Sao Tome and Principe",
+        "phonecode": 239,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 195,
+        "currency": "SAR",
+        "iso2": "SA",
+        "iso3": "SAU",
+        "name": "Saudi Arabia",
+        "phonecode": 966,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 196,
+        "currency": "XOF",
+        "iso2": "SN",
+        "iso3": "SEN",
+        "name": "Senegal",
+        "phonecode": 221,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 197,
+        "currency": "RSD",
+        "iso2": "RS",
+        "iso3": "SRB",
+        "name": "Serbia",
+        "phonecode": 381,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 198,
+        "currency": "SCR",
+        "iso2": "SC",
+        "iso3": "SYC",
+        "name": "Seychelles",
+        "phonecode": 248,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 199,
+        "currency": "SLL",
+        "iso2": "SL",
+        "iso3": "SLE",
+        "name": "Sierra Leone",
+        "phonecode": 232,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 200,
+        "currency": "SGD",
+        "iso2": "SG",
+        "iso3": "SGP",
+        "name": "Singapore",
+        "phonecode": 65,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 201,
+        "currency": "ANG",
+        "iso2": "SX",
+        "iso3": "SXM",
+        "name": "Sint Maarten (Dutch part)",
+        "phonecode": 1721,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 202,
+        "currency": "EUR",
+        "iso2": "SK",
+        "iso3": "SVK",
+        "name": "Slovakia",
+        "phonecode": 421,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 203,
+        "currency": "EUR",
+        "iso2": "SI",
+        "iso3": "SVN",
+        "name": "Slovenia",
+        "phonecode": 386,
+        "created_at": "2022-08-03 01:34:31",
+        "updated_at": "2022-08-03 01:34:31"
+    },
+    {
+        "id": 204,
+        "currency": "SBD",
+        "iso2": "SB",
+        "iso3": "SLB",
+        "name": "Solomon Islands",
+        "phonecode": 677,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 205,
+        "currency": "SOS",
+        "iso2": "SO",
+        "iso3": "SOM",
+        "name": "Somalia",
+        "phonecode": 252,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 206,
+        "currency": "ZAR",
+        "iso2": "ZA",
+        "iso3": "ZAF",
+        "name": "South Africa",
+        "phonecode": 27,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 207,
+        "currency": "GBP",
+        "iso2": "GS",
+        "iso3": "SGS",
+        "name": "South Georgia",
+        "phonecode": 500,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 208,
+        "currency": "KRW",
+        "iso2": "KR",
+        "iso3": "KOR",
+        "name": "South Korea",
+        "phonecode": 82,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 209,
+        "currency": "SSP",
+        "iso2": "SS",
+        "iso3": "SSD",
+        "name": "South Sudan",
+        "phonecode": 211,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 210,
+        "currency": "EUR",
+        "iso2": "ES",
+        "iso3": "ESP",
+        "name": "Spain",
+        "phonecode": 34,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 211,
+        "currency": "LKR",
+        "iso2": "LK",
+        "iso3": "LKA",
+        "name": "Sri Lanka",
+        "phonecode": 94,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 212,
+        "currency": "SDG",
+        "iso2": "SD",
+        "iso3": "SDN",
+        "name": "Sudan",
+        "phonecode": 249,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 213,
+        "currency": "SRD",
+        "iso2": "SR",
+        "iso3": "SUR",
+        "name": "Suriname",
+        "phonecode": 597,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 214,
+        "currency": "NOK",
+        "iso2": "SJ",
+        "iso3": "SJM",
+        "name": "Svalbard And Jan Mayen Islands",
+        "phonecode": 47,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 215,
+        "currency": "SZL",
+        "iso2": "SZ",
+        "iso3": "SWZ",
+        "name": "Swaziland",
+        "phonecode": 268,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 216,
+        "currency": "SEK",
+        "iso2": "SE",
+        "iso3": "SWE",
+        "name": "Sweden",
+        "phonecode": 46,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 217,
+        "currency": "CHF",
+        "iso2": "CH",
+        "iso3": "CHE",
+        "name": "Switzerland",
+        "phonecode": 41,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 218,
+        "currency": "SYP",
+        "iso2": "SY",
+        "iso3": "SYR",
+        "name": "Syria",
+        "phonecode": 963,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 219,
+        "currency": "TWD",
+        "iso2": "TW",
+        "iso3": "TWN",
+        "name": "Taiwan",
+        "phonecode": 886,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 220,
+        "currency": "TJS",
+        "iso2": "TJ",
+        "iso3": "TJK",
+        "name": "Tajikistan",
+        "phonecode": 992,
+        "created_at": "2022-08-03 01:34:32",
+        "updated_at": "2022-08-03 01:34:32"
+    },
+    {
+        "id": 221,
+        "currency": "TZS",
+        "iso2": "TZ",
+        "iso3": "TZA",
+        "name": "Tanzania",
+        "phonecode": 255,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 222,
+        "currency": "THB",
+        "iso2": "TH",
+        "iso3": "THA",
+        "name": "Thailand",
+        "phonecode": 66,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 223,
+        "currency": "XOF",
+        "iso2": "TG",
+        "iso3": "TGO",
+        "name": "Togo",
+        "phonecode": 228,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 224,
+        "currency": "NZD",
+        "iso2": "TK",
+        "iso3": "TKL",
+        "name": "Tokelau",
+        "phonecode": 690,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 225,
+        "currency": "TOP",
+        "iso2": "TO",
+        "iso3": "TON",
+        "name": "Tonga",
+        "phonecode": 676,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 226,
+        "currency": "TTD",
+        "iso2": "TT",
+        "iso3": "TTO",
+        "name": "Trinidad And Tobago",
+        "phonecode": "+1-868",
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 227,
+        "currency": "TND",
+        "iso2": "TN",
+        "iso3": "TUN",
+        "name": "Tunisia",
+        "phonecode": 216,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 228,
+        "currency": "TRY",
+        "iso2": "TR",
+        "iso3": "TUR",
+        "name": "Turkey",
+        "phonecode": 90,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 229,
+        "currency": "TMT",
+        "iso2": "TM",
+        "iso3": "TKM",
+        "name": "Turkmenistan",
+        "phonecode": 993,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 230,
+        "currency": "USD",
+        "iso2": "TC",
+        "iso3": "TCA",
+        "name": "Turks And Caicos Islands",
+        "phonecode": "+1-649",
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 231,
+        "currency": "AUD",
+        "iso2": "TV",
+        "iso3": "TUV",
+        "name": "Tuvalu",
+        "phonecode": 688,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 232,
+        "currency": "UGX",
+        "iso2": "UG",
+        "iso3": "UGA",
+        "name": "Uganda",
+        "phonecode": 256,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 233,
+        "currency": "UAH",
+        "iso2": "UA",
+        "iso3": "UKR",
+        "name": "Ukraine",
+        "phonecode": 380,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 234,
+        "currency": "AED",
+        "iso2": "AE",
+        "iso3": "ARE",
+        "name": "United Arab Emirates",
+        "phonecode": 971,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 235,
+        "currency": "GBP",
+        "iso2": "GB",
+        "iso3": "GBR",
+        "name": "United Kingdom",
+        "phonecode": 44,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 236,
+        "currency": "USD",
+        "iso2": "US",
+        "iso3": "USA",
+        "name": "United States",
+        "phonecode": 1,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 237,
+        "currency": "USD",
+        "iso2": "UM",
+        "iso3": "UMI",
+        "name": "United States Minor Outlying Islands",
+        "phonecode": 1,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 238,
+        "currency": "UYU",
+        "iso2": "UY",
+        "iso3": "URY",
+        "name": "Uruguay",
+        "phonecode": 598,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 239,
+        "currency": "UZS",
+        "iso2": "UZ",
+        "iso3": "UZB",
+        "name": "Uzbekistan",
+        "phonecode": 998,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 240,
+        "currency": "VUV",
+        "iso2": "VU",
+        "iso3": "VUT",
+        "name": "Vanuatu",
+        "phonecode": 678,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 241,
+        "currency": "EUR",
+        "iso2": "VA",
+        "iso3": "VAT",
+        "name": "Vatican City State (Holy See)",
+        "phonecode": 379,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 242,
+        "currency": "VEF",
+        "iso2": "VE",
+        "iso3": "VEN",
+        "name": "Venezuela",
+        "phonecode": 58,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 243,
+        "currency": "VND",
+        "iso2": "VN",
+        "iso3": "VNM",
+        "name": "Vietnam",
+        "phonecode": 84,
+        "created_at": "2022-08-03 01:34:33",
+        "updated_at": "2022-08-03 01:34:33"
+    },
+    {
+        "id": 244,
+        "currency": "USD",
+        "iso2": "VG",
+        "iso3": "VGB",
+        "name": "Virgin Islands (British)",
+        "phonecode": "+1-284",
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 245,
+        "currency": "USD",
+        "iso2": "VI",
+        "iso3": "VIR",
+        "name": "Virgin Islands (US)",
+        "phonecode": "+1-340",
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 246,
+        "currency": "XPF",
+        "iso2": "WF",
+        "iso3": "WLF",
+        "name": "Wallis And Futuna Islands",
+        "phonecode": 681,
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 247,
+        "currency": "MAD",
+        "iso2": "EH",
+        "iso3": "ESH",
+        "name": "Western Sahara",
+        "phonecode": 212,
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 248,
+        "currency": "YER",
+        "iso2": "YE",
+        "iso3": "YEM",
+        "name": "Yemen",
+        "phonecode": 967,
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 249,
+        "currency": "ZMW",
+        "iso2": "ZM",
+        "iso3": "ZMB",
+        "name": "Zambia",
+        "phonecode": 260,
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    },
+    {
+        "id": 250,
+        "currency": "ZWL",
+        "iso2": "ZW",
+        "iso3": "ZWE",
+        "name": "Zimbabwe",
+        "phonecode": 263,
+        "created_at": "2022-08-03 01:34:34",
+        "updated_at": "2022-08-03 01:34:34"
+    }
+]

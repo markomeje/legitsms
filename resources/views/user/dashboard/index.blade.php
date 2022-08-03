@@ -22,12 +22,19 @@
             <div class="pt-4 px-4 border border-raduis-lg mt-4">
               <div class="">
                 <h4 class="text-dark mb-2">Account balance</h4>
-                <h1 class="mb-3 text-muted">NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}</h1>
+                <h3 class="mb-3 text-muted">
+                  NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}
+                  @if(!empty($reference))
+                    <a href="{{ route('user.dashboard') }}" class="text-decoration-none text-primary">
+                      <i class="icofont-refresh"></i>
+                    </a>
+                  @endif
+                </h3>
               </div>
               <div class="row">
                 <div class="col-12 col-md-6 mb-4">
                   <div class="">
-                      <button type="submit" class="main-btn m-0 btn-hover w-100 text-white login-button" data-bs-toggle="modal" data-bs-target="#deposit-fund">Deposit</button>
+                      <button type="submit" class="main-btn m-0 btn-hover w-100 text-white login-button" data-bs-toggle="modal" data-bs-target="#deposit-fund">Deposit fund</button>
                       @include('user.deposits.partials.deposit')
                   </div>
                 </div>
@@ -47,9 +54,9 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">Referrals</a>
+                            <a href="">All Referrals</a>
                           </h6>
-                          <h3 class="text-bold mb-10">+04</h3>
+                          <h5 class="text-bold mb-10">+04</h5>
                         </div>
                       </div>
                     </div>
@@ -60,11 +67,11 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">Deposits</a>
+                            <a href="">Total Deposits</a>
                           </h6>
-                          <h3 class="text-bold mb-10">
-                            NGN{{ number_format(auth()->user()->deposits->sum('amount')) }}
-                          </h3>
+                          <h5 class="text-bold mb-10">
+                            NGN{{ number_format(\App\Models\Deposit::where(['user_id' => auth()->id(), 'deposited' => true])->sum('amount')) }}
+                          </h5>
                         </div>
                       </div>
                     </div>
@@ -75,11 +82,11 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">Verifications</a>
+                            <a href="">All Verifications</a>
                           </h6>
-                          <h3 class="text-bold mb-10">
+                          <h5 class="text-bold mb-10">
                             +{{ '45'  }}
-                          </h3>
+                          </h5>
                         </div>
                       </div>
                     </div>
