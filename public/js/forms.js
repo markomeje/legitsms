@@ -2,6 +2,11 @@
 
 	'use strict';
 
+    $('.generate-number-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'generate-number-button', spinner: 'generate-number-spinner', message: 'generate-number-message'});
+    });
+
     $('.deposit-fund-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'deposit-fund-button', spinner: 'deposit-fund-spinner', message: 'deposit-fund-message'});

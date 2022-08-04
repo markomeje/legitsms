@@ -35,7 +35,7 @@ class DepositController extends Controller
 
         try {
             $reference = Str::uuid();
-            $deposit = Deposit::create([
+            $deposited = Deposit::create([
                 'amount' => $amount,
                 'user_id' => auth()->id(),
                 'reference' => $reference,
@@ -43,14 +43,20 @@ class DepositController extends Controller
                 'status' => 'initialized'
             ]);
 
-            if ($deposit->id > 0) {
-                $paystack = (new Paystack())->initialize(['amount' => $amount, 'email' => auth()->user()->email, 'reference' => $reference]);
-                return (is_object($paystack) && isset($paystack->data)) ? response()->json([
-                    'status' => 1,
-                    'info' => 'Redirecting to payment. Please wait . . .',
-                    'redirect' => $paystack->data->authorization_url,
-                ]) : throw new Exception('Error processing request');
+            if (!$deposited) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Operation failed. Try again.'
+                ]);
             }
+
+            $paystack = (new Paystack())->initialize(['amount' => $amount, 'email' => auth()->user()->email, 'reference' => $reference]);
+            return (is_object($paystack) && isset($paystack->data)) ? response()->json([
+                'status' => 1,
+                'info' => 'Redirecting to payment. Please wait . . .',
+                'redirect' => $paystack->data->authorization_url,
+            ]) : throw new Exception('Error processing request');
+            
 
             return response()->json([
                 'status' => 0,

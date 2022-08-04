@@ -45,4 +45,6 @@ Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL')
 
     Route::post('/deposit', [\App\Http\Controllers\User\DepositController::class, 'deposit'])->name('fund.deposit');
     Route::get('/deposits', [\App\Http\Controllers\User\DepositController::class, 'index'])->name('deposits');
+
+    Route::post('/phone/generate', [\App\Http\Controllers\User\NumbersController::class, 'generate'])->name('phone.generate');
 });

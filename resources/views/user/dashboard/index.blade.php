@@ -32,15 +32,21 @@
                 </h3>
               </div>
               <div class="row">
-                <div class="col-12 col-md-6 mb-4">
+                <div class="col-12 col-md-4 col-lg-3 mb-4">
                   <div class="">
-                      <button type="submit" class="main-btn m-0 btn-hover w-100 text-white login-button" data-bs-toggle="modal" data-bs-target="#deposit-fund">Deposit fund</button>
+                      <button type="submit" class="main-btn m-0 btn-hover w-100 text-white" data-bs-toggle="modal" data-bs-target="#deposit-fund">Deposit fund</button>
                       @include('user.deposits.partials.deposit')
                   </div>
                 </div>
-                <div class="col-12 col-md-6 mb-4">
+                <div class="col-12 col-md-4 col-lg-3 mb-4">
                   <div class="">
-                    <button type="submit" class="main-btn m-0 btn-hover w-100 text-white login-button">Verify</button>
+                    <button type="submit" class="main-btn m-0 btn-hover w-100 text-white login-button">Read sms</button>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 mb-4">
+                  <div class="">
+                    <button type="submit" class="main-btn m-0 btn-hover w-100 text-white" data-bs-toggle="modal" data-bs-target="#generate-number">Generate Number</button>
+                      @include('user.numbers.partials.generate')
                   </div>
                 </div>
               </div>
@@ -72,6 +78,19 @@
                           <h5 class="text-bold mb-10">
                             NGN{{ number_format(\App\Models\Deposit::where(['user_id' => auth()->id(), 'deposited' => true])->sum('amount')) }}
                           </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                      <div class="icon-card mb-30">
+                        <div class="icon purple">
+                          <i class="lni lni-dollar"></i>
+                        </div>
+                        <div class="content">
+                          <h6 class="mb-10">
+                            <a href="">Phone Numbers</a>
+                          </h6>
+                          <h5 class="text-bold mb-10">+04</h5>
                         </div>
                       </div>
                     </div>

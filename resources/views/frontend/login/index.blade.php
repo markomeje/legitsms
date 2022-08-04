@@ -16,7 +16,12 @@
 								<small class="error text-danger email-error"></small>
 							</div>
 							<div class="form-group input-group-lg col-12 mb-3">
-								<label class="text-muted mb-1">Password</label>
+								<label class="text-muted d-flex justify-content-between mb-1">
+									<span>Password</span>
+									<a href="">
+										<small>Forgot password?</small>
+									</a>
+								</label>
 								<input type="password" name="password" class="form-control password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
 								<small class="error text-danger password-error"></small>
 							</div>
