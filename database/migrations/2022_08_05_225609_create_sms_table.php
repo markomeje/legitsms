@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('websites', function (Blueprint $table) {
+        Schema::create('sms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->bigInteger('price');
-            $table->string('code');
+            $table->foreignId('user_id');
+            $table->foreignId('country_id');
+            $table->string('message')->nullable();
+            $table->foreignId('website_id');
+            $table->boolean('received')->default(false);
+            $table->foreignId('number_id');
+            $table->string('status')->default('initialized');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('websites');
+        Schema::dropIfExists('sms');
     }
 };

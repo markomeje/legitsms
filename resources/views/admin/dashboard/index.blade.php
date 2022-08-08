@@ -1,8 +1,8 @@
 @include('layouts.header')
-	@include('user.layouts.aside')
+	@include('admin.layouts.aside')
     <!-- ======== main-wrapper start =========== -->
     <main class="main-wrapper">
-    	@include('user.layouts.navbar')
+    	@include('admin.layouts.navbar')
         <div class="container-fluid">
           <?php $reference = request()->get('reference'); ?>
             @if(!empty($reference))
@@ -21,19 +21,14 @@
             @endif
             <div class="pt-4 px-4 border border-raduis-lg mt-4">
               <div class="">
-                <h4 class="text-dark mb-2">Account balance</h4>
+                <h4 class="text-dark mb-2">Total Funds</h4>
                 <h3 class="mb-3 d-flex align-items-center">
-                  <div class="text-muted me-2">NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}</div>
-                  @if(!empty($reference))
-                    <a href="{{ route('user.dashboard') }}" class="text-decoration-none text-primary px-3 py-1 rounded-pill bg-danger" style="font-size: 8px;">
-                      <small class="text-white">Reload</small>
-                    </a>
-                  @endif
+                  <div class="text-muted me-2">NGN{{ number_format(\App\Models\Account::all()->sum('balance')) }}</div>
                 </h3>
               </div>
-              <div>
+              {{-- <div>
                 @include('user.dashboard.partials.actions')
-              </div>
+              </div> --}}
             </div>
             <section class="section mt-4">
                 <div class="row">
@@ -44,7 +39,7 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">All Referrals</a>
+                            <a href="">Referrals</a>
                           </h6>
                           <h5 class="text-bold mb-10">+04</h5>
                         </div>
@@ -57,10 +52,10 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="{{ route('user.deposits') }}">My Deposits</a>
+                            <a href="{{ route('admin.deposits') }}">Users</a>
                           </h6>
                           <h5 class="text-bold mb-10">
-                            +{{ auth()->user()->deposits->count()  }}
+                            +{{ \App\Models\User::count()  }}
                           </h5>
                         </div>
                       </div>
@@ -72,10 +67,40 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="{{ route('user.sms') }}">All Sms</a>
+                            <a href="{{ route('admin.deposits') }}">Deposits</a>
                           </h6>
                           <h5 class="text-bold mb-10">
-                            +{{ auth()->user()->sms->count()  }}
+                            +{{ \App\Models\Deposit::count()  }}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                      <div class="icon-card mb-30">
+                        <div class="icon purple">
+                          <i class="lni lni-dollar"></i>
+                        </div>
+                        <div class="content">
+                          <h6 class="mb-10">
+                            <a href="{{ route('user.sms') }}">Sms</a>
+                          </h6>
+                          <h5 class="text-bold mb-10">
+                            +{{ \App\Models\Sms::count()  }}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                      <div class="icon-card mb-30">
+                        <div class="icon purple">
+                          <i class="lni lni-dollar"></i>
+                        </div>
+                        <div class="content">
+                          <h6 class="mb-10">
+                            <a href="{{ route('admin.websites') }}">Websites</a>
+                          </h6>
+                          <h5 class="text-bold mb-10">
+                            +{{ \App\Models\Website::count() }}
                           </h5>
                         </div>
                       </div>
@@ -89,7 +114,24 @@
                           <h6 class="mb-10">
                             <a href="">Phone Numbers</a>
                           </h6>
-                          <h5 class="text-bold mb-10">+04</h5>
+                          <h5 class="text-bold mb-10">
+                            +{{ \App\Models\Number::count() }}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                      <div class="icon-card mb-30">
+                        <div class="icon purple">
+                          <i class="lni lni-dollar"></i>
+                        </div>
+                        <div class="content">
+                          <h6 class="mb-10">
+                            <a href="">Countries</a>
+                          </h6>
+                          <h5 class="text-bold mb-10">
+                            +{{ \App\Models\Country::count() }}
+                          </h5>
                         </div>
                       </div>
                     </div>

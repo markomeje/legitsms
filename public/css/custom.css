@@ -26,3 +26,7 @@
 .btn-close {
     font-size: 10px !important;
 }
+
+.cursor-pointer {
+    cursor: pointer !important;
+}

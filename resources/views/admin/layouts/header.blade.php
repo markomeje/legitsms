@@ -1,19 +1,16 @@
-<header class="header position-sticky sticky-top">
+<header class="header">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-5 col-md-5 col-6">
         <div class="header-left d-flex align-items-center">
           <div class="menu-toggle-btn mr-20">
-              <button id="menu-toggle" class="main-btn primary-btn btn-hover">
-                <i class="lni lni-chevron-left me-2"></i> Menu
-              </button>
-          </div>
-          {{-- <div class="menu-toggle-btn mr-20">
             <button
               id="menu-toggle"
               class="main-btn primary-btn btn-hover"
-            >Menu</button>
-          </div> --}}
+            >
+              <i class="lni lni-chevron-left me-2"></i> Menu
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-lg-7 col-md-7 col-6">
@@ -97,11 +94,13 @@
               </div>
               <i class="lni lni-chevron-down"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="profile">
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="profile"
+            >
               <li>
-                <a href="{{ route('logout') }}">
-                  <i class="lni lni-power-switch text-danger"></i>Logout
+                <a href="#0">
+                  <i class="lni lni-user"></i> View Profile
                 </a>
               </li>
             </ul>

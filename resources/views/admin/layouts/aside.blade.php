@@ -7,13 +7,18 @@
   <nav class="sidebar-nav px-4">
     <ul>
       <li class="nav-item">
-        <a href="{{ route('user.dashboard') }}" class="p-3 border rounded mb-4">
-          <span class="text">My Dashboard</span>
+        <a href="{{ route('admin.dashboard') }}" class="p-3 border rounded mb-4">
+          <span class="text">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.users') }}" class="p-3 border rounded mb-4">
+          <span class="text">Users</span>
         </a>
       </li>
       <li class="nav-item">
         <a href="{{ route('user.deposits') }}" class="p-3 border rounded mb-4">
-          <span class="text">My Deposits</span>
+          <span class="text">Deposits</span>
         </a>
       </li>
       <li class="nav-item">
@@ -23,14 +28,24 @@
       </li>
       <li class="nav-item">
         <a href="{{ route('user.numbers') }}" class="p-3 border rounded mb-4">
-          <span class="text">Phone Numbers</span>
+          <span class="text">Numbers</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.websites') }}" class="p-3 border rounded mb-4">
+          <span class="text">Websites</span>
         </a>
       </li>
       <li class="nav-item">
         <a href="{{ route('user.sms') }}" class="p-3 border rounded mb-4">
-          <span class="text">All Sms</span>
+          <span class="text">Sms</span>
         </a>
-      </li>         
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('user.sms') }}" class="p-3 border rounded mb-4">
+          <span class="text">Countries</span>
+        </a>
+      </li>          
     </ul>
   </nav>
 </aside>

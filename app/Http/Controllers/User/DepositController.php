@@ -10,6 +10,13 @@ use Validator;
 
 class DepositController extends Controller
 {
+
+    //
+    public function index()
+    {
+        return view('user.deposits.index', ['title' => 'My Deposits | Legitsms']);
+    }
+
     //
     public function deposit()
     {

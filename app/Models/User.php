@@ -52,4 +52,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Deposit::class);
     }
+
+    /**
+     * A user may have many generated numbers
+     */
+    public function numbers()
+    {
+        return $this->hasMany(Number::class);
+    }
+
+    /**
+     * A user may have many read sms
+     */
+    public function sms()
+    {
+        return $this->hasMany(Sms::class);
+    }
 }

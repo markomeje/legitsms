@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Utilities\Autofications;
+use App\Utilities\{Autofications, Balance};
 use App\Http\Controllers\Controller;
 use App\Models\{Number, Country, Website};
 use Exception;
@@ -9,6 +9,13 @@ use Validator;
 
 class NumbersController extends Controller
 {
+
+    //
+    public function index()
+    {
+        return view('user.numbers.index', ['title' => 'My Numbers | Legitsms']);
+    }
+
     //
     public function generate()
     {
@@ -51,29 +58,27 @@ class NumbersController extends Controller
         }
 
         try {
-            $generate = Number::create([
-                'website_id' => $website->id,
-                'country_id' => $country->id,
-                'user_id' => auth()->id(),
-                'phone' => null,
-                'responded' => false,
-                'status' => 'initialized'
-            ]);
-            dd($generate);
-
-            $autofications = Autofications::generate(['website' => $website->code, 'country' => strtoupper($country->iso2)]);
+            Balance::save($price, $debit = true);
+            // $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->iso2)]);
+            $autofications = true;
             if (empty($autofications)) {
+                Balance::save($price, $debit = false); //Credit back user balnce if transaction fails.
                 return response()->json([
                     'status' => 0,
                     'info' => 'Generating number failed. Try again.'
                 ]);
             }
 
-            $phone = $autofications;
-            $generate->phone = $phone;
-            $generate->responded = true;
-            $generate->status = 'done';
-            return $generate->update() ? response()->json([
+            $generate = Number::create([
+                'website_id' => $website->id,
+                'country_id' => $country->id,
+                'user_id' => auth()->id(),
+                'phone' => 123,
+                'responded' => true,
+                'status' => 'done'
+            ]);
+
+            return $generate->id > 0 ? response()->json([
                 'status' => 1,
                 'info' => 'Number generated successfully.',
                 'redirect' => '',
@@ -82,9 +87,10 @@ class NumbersController extends Controller
                 'info' => 'Operation failed. Try again.'
             ]);
         } catch (Exception $exception) {
+            Balance::save($price, $debit = false); //Credit back user balnce if transaction fails.
             return response()->json([
                 'status' => 0,
-                'info' => 'Unknown error. Try again later.'
+                'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
             ]);
         }
             

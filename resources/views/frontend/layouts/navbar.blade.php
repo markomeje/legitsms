@@ -23,7 +23,7 @@
                 </button>
 
                 <div
-                  class="collapse navbar-collapse sub-menu-bar"
+                  class="collapse navbar-collapse sub-menu-bar pb-sm-3 pb-md-0"
                   id="navbarSupportedContent"
                 >
                   <ul id="nav" class="navbar-nav ms-auto">
@@ -36,15 +36,27 @@
                     <li class="nav-item">
                       <a class="text-dark" href="">Reviews</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="text-dark" href="{{ route('signup') }}">Signup</a>
-                    </li>
+                    @if(!auth()->check())
+                      <li class="nav-item">
+                        <a class="text-dark" href="{{ route('signup') }}">Signup</a>
+                      </li>
+                    @endif
                     {{-- <li class="nav-item"> --}}
                     {{-- </li> --}}
                   </ul>
-                  <div class="ms-1">
-                      <a class="btn px-4 rounded-pill bg-dark mb-sm-4 mb-lg-0 text-white ms-4" href="{{ route('login') }}">Login</a>
-                  </div>
+                  @if(auth()->check())
+                    <div class="ms-1 mb-sm-4 mb-md-0">
+                        <a class="text-center rounded-circle bg-dark text-white ms-4" href="{{ auth()->user()->role == 'admin' ? route('admin.dashboard') : route('user.dashboard') }}" style="width: 34px; height: 34px; line-height: 34px;">
+                          <small>
+                            <i class="icofont-ui-user"></i>
+                          </small>
+                        </a>
+                    </div>
+                  @else
+                    <div class="ms-1">
+                        <a class="btn px-4 rounded-pill bg-dark mb-sm-4 mb-lg-0 text-white ms-4" href="{{ route('login') }}">Login</a>
+                    </div>
+                  @endif
                 </div>
                 <!-- navbar collapse -->
               </nav>

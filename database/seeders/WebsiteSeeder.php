@@ -15,11 +15,11 @@ class WebsiteSeeder extends Seeder
     public function run()
     {
         $websites = [
-            ['name' => 'WhatsApp', 'code' => 1421, 'price' => rand(3500, 4000)],
-            ['name' => 'Gmail', 'code' => 6724, 'price' => rand(3500, 4000)],
-            ['name' => 'Telegram', 'code' => 1405, 'price' => rand(3500, 4000)],
-            ['name' => 'Facebook', 'code' => 1352, 'price' => rand(3500, 4000)],
-            ['name' => 'Plenty of Fish', 'code' => 1388, 'price' => rand(3500, 4000)],
+            ['name' => 'WhatsApp', 'code' => 1421, 'price' => rand(3500, 4500), 'active' => true],
+            ['name' => 'Gmail', 'code' => 6724, 'price' => rand(3500, 4500), 'active' => true],
+            ['name' => 'Telegram', 'code' => 1405, 'price' => rand(3500, 4500), 'active' => true],
+            ['name' => 'Facebook', 'code' => 1352, 'price' => rand(3500, 4500), 'active' => true],
+            ['name' => 'Plenty of Fish', 'code' => 1388, 'price' => rand(3500, 4500), 'active' => true],
         ];
 
         Website::truncate();

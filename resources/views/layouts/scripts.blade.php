@@ -4,6 +4,7 @@
     <script src="{{ config('app.url') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ config('app.url') }}/js/polyfill.js"></script>
     <script src="{{ config('app.url') }}/js/frontend.js"></script>
+    <script src="{{ config('app.url') }}/js/backend.js"></script>
     {{-- Custom Js --}}
     <script src="{{ config('app.url') }}/js/index.js"></script>
     <script src="{{ config('app.url') }}/js/ajax.js"></script>

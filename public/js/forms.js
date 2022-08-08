@@ -2,6 +2,16 @@
 
 	'use strict';
 
+    $('.add-website-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'add-website-button', spinner: 'add-website-spinner', message: 'add-website-message'});
+    });
+
+    $('.read-sms-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'read-sms-button', spinner: 'read-sms-spinner', message: 'read-sms-message'});
+    });
+
     $('.generate-number-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'generate-number-button', spinner: 'generate-number-spinner', message: 'generate-number-message'});

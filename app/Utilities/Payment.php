@@ -46,19 +46,19 @@ class Payment
                 'info' => 'Payment transaction failed.'
             ];
         }
-
-        $deposit->deposited = true;
-        $deposit->status = 'paid';
-        $deposited = $deposit->update();
-        if(!$deposited) {
-            return [
-                'status' => 0,
-                'info' => 'Could not update balance',
-            ];
-        }
-
-        $balance = Balance::save((int)$deposit->amount);
+        
+        $balance = Balance::save((int)$deposit->amount, $debit = false);
         if(1 === (int)$balance['status'] ?? 0) {
+            $deposit->deposited = true;
+            $deposit->status = 'paid';
+            $deposited = $deposit->update();
+            if(!$deposited) {
+                return [
+                    'status' => 0,
+                    'info' => 'Could not update balance',
+                ];
+            }
+        
             return [
                 'status' => $balance['status'],
                 'info' => $balance['info'],

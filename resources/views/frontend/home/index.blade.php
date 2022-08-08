@@ -81,7 +81,7 @@
     <!-- ======== about-section start ======== -->
     <section id="about" class="about-section pt-150">
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center pb-5">
           <div class="col-xl-6 col-lg-6">
             <div class="about-img">
               <img src="/saaspal/images/about/about-1.png" alt="" class="w-100 img-fluid" />
@@ -90,11 +90,11 @@
                 alt=""
                 class="shape shape-1 img-fluid"
               />
-              <img
+              {{-- <img
                 src="/saaspal/images/about/left-dots.svg"
                 alt=""
                 class="shape shape-2 img-fluid"
-              />
+              /> --}}
             </div>
           </div>
           <div class="col-xl-6 col-lg-6">

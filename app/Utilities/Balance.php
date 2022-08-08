@@ -10,7 +10,7 @@ class Balance
     /**
      * Update user account balance
      */
-    public static function save(int $amount, $type = 'debit') : array
+    public static function save(int $amount, $debit = true) : array
     {
         $account = auth()->user()->account;
         if (empty($account)) {
@@ -32,7 +32,7 @@ class Balance
 
         $balance = (int)$account->balance;
         $account->ledger = $balance;
-        $account->balance = $type === 'debit' ? $balance - $amount : $balance + $amount;
+        $account->balance = $debit === true ? ($balance - $amount) : ($balance + $amount);
         return $account->update() ? [
             'status' => 1, 
             'info' => 'Account balance updated successfully'

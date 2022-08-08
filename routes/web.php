@@ -37,6 +37,15 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
 
 Route::middleware(['web', 'auth', 'admin', 'revalidate'])->domain(env('ADMIN_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/deposits', [\App\Http\Controllers\Admin\DepositController::class, 'index'])->name('admin.deposits');
+    Route::get('/users', [\App\Http\Controllers\Admin\DepositController::class, 'index'])->name('admin.users');
+
+    Route::prefix('websites')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\WebsitesController::class, 'index'])->name('admin.websites');
+        Route::post('/add', [\App\Http\Controllers\Admin\WebsitesController::class, 'add'])->name('admin.website.add');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\WebsitesController::class, 'read'])->name('admin.website.edit');
+    });
 });
 
 Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL'))->group(function() {
@@ -44,7 +53,13 @@ Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL')
     Route::get('/paystack', [\App\Http\Controllers\User\DashboardController::class, 'index']);
 
     Route::post('/deposit', [\App\Http\Controllers\User\DepositController::class, 'deposit'])->name('fund.deposit');
-    Route::get('/deposits', [\App\Http\Controllers\User\DepositController::class, 'index'])->name('deposits');
+    Route::get('/deposits', [\App\Http\Controllers\User\DepositController::class, 'index'])->name('user.deposits');
 
     Route::post('/phone/generate', [\App\Http\Controllers\User\NumbersController::class, 'generate'])->name('phone.generate');
+    Route::get('/numbers', [\App\Http\Controllers\User\NumbersController::class, 'index'])->name('user.numbers');
+
+    Route::prefix('sms')->group(function () {
+        Route::get('/', [\App\Http\Controllers\User\SmsController::class, 'index'])->name('user.sms');
+        Route::post('/read', [\App\Http\Controllers\User\SmsController::class, 'read'])->name('user.sms.read');
+    });
 });
