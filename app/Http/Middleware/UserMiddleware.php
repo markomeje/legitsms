@@ -19,6 +19,6 @@ class UserMiddleware
             return $next($request);
         }
 
-        return response()->route('login');
+        return redirect()->route('login');
     }
 }
