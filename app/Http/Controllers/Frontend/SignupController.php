@@ -27,6 +27,7 @@ class SignupController extends Controller
         $validator = Validator::make($data, [ 
             'email' => ['required', (new EmailRule), 'unique:users'],  
             'password' => ['required', 'string'],
+            'username' => ['required', 'string', 'max:15'],
             'retype' => ['required', 'same:password'],
             'agree' => ['required', 'string'],
         ], ['retype.required' => 'Please enter same password', 'agree.required' => 'You have to agree to our terms and conditions', 'retype.same:password' => 'Retype thesame password']);
@@ -44,6 +45,7 @@ class SignupController extends Controller
             $token = Str::random(64);
             $user = User::create([
                 'email' => $email,
+                'username' => $data['username'] ?? null,
                 'password' => Hash::make($data['password']),
                 'role' => 'user',
                 'status' => 'inactive',

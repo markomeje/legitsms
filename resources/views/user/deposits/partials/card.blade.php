@@ -7,7 +7,7 @@
       {{ ucfirst($deposit->status) }}
     </div>
   </div>
-  <div class="card-footer primary-btn d-flex justify-content-between">
+  <div class="card-footer bg-dark py-4 d-flex justify-content-between">
     <small class="text-white">
       {{ $deposit->created_at->diffForHumans() }}
     </small>

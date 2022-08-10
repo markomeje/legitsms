@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+    Route::get('/countries', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.countries');
+    Route::get('/country', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.country');
     Route::get('/faq', [\App\Http\Controllers\Frontend\FaqController::class, 'index'])->name('faq');
+
+    Route::get('/generated', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('phone.generated');
+    Route::post('/verification', [\App\Http\Controllers\User\VerificationController::class, 'process'])->name('verification.process');
+
     Route::get('/logout', [\App\Http\Controllers\Frontend\LoginController::class, 'logout'])->name('logout');
     
     Route::group(['middleware' => 'guest'], function () {
@@ -55,7 +61,6 @@ Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL')
     Route::post('/deposit', [\App\Http\Controllers\User\DepositController::class, 'deposit'])->name('fund.deposit');
     Route::get('/deposits', [\App\Http\Controllers\User\DepositController::class, 'index'])->name('user.deposits');
 
-    Route::post('/phone/generate', [\App\Http\Controllers\User\NumbersController::class, 'generate'])->name('phone.generate');
     Route::get('/numbers', [\App\Http\Controllers\User\NumbersController::class, 'index'])->name('user.numbers');
 
     Route::prefix('sms')->group(function () {

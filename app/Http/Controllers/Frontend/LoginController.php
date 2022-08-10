@@ -23,7 +23,7 @@ class LoginController extends Controller
     {
         $data = request()->all();
         $validator = Validator::make($data, [ 
-            'email' => ['required', (new EmailRule)],  
+            'username' => ['required'],  
             'password' => ['required', 'string'],
         ]);
 
@@ -35,7 +35,7 @@ class LoginController extends Controller
         }
 
         try {
-            $user = User::where(['email' => $data['email']])->first();
+            $user = User::where(['username' => $data['username']])->first();
             if (empty($user)) {
                 return response()->json([
                     'status' => 0,

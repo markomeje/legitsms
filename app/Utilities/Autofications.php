@@ -21,7 +21,7 @@ class Autofications
 	public static function GeneratePhoneNumber($data = []) : array
 	{
 		try {
-			$params = ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' = env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code']];
+			$params = ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code']];
 
             $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), $params);
             if ($response->failed()) {
@@ -50,7 +50,7 @@ class Autofications
     public static function ReadSms($data = []) : array
     {
         try {
-            $params = ['action' => 'read', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' = env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code'], 'phone_number' => $data['phone_number']];
+            $params = ['action' => 'read', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code'], 'phone_number' => $data['phone_number']];
 
             $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), $params);
             if ($response->failed()) {

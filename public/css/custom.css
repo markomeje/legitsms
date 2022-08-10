@@ -9,6 +9,12 @@
 	justify-content: flex-start !important;
 }
 
+.frontend-wrapper {
+    background-image: url('/images/dark.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .disable { 
     opacity: .1 !important;
     cursor: not-allowed !important;

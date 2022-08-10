@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
     {
         if(config('app.env') !== 'production') {
             $users = [
-                ['email' => 'admin@admin.io', 'role' => 'admin', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true],
-                ['email' => 'user@user.io', 'role' => 'user', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true],
+                ['email' => 'admin@admin.io', 'role' => 'admin', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true, 'username' => 'admin'],
+                ['email' => 'user@user.io', 'role' => 'user', 'password' => Hash::make('1234'), 'status' => 'active', 'verified' => true, 'username' => 'user'],
             ];
 
             User::truncate();

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('status')->default('inactive');
             $table->string('role')->default('user');
+            $table->string('username')->nullable();
             $table->boolean('verified')->default(false);
             $table->string('password');
             $table->string('token')->nullable();

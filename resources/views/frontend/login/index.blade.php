@@ -1,19 +1,20 @@
-@include('layouts.header')
-<div class="bg-light-sky min-vh-100">
-	<div class="container">
-		<div class="row justify-content-center">
+<div class="frontend-wrapper min-vh-100">
+	@include('layouts.header')
+	@include('frontend.layouts.navbar')
+	<div class="container mt-5 pt-5">
+		<div class="row justify-content-center mt-2">
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="my-5">
 					<div class="p-4 bg-white mb-4">
-						<h3 class="m-0 text-dark">Welcome to <a href="{{ route('home') }}" class="text-primary">Legitsms</a></h3>
+						<h3 class="m-0 text-dark"><a href="{{ route('home') }}" class="text-primary">Legitsms</a> Login</h3>
 					</div>
 					<form class="login-form p-4 bg-white mb-4" method="post" action="javascript:;" data-action="{{ route('login.auth') }}">
 						@csrf
 						<div class="row mb-2">
 							<div class="form-group input-group-lg col-12 mb-3">
-								<label class="text-muted mb-1">Email</label>
-								<input type="email" name="email" class="form-control email" placeholder="Enter email">
-								<small class="error text-danger email-error"></small>
+								<label class="text-muted mb-1">Username</label>
+								<input type="username" name="username" class="form-control username" placeholder="Enter username">
+								<small class="error text-danger username-error"></small>
 							</div>
 							<div class="form-group input-group-lg col-12 mb-3">
 								<label class="text-muted d-flex justify-content-between mb-1">
@@ -33,7 +34,7 @@
 							</div>
 							<small class="error text-danger rememberme-error"></small>
 						</div>
-					    <button type="submit" class="main-btn btn-hover w-100 text-white login-button mb-4">
+					    <button type="submit" class="btn btn-primary btn-lg w-100 text-white login-button mb-4">
 					        <img src="/images/spinner.svg" class="mr-2 d-none login-spinner mb-1">
 					        Login
 					    </button>
@@ -48,5 +49,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 @include('layouts.scripts')
+</div>

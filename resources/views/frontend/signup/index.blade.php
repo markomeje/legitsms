@@ -1,7 +1,8 @@
-@include('layouts.header')
-<div class="bg-light-sky min-vh-100">
-	<div class="container pb-5">
-		<div class="row justify-content-center">
+<div class="frontend-wrapper min-vh-100">
+	@include('layouts.header')
+	@include('frontend.layouts.navbar')
+	<div class="container mt-5 py-5">
+		<div class="row justify-content-center mt-2">
 			<div class="col-12 col-md-6">
 				<div class="mt-5">
 					<div class="p-4 mb-4 bg-white">
@@ -42,15 +43,8 @@
 								  	<input class="form-check-input agree" type="checkbox" id="agree" checked name="agree" value="on">
 								  	<label class="form-check-label" for="agree">Agree to terms and conditions</label>
 								</div>
-
-						    	{{-- <div class="custom-control custom-switch">
-								  	<input type="checkbox" class="custom-control-input agree" id="agree" name="agree" value="on">
-								  	<label class="custom-control-label cursor-pointer" for="agree">
-								  		<small class="text-main-dark">Agree to terms and conditions</small>
-								  	</label>
-								</div> --}}
 						    </div>
-						    <button type="submit" class="main-btn btn-hover btn-block text-white signup-button mb-4">
+						    <button type="submit" class="btn btn-primary btn-lg btn-block text-white signup-button mb-4">
 						        <img src="/images/spinner.svg" class="mr-2 d-none signup-spinner mb-1">
 						        Signup
 						    </button>

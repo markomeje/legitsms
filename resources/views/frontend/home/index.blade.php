@@ -1,257 +1,138 @@
-@include('layouts.header')
-  @include('frontend.layouts.navbar')
-<!-- ======== hero-section start ======== -->
-    <section id="home" class="hero-section">
-      <div class="container">
-        <div class="row align-items-center position-relative">
-          <div class="col-lg-6 mb-4">
-            <div class="hero-content">
-              <h1 class="wow fadeInUp" data-wow-delay=".4s">
-                Do you need an SMS verification? 
-              </h1>
-              <p class="wow fadeInUp" data-wow-delay=".6s">We provide fully automated SMS verifications for any website or Mobile app</p>
-              <a
-                href="{{ route('signup') }}"
-                class="main-btn border-btn btn-hover wow fadeInUp"
-                data-wow-delay=".6s"
-                >Get Started</a>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-4">
-            <div class="wow fadeInUp" data-wow-delay=".5s">
-              {{-- <img src="/images/logic.png" class="img-fluid" alt="" /> --}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== hero-section end ======== -->
-
-    <!-- ======== feature-section start ======== -->
-    <section id="features" class="pt-120">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-8 col-sm-10 mb-5">
-            <div class="">
-              <div class="features-icon" style="">
-                <i class="lni lni-bootstrap"></i>
-              </div>
-              <div class="content">
-                <h3>Automated Easily</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-8 col-sm-10 mb-5">
-            <div class="">
-              <div class="features-icon" style="">
-                <i class="lni lni-layout"></i>
-              </div>
-              <div class="content">
-                <h3>Clean Design</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-8 col-sm-10 mb-5">
-            <div class="">
-              <div class="features-icon" style="">
-                <i class="lni lni-coffee-cup"></i>
-              </div>
-              <div class="content">
-                <h3>Simply Easy</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
-
-    <!-- ======== about-section start ======== -->
-    <section id="about" class="about-section pt-150">
-      <div class="container">
-        <div class="row align-items-center pb-5">
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-img">
-              <img src="/saaspal/images/about/about-1.png" alt="" class="w-100 img-fluid" />
-              <img
-                src="/saaspal/images/about/about-left-shape.svg"
-                alt=""
-                class="shape shape-1 img-fluid"
-              />
-              {{-- <img
-                src="/saaspal/images/about/left-dots.svg"
-                alt=""
-                class="shape shape-2 img-fluid"
-              /> --}}
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6">
-            <div class="about-content">
-              <div class="section-title mb-30">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Verify automatically in any website or app
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  dinonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-              <a
-                href="{{ route('signup') }}"
-                class="main-btn btn-hover border-btn wow fadeInUp"
-                data-wow-delay=".6s"
-                >Get Started</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== about-section end ======== -->
-
-    <!-- ======== feature-section start ======== -->
-    <section id="why" class="feature-extended-section pt-100">
-      <div class="feature-extended-wrapper">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-9">
-              <div class="section-title text-center mb-60">
-                <h2 class="mb-25 wow fadeInUp" data-wow-delay=".2s">
-                  Why Choose {{ config('app.name') }}?
-                </h2>
-                <p class="wow fadeInUp" data-wow-delay=".4s">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-display"></i>
-                </div>
-                <div class="content">
-                  <h3>SaaS Focused</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-leaf"></i>
-                </div>
-                <div class="content">
-                  <h3>Awesome Design</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-grid-alt"></i>
-                </div>
-                <div class="content">
-                  <h3>Ready to Use</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-javascript"></i>
-                </div>
-                <div class="content">
-                  <h3>Vanilla JS</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-layers"></i>
-                </div>
-                <div class="content">
-                  <h3>Essential Sections</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5">
-              <div class="-extended">
-                <div class="features-icon" style="">
-                  <i class="lni lni-rocket"></i>
-                </div>
-                <div class="content">
-                  <h3>Highly Optimized</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor invidunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ======== feature-section end ======== -->
-
-    <!-- ======== subscribe-section start ======== -->
-    <section id="contact" class="subscribe-section pt-120">
-      <div class="container">
-        <div class="subscribe-wrapper img-bg">
-          <div class="row flex-column">
-            <div class="col-12 col-md-8 col-lg-7 mb-4">
-              <div class="section-title mb-15">
-                <h2 class="text-white mb-20">Verification Automated Immediately</h2>
-                <p class="text-white pr-5">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor
-                </p>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-5">
-              <a href="{{ route('signup') }}" class="main-btn bg-white text-primary btn-hover">
-                Signup
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    @include('frontend.layouts.footer')
-@include('layouts.scripts')
+<div class="frontend-wrapper min-vh-100">
+	@include('layouts.header')
+	@include('frontend.layouts.navbar')
+	<div class="mt-5 pt-5">
+		<div class="container mt-2">
+			<div class="row d-flex flex-sm-row-reverse flex-md-row">
+				<div class="col-12 col-md-5 col-lg-4 mb-4">
+					<div class="card mb-4">
+						<div class="card-header">Sms Verification</div>
+						<div class="card-body">
+							<?php $countries = \App\Models\Country::paginate($all ?? 20); ?>
+							@if(empty($countries))
+								<div class="alert alert-danger m-0">No countries available</div>
+							@else
+								@foreach($countries as $country)
+									<?php $iso2 = strtolower($country->iso2); ?>
+									<a href="{{ route('home.country', ['code' => $iso2]) }}" class="d-flex align-items-center w-100">
+										<div class="me-2">
+											<img src="https://flagcdn.com/w20/{{ $iso2 }}.png" srcset="https://flagcdn.com/w40/{{ $iso2 }}.png 2x" width="20" alt="{{ ucwords($country->name) }}" class="border h-100 object-cover">
+										</div>
+										<div class="text-dark">
+											{{ ucfirst($country->name) }}
+										</div>
+									</a>
+								@endforeach
+							@endif
+						</div>
+						<div class="card-footer">
+							<a href="{{ route('home.countries', ['all' => 250]) }}">Show all</a>
+						</div>
+					</div>
+					<div class="card mb-4">
+						<div class="card-header">Sms Verification</div>
+						<div class="card-body">
+							<?php $websites = \App\Models\Website::all(); ?>
+							@if(empty($websites))
+								<div class="alert alert-danger m-0">No websites available</div>
+							@else
+								<div class="accordion" id="accordionExample">
+									@foreach($websites as $website)
+									<?php $code = request()->get('code'); $country = empty($code) ? \App\Models\Country::where('id', '>', 0)->first() : \App\Models\Country::where(['iso2' => $code])->first(); ?>
+									  <div class="accordion-item">
+									    <h2 class="accordion-header" id="heading-{{ $website->id }}">
+									      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $website->id }}" aria-expanded="true" aria-controls="collapse-{{ $website->id }}">
+									        <div class="d-flex align-items-center justify-content-between w-100">
+									        	<div class="d-flex align-items-center">
+									        		<div class="me-2">
+														<img src="https://flagcdn.com/w20/{{ strtolower($country->iso2) }}.png" srcset="https://flagcdn.com/w40/{{ strtolower($country->iso2) }}.png 2x" width="20" alt="{{ ucwords($website->name) }}" class="border h-100 object-cover">
+													</div>
+													<div class="text-dark">
+														{{ ucfirst($website->name) }}
+													</div>
+									        	</div>
+												<div>
+													NGN{{ number_format($website->price) }}
+												</div>	
+											</div>
+									      </button>
+									    </h2>
+									    <div id="collapse-{{ $website->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $website->id }}" data-bs-parent="#accordionExample">
+									      <div class="accordion-body">
+									      	@if(auth()->check())
+										      	<div class="verify-sms-prompt" data-url="{{ route('verification.process', ['website_id' => $website->id, 'country_id' => $country->id]) }}">
+										      		<button class="btn btn-block w-100 text-white btn-primary verify-sms-button">
+											      		<img src="/images/spinner.svg" class="mr-2 d-none verify-sms-spinner mb-1">
+											      		Verify {{ ucwords($country->name) }} Number
+											      	</button>
+										      	</div>
+									      	@else
+									      		<a href="{{ route('login') }}" class="btn btn-dark w-100">Please Login to continue</a>
+									      	@endif
+									      </div>
+									    </div>
+									  </div>
+									@endforeach
+								</div>	
+							@endif
+						</div>
+						<div class="card-footer"></div>
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-lg-8 mb-4">
+					<?php $id = request()->get('id'); ?>
+					@if(empty($id))
+						<div class="card">
+							<div class="card-header">{{ config('app.name') }}</div>
+							<div class="card-body">
+								<h3 class="text-dark mb-4">Do you need a SMS verification? Stop looking.</h3>
+								<div class="text-muted mb-3">We have been providing fully automated SMS verifications for any website for you.</div>
+								<div class="text-muted">You no longer have to risk getting called in the middle of the night because you provided your own phone number when signed up to a website.</div>
+							</div>
+						</div>
+					@else
+						<?php $verification = \App\Models\Verification::find($id); ?>
+						@if(empty($verification))
+							<div class="alert alert-danger mb-3">Verification not found.</div>
+							<a href="{{ route('user.dashboard') }}">Go to Dashboard.</a>
+						@else
+							<div class="card">
+								<div class="card-body">
+									<div class="table-responsive table-responsive-sm">
+								  		<table class="table table-striped table-hover">
+										  <thead>
+										    <tr>
+										      <th scope="col">Country</th>
+										      <th scope="col">Website</th>
+										      <th scope="col">Phone</th>
+										      <th scope="col">Action</th>
+										    </tr>
+										  </thead>
+											  <tbody>
+											    <tr>
+											      <td>
+											      	{{ $verification->country->name }}
+											      </td>
+											      <td>
+											      	{{ $verification->website->name }}
+											      </td>
+											      <td>
+											      	<a href="tel:{{ ucfirst($verification->phone) }}">{{ ucfirst($verification->phone) }}</a>
+											      </td>
+											      <td>
+											      	<div class="">Read Sms</div>
+											      </td>
+											    </tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						@endif
+					@endif
+				</div>
+			</div>
+		</div>
+	</div>
+	@include('layouts.scripts')
+</div>
