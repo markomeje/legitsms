@@ -39,20 +39,7 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">Referrals</a>
-                          </h6>
-                          <h5 class="text-bold mb-10">+04</h5>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                      <div class="icon-card mb-30">
-                        <div class="icon purple">
-                          <i class="lni lni-dollar"></i>
-                        </div>
-                        <div class="content">
-                          <h6 class="mb-10">
-                            <a href="{{ route('admin.deposits') }}">Users</a>
+                            <a href="{{ route('admin.users') }}">Users</a>
                           </h6>
                           <h5 class="text-bold mb-10">
                             +{{ \App\Models\User::count()  }}
@@ -82,7 +69,7 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="{{ route('user.sms') }}">Sms</a>
+                            <a href="{{ route('admin.verifications') }}">Verifications</a>
                           </h6>
                           <h5 class="text-bold mb-10">
                             +{{ \App\Models\Sms::count()  }}
@@ -101,21 +88,6 @@
                           </h6>
                           <h5 class="text-bold mb-10">
                             +{{ \App\Models\Website::count() }}
-                          </h5>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
-                      <div class="icon-card mb-30">
-                        <div class="icon purple">
-                          <i class="lni lni-dollar"></i>
-                        </div>
-                        <div class="content">
-                          <h6 class="mb-10">
-                            <a href="">Phone Numbers</a>
-                          </h6>
-                          <h5 class="text-bold mb-10">
-                            +{{ \App\Models\Number::count() }}
                           </h5>
                         </div>
                       </div>

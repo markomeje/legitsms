@@ -68,4 +68,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sms::class);
     }
+
+    /**
+     * A user may have many verifications
+     */
+    public function verifications()
+    {
+        return $this->hasMany(Verification::class);
+    }
 }

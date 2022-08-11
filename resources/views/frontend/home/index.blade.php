@@ -105,6 +105,7 @@
 										      <th scope="col">Country</th>
 										      <th scope="col">Website</th>
 										      <th scope="col">Phone</th>
+										      <th scope="col">Code</th>
 										      <th scope="col">Action</th>
 										    </tr>
 										  </thead>
@@ -120,7 +121,23 @@
 											      	<a href="tel:{{ ucfirst($verification->phone) }}">{{ ucfirst($verification->phone) }}</a>
 											      </td>
 											      <td>
-											      	<div class="">Read Sms</div>
+											      	<small>
+											      		{{ $verification->code ?? 'Waiting . . .' }}
+											      	</small>
+											      </td>
+											      <td>
+											      	@if(empty($verification->code))
+												      	<div class="read-sms-prompt" data-url="{{ route('verification.read.sms', ['id' => $id]) }}">
+												      		<button class="btn text-white btn-primary read-sms-button">
+													      		<img src="/images/spinner.svg" class="mr-2 d-none read-sms-spinner mb-1">
+													      		Read Sms
+													      	</button>
+												      	</div>
+											      	@else
+											      		<div class="">
+												      		<button class="btn text-dark btn-secondary" disabled>Code Done</button>
+												      	</div>
+											      	@endif
 											      </td>
 											    </tr>
 											</tbody>

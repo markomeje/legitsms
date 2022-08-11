@@ -21,6 +21,7 @@ class UserFactory extends Factory
         return [
             'status' => 'inactive',
             'email' => $this->faker->unique()->safeEmail(),
+            'username' => $this->faker->username(),
             'password' => Hash::make('1234'),
             'verified' => false,
             'role' => 'user',

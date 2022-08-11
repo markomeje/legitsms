@@ -43,7 +43,6 @@ class VerificationController extends Controller
         try {
             Balance::save($price, $debit = true);
             $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->iso2)]);
-            // dd($autofications);
             // $autofications = ['response' => ['09098787656'], 'status' => 1];
             if ($autofications['status'] !== 1 || empty($autofications['response'])) {
                 Balance::save($price, $debit = false); //Credit back user balnce
@@ -67,7 +66,7 @@ class VerificationController extends Controller
                 'country_id' => $country->id,
                 'user_id' => auth()->id(),
                 'phone' => $phone,
-                'sms_code' => false,
+                'code' => null,
                 'status' => 'done',
             ]);
 
@@ -85,7 +84,63 @@ class VerificationController extends Controller
                 'status' => 0,
                 'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
             ]);
+        }    
+    }
+
+    //
+    public function read()
+    {
+        $id = request()->get('id');
+        if (empty($id)) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Invalid Operation. Try again.'
+            ]);
         }
-            
+
+        $verification = Verification::find($id);
+        if (empty($verification)) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Invalid Operation. Try again.'
+            ]);
+        }
+
+        try {
+            $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
+            // dd($autofications);
+            // $autofications = ['response' => ['09098787656'], 'status' => 1];
+            if ($autofications['status'] !== 1 || empty($autofications['response'])) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Reading sms timeout. Try again.'
+                ]);
+            }
+
+            $code = $autofications['response'][0] ?? null;
+            if (empty($code)) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Operation timeout. Try again.'
+                ]);
+            }
+
+            $verification->code = $code;
+            $verification->status = 'done';
+
+            return $verification->update() ? response()->json([
+                'status' => 1,
+                'info' => 'Code recieved.',
+                'redirect' => '',
+            ]) : response()->json([
+                'status' => 0,
+                'info' => 'Operation failed. Try again.'
+            ]);
+        } catch (Exception $exception) {
+            return response()->json([
+                'status' => 0,
+                'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
+            ]);
+        }    
     }
 }

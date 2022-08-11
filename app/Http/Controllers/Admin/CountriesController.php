@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Countries;
+use App\Models\Country;
 
 class CountriesController extends Controller
 {

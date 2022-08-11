@@ -22,19 +22,32 @@
 				<div class="col-12 col-md-4 col-lg-3 mb-4">
 					<div class="card border mb-4">
 						<div class="card-header">Profile</div>
-						<div class="card-body py-4 bg-primary">
-							<div class="rounded-circle m-auto mb-4" style="width: 140px; height: 140px;">
-								<img src="/images/avatar.png" class="w-100 h-100 rounded-circle">
+						<div class="card-body p-0">
+							<div class="py-4 bg-primary">
+								<div class="rounded-circle m-auto mb-4" style="width: 140px; height: 140px;">
+									<img src="/images/avatar.png" class="w-100 h-100 rounded-circle">
+								</div>
+								<div class="text-center">
+									<div class="text-white mb-3">
+										{{ ucfirst(auth()->user()->username ?? 'Legitsms') }}
+									</div>
+									<div class="text-white mb-3">
+										{{ auth()->user()->email }}
+									</div>
+									<div class="text-white mb-3">
+										Member since {{ auth()->user()->created_at->diffForHumans() }}
+									</div>
+								</div>
 							</div>
-							<div class="text-center">
-								<div class="text-white mb-3">
-									{{ ucfirst(auth()->user()->username ?? 'Legitsms') }}
+							<div class="p-4">
+								<div class="mb-3 p-3 bg-light border">
+									Balance: NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}
 								</div>
-								<div class="text-white mb-3">
-									{{ auth()->user()->email }}
+								<div class="mb-3 p-3 bg-light border">
+									Verifications: {{ auth()->user()->verifications->count() }}
 								</div>
-								<div class="text-white mb-3">
-									Member since {{ auth()->user()->created_at->diffForHumans() }}
+								<div class="mb-3 p-3 bg-light border">
+									Deposits: NGN{{ number_format(auth()->user()->deposits->sum('amount')) }}
 								</div>
 							</div>
 						</div>
@@ -92,17 +105,51 @@
 							  	</div>
 							  <div class="tab-pane fade" id="nav-verifications" role="tabpanel" aria-labelledby="nav-verifications-tab">
 							  	<div class="row mb-4">
-								  	<div class="col-12 col-md-6">
+								  	<div class="col-12">
 								  		<div class="card">
 								  			<div class="card-body">
-								  				@include('user.verifications.partials.table')
+								  				<?php $verifications = auth()->user()->verifications; ?>
+								  				@if(empty($verifications))
+								  					<div class="alert alert-danger"></div>
+								  				@else
+								  					@include('user.verifications.partials.table')
+								  				@endif
 								  			</div>
 								  		</div>
 								  	</div>
 								  </div>
 							  </div>
 							  <div class="tab-pane fade" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
-							  	Settings
+							  	<div>
+							  		<div class="card">
+							  			<div class="card-header">Personal</div>
+							  			<div class="card-body">
+							  				<?php $user = auth()->user(); ?>
+							  				<form class="update-personal-form" method="post" action="javascript:;" data-action="{{ route('user.update.personal') }}">
+														<div class="form-group input-group-lg mb-3">
+															<label class="text-muted mb-1">Username</label>
+															<input type="text" name="username" class="form-control username" placeholder="Enter username" value="{{ $user->username }}">
+															<small class="error text-danger username-error"></small>
+														</div>
+														<div class="form-group input-group-lg mb-3">
+															<label class="text-muted mb-1">Email</label>
+															<input type="email" name="email" class="form-control email" placeholder="Enter email" value="{{ $user->email }}">
+															<small class="error text-danger email-error"></small>
+														</div>
+														<div class="form-group input-group-lg mb-3">
+															<label class="text-muted mb-1">Password</label>
+															<input type="password" name="password" class="form-control password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+															<small class="error text-danger password-error"></small>
+														</div>
+														<button type="submit" class="btn btn-primary btn-lg btn-block text-white update-personal-button mb-4">
+										        <img src="/images/spinner.svg" class="mr-2 d-none update-personal-spinner mb-1">
+												        Update
+												    </button>
+										    		<div class="alert px-3 update-personal-message d-none mb-3"></div>
+							  				</form>
+							  			</div>
+							  		</div>
+							  	</div>
 							  </div>
 							</div>
 						</div>

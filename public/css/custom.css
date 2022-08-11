@@ -36,3 +36,9 @@
 .cursor-pointer {
     cursor: pointer !important;
 }
+
+.sm-circle {
+    height: 34px;
+    width: 34px;
+    line-height: 30px;
+}

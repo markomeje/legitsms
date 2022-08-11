@@ -67,7 +67,7 @@ function handleForm(info = {}) {
     var button = $('.'+info.button);
     var spinner = $('.'+info.spinner);
     var message = $('.'+info.message);
-    button.attr('disabled', true);
+    button.attr('disabled');
     spinner.removeClass('d-none');
     message.hasClass('d-none') ? '' : message.fadeOut();
 

@@ -21,6 +21,7 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
 
     Route::get('/generated', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('phone.generated');
     Route::post('/verification', [\App\Http\Controllers\User\VerificationController::class, 'process'])->name('verification.process');
+    Route::post('/read/sms', [\App\Http\Controllers\User\VerificationController::class, 'read'])->name('verification.read.sms');
 
     Route::get('/logout', [\App\Http\Controllers\Frontend\LoginController::class, 'logout'])->name('logout');
     
@@ -45,18 +46,30 @@ Route::middleware(['web', 'auth', 'admin', 'revalidate'])->domain(env('ADMIN_URL
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/deposits', [\App\Http\Controllers\Admin\DepositController::class, 'index'])->name('admin.deposits');
-    Route::get('/users', [\App\Http\Controllers\Admin\DepositController::class, 'index'])->name('admin.users');
+    Route::get('/users', [\App\Http\Controllers\Admin\UsersController::class, 'index'])->name('admin.users');
 
     Route::prefix('websites')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\WebsitesController::class, 'index'])->name('admin.websites');
         Route::post('/add', [\App\Http\Controllers\Admin\WebsitesController::class, 'add'])->name('admin.website.add');
         Route::post('/edit/{id}', [\App\Http\Controllers\Admin\WebsitesController::class, 'read'])->name('admin.website.edit');
     });
+
+    Route::prefix('countries')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\CountriesController::class, 'index'])->name('admin.countries');
+    });
+
+    Route::prefix('verifications')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\CountriesController::class, 'index'])->name('admin.verifications');
+    });
 });
 
 Route::middleware(['web', 'auth', 'user', 'revalidate'])->domain(env('USER_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/paystack', [\App\Http\Controllers\User\DashboardController::class, 'index']);
+
+    Route::post('/read/sms', [\App\Http\Controllers\User\VerificationController::class, 'read'])->name('client.verification.read.sms');
+
+    Route::post('/personal', [\App\Http\Controllers\User\DashboardController::class, 'update'])->name('user.update.personal');
 
     Route::post('/deposit', [\App\Http\Controllers\User\DepositController::class, 'deposit'])->name('fund.deposit');
     Route::get('/deposits', [\App\Http\Controllers\User\DepositController::class, 'index'])->name('user.deposits');

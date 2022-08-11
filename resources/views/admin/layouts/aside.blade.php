@@ -17,18 +17,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('user.deposits') }}" class="p-3 border rounded mb-4">
+        <a href="{{ route('admin.deposits') }}" class="p-3 border rounded mb-4">
           <span class="text">Deposits</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="p-3 border rounded mb-4">
-          <span class="text">Referrals</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('user.numbers') }}" class="p-3 border rounded mb-4">
-          <span class="text">Numbers</span>
         </a>
       </li>
       <li class="nav-item">
@@ -37,12 +27,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('user.sms') }}" class="p-3 border rounded mb-4">
-          <span class="text">Sms</span>
+        <a href="{{ route('admin.verifications') }}" class="p-3 border rounded mb-4">
+          <span class="text">Verifications</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('user.sms') }}" class="p-3 border rounded mb-4">
+        <a href="{{ route('admin.countries') }}" class="p-3 border rounded mb-4">
           <span class="text">Countries</span>
         </a>
       </li>          

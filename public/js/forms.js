@@ -7,6 +7,11 @@
         handleForm({form: $(this), button: 'add-website-button', spinner: 'add-website-spinner', message: 'add-website-message'});
     });
 
+    $('.update-personal-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'update-personal-button', spinner: 'update-personal-spinner', message: 'update-personal-message'});
+    });
+
     $('.read-sms-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'read-sms-button', spinner: 'read-sms-spinner', message: 'read-sms-message'});

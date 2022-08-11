@@ -9,18 +9,17 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{{ route('home') }}">Sms Verification</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ route('home') }}">Faq</a>
-            </li>
+            </li> --}}
             @if(!auth()->check())
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('signup') }}">Signup</a>
               </li>
             @endif
-            
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" href="{{ route('signup') }}">Reviews</a>
-            </li>
+            </li> --}}
           </ul>
           @if(auth()->check())
             <div class="d-flex align-items-center">

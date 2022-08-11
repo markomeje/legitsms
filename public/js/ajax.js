@@ -10,4 +10,8 @@
         handleAjax({that: $(this), button: 'verify-sms-button', spinner: 'verify-sms-spinner'});    
     });
 
+    $('.read-sms-prompt').on('click', function() {
+        handleAjax({that: $(this), button: 'read-sms-button', spinner: 'read-sms-spinner'});    
+    });
+
 })(jQuery);

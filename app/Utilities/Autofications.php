@@ -63,7 +63,7 @@ class Autofications
             return [
                 'status' => 1,
                 'response' => (array)$response->json(),
-                'info' => 'Reading sms successful.'
+                'info' => 'Reading sms passed.'
             ];
         } catch (Exception $error) {
             return [

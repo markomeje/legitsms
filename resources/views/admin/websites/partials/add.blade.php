@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="add-website-message alert d-none mb-4"></div>
-          <button type="submit" class="main-btn btn-hover text-white add-website-button mb-4">
+          <button type="submit" class="btn btn-primary btn-lg btn-hover text-white add-website-button mb-4">
               <img src="/images/spinner.svg" class="mr-2 d-none add-website-spinner mb-1">
               Add
           </button>

@@ -11,7 +11,7 @@
               <div>
                 <div class="row">
                   <div class="col-12 col-md-4 col-lg-3 mb-4">
-                      <button type="button" class="main-btn m-0 btn-hover w-100 text-white" data-bs-toggle="modal" data-bs-target="#add-website">Add Website</button>
+                      <button type="button" class="btn btn-primary btn-lg m-0 btn-hover w-100 text-white" data-bs-toggle="modal" data-bs-target="#add-website">Add Website</button>
                       @include('admin.websites.partials.add')
                   </div>
                 </div>
