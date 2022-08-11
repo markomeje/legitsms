@@ -40,8 +40,13 @@
 								</div>
 							</div>
 							<div class="p-4">
-								<div class="mb-3 p-3 bg-light border">
-									Balance: NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}
+								<div class="mb-3 p-3 bg-light border d-flex align-items-center">
+									<div class="me-2">Balance: NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }}</div>
+									@if(!empty($reference))
+                    <a href="{{ route('user.dashboard') }}" class="text-decoration-none text-primary px-3 py-1 rounded-pill bg-danger" style="font-size: 8px;">
+                      <small class="text-white">Reload</small>
+                    </a>
+                  @endif
 								</div>
 								<div class="mb-3 p-3 bg-light border">
 									Verifications: {{ auth()->user()->verifications->count() }}
