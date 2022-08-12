@@ -12,7 +12,7 @@
                 @if(empty($user))
                   <div class="alert alert-danger mb-0">Invalid verification link. <a href="javascript:;" class="text-primary" data-bs-toggle="modal" data-bs-target="#resend-verification-link">Click here</a> to resend link</div>
                   @include('frontend.signup.resend')
-                @elseif(\Carbon\Carbon::parse($user->expiry)->diffInMinutes(\Carbon\Carbon::now()) > 2)
+                @elseif(\Carbon\Carbon::parse($user->expiry)->diffInMinutes(\Carbon\Carbon::now()) > 180)
                   <div class="alert alert-danger mb-0">Expired verification link. <a href="javascript:;" class="text-primary" data-bs-toggle="modal" data-bs-target="#resend-verification-link">Click here</a> to resend link</div> 
                   @include('frontend.signup.resend')
                 @else

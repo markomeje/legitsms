@@ -50,7 +50,7 @@ class SignupController extends Controller
                 'role' => 'user',
                 'status' => 'inactive',
                 'token' => $token,
-                'expiry' => Carbon::now()->addMinutes(2),
+                'expiry' => Carbon::now()->addMinutes(180),
                 'verified' => false,
             ]);
 
@@ -117,7 +117,7 @@ class SignupController extends Controller
             }
 
             $user->token = $token;
-            $user->expiry = Carbon::now()->addMinutes(2);
+            $user->expiry = Carbon::now()->addMinutes(180);
             $user->update();
             $link = route('signup.verify', ['token' => $token]);
             $mail = new VerificationMail([
