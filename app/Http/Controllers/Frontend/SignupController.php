@@ -27,7 +27,7 @@ class SignupController extends Controller
         $validator = Validator::make($data, [ 
             'email' => ['required', (new EmailRule), 'unique:users'],  
             'password' => ['required', 'string'],
-            'username' => ['required', 'string', 'max:15'],
+            'username' => ['required', 'string', 'max:15', 'unique:users'],
             'retype' => ['required', 'same:password'],
             'agree' => ['required', 'string'],
         ], ['retype.required' => 'Please enter same password', 'agree.required' => 'You have to agree to our terms and conditions', 'retype.same:password' => 'Retype thesame password']);
