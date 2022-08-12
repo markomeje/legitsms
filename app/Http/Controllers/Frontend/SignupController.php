@@ -45,7 +45,7 @@ class SignupController extends Controller
             $token = Str::random(64);
             $user = User::create([
                 'email' => $email,
-                'username' => $data['username'] ?? null,
+                'username' => $data['username'],
                 'password' => Hash::make($data['password']),
                 'role' => 'user',
                 'status' => 'inactive',

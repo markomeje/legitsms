@@ -1,7 +1,5 @@
 <!-- ======== footer start ======== -->
     <footer class="footer">
-      <div>
-        <
-      </div>
+      <div></div>
     </footer>
     <!-- ======== footer end ======== -->

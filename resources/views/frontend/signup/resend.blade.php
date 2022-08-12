@@ -14,7 +14,7 @@
             <small class="error text-danger email-error"></small>
           </div>
           <div class="resend-verification-link-message alert d-none mb-4"></div>
-          <button type="submit" class="main-btn w-100 btn-hover text-white resend-verification-link-button mb-4">
+          <button type="submit" class="btn btn-primary btn-lg w-100 btn-hover text-white resend-verification-link-button mb-4">
               <img src="/images/spinner.svg" class="mr-2 d-none resend-verification-link-spinner mb-1">
               Resend
           </button>

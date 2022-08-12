@@ -1,8 +1,7 @@
 @include('layouts.header')
   @include('frontend.layouts.navbar')
-<!-- ======== hero-section start ======== -->
-    <section class="mt-5">
-      <div class="container">
+    <section class="mt-5 pt-5">
+      <div class="container mt-5">
         <div class="row">
           <div class="col-12 mb-4">
             @if(request()->get('resent'))
@@ -26,6 +25,5 @@
         </div>
       </div>
     </section>
-    <!-- ======== hero-section end ======== -->
     @include('frontend.layouts.footer')
 @include('layouts.scripts')

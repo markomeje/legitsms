@@ -6,6 +6,7 @@
 			<div class="row d-flex flex-sm-row-reverse flex-md-row">
 				<div class="col-12 col-md-5 col-lg-4 mb-4">
 					<div class="card mb-4">
+						<?php $all = request()->get('all') ?? ''; ?>
 						<div class="card-header">Sms Verification</div>
 						<div class="card-body">
 							<?php $countries = \App\Models\Country::paginate($all ?? 20); ?>
@@ -14,7 +15,7 @@
 							@else
 								@foreach($countries as $country)
 									<?php $iso2 = strtolower($country->iso2); ?>
-									<a href="{{ route('home.country', ['code' => $iso2]) }}" class="d-flex align-items-center w-100">
+									<a href="{{ route('home.country', ['code' => $iso2, 'all' => $all]) }}" class="d-flex align-items-center w-100">
 										<div class="me-2">
 											<img src="https://flagcdn.com/w20/{{ $iso2 }}.png" srcset="https://flagcdn.com/w40/{{ $iso2 }}.png 2x" width="20" alt="{{ ucwords($country->name) }}" class="border h-100 object-cover">
 										</div>
@@ -25,9 +26,11 @@
 								@endforeach
 							@endif
 						</div>
-						<div class="card-footer">
-							<a href="{{ route('home.countries', ['all' => 250]) }}">Show all</a>
-						</div>
+						@if(empty($all))
+							<div class="card-footer">
+								<a href="{{ route('home.countries', ['all' => 250]) }}">Show all</a>
+							</div>
+						@endif
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">Sms Verification</div>
