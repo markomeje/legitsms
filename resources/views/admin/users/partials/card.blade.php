@@ -1,25 +1,22 @@
-<div class="card border-0 shadow-sm position-relative rounded-0">
+<div class="card border-0 shadow-sm position-relative">
     <?php $status = strtolower($user->status ?? ''); ?>
-    <div class="card-header py-4 d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-            <a href="tel:{{ $user->email }}" class="mr-2 text-decoration-none sm-circle text-center rounded-circle border border-primary">
-                <small class="text-primary tiny-font mt-2">
-                    <i class="icofont-email"></i>
-                </small>
-            </a>
+    <div class="card-body d-flex align-items-center">
+        <a href="mailto:{{ $user->email }}" class="rounded-circle me-2" style="height: 45px; width: 45px; line-height: 30px;">
+            <div class="p-1 m-0 border border-{{ $status == 'active' ? 'success' : 'danger' }} rounded-circle w-100 h-100">
+                <div class="w-100 h-100 border rounded-circle text-center" style="background-color: {{ randomrgba() }};">
+                    <small class="text-main-dark">
+                        {{ substr(strtoupper($user->username), 0, 1) }}
+                    </small>
+                </div>
+            </div>
+        </a>
+        <div class="">
+            <div class="text-dark">
+                {{ ucfirst(\Str::limit($user->username, 12)) }}
+            </div>
+            <small class="text-dark">
+                {{ $user->created_at->diffForHumans() }}
+            </small> 
         </div>
-        <div class="text-dark">
-            {{ ucfirst($user->status) }}
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="text-dark">
-            {{ ucfirst($user->username ?? 'Nill') }}
-        </div>
-    </div>
-    <div class="card-footer bg-white py-4 d-flex justify-content-between rounded-0">
-        <small class="text-dark">
-            {{ $user->created_at->diffForHumans() }}
-        </small> 
     </div>
 </div>

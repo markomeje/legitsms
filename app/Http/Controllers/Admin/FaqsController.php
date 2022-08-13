@@ -2,27 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Website;
+use App\Models\Faq;
 use Validator;
 use Exception;
 
-class WebsitesController extends Controller
+class FaqsController extends Controller
 {
     //
     public function index()
     {
-        return view('admin.websites.index', ['title' => 'All Websites | Legitsms', 'websites' => Website::all()]);
+        return view('admin.faqs.index', ['title' => 'All Faqs | Legitsms', 'faqs' => Faq::all()]);
     }
 
     //
     public function add()
     {
-        $data = request()->all(['name', 'price', 'status', 'code']);
+        $data = request()->all(['question', 'answer']);
         $validator = Validator::make($data, [ 
-            'code' => ['required', 'string'],  
-            'status' => ['nullable', 'boolean'],  
-            'name' => ['required', 'string'],  
-            'price' => ['required', 'integer'],  
+            'answer' => ['required', 'string'],  
+            'question' => ['required', 'string'],  
         ]);
 
         if ($validator->fails()) {
@@ -32,34 +30,25 @@ class WebsitesController extends Controller
             ]);
         }
 
-        $webiste = Website::where(['code' => $data['code']])->first();
-        if (!empty($webiste)) {
+        $faq = Faq::where(['question' => $data['question']])->first();
+        if (!empty($faq)) {
             return response()->json([
                 'status' => 0,
-                'info' => 'Website with code already added.'
-            ]);
-        }
-
-        $webiste = Website::where(['name' => $data['name']])->first();
-        if (!empty($webiste)) {
-            return response()->json([
-                'status' => 0,
-                'info' => 'Website with name already added.'
+                'info' => 'Faq with already added.'
             ]);
         }
 
         try {
 
-            $website = Website::create([
-                'name' => $data['name'],
-                'price' => $data['price'],
-                'code' => $data['code'],
-                'active' => true,
+            $faq = Faq::create([
+                'answer' => $data['answer'],
+                'question' => $data['question'],
+                'status' => true,
             ]);
 
-            return $website->id > 0 ? response()->json([
+            return $faq->id > 0 ? response()->json([
                 'status' => 1,
-                'info' => ' Website added.',
+                'info' => ' Faq added.',
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,
@@ -77,12 +66,10 @@ class WebsitesController extends Controller
     //
     public function edit($id = 0)
     {
-        $data = request()->all(['price', 'name', 'code', 'status']);
+        $data = request()->all(['question', 'answer']);
         $validator = Validator::make($data, [ 
-            'code' => ['required'],  
-            'status' => ['nullable', 'boolean'],  
-            'name' => ['required', 'string'],  
-            'price' => ['required', 'string'],  
+            'answer' => ['required', 'string'],  
+            'question' => ['required', 'string'],  
         ]);
 
         if ($validator->fails()) {
@@ -92,8 +79,8 @@ class WebsitesController extends Controller
             ]);
         }
 
-        $website = Website::find($id);
-        if (empty($website)) {
+        $faq = Faq::find($id);
+        if (empty($faq)) {
             return response()->json([
                 'status' => 0,
                 'info' => 'Unknown error. Try again.'
@@ -101,14 +88,12 @@ class WebsitesController extends Controller
         }
 
         try {
-            $website->name = $data['name'];
-            $website->price = $data['price'];
-            $website->active = $data['status'] ?? true;
-            $website->code = $data['code'];
 
-            return $website->update() ? response()->json([
+            $faq->answer = $data['answer'];
+            $faq->question = $data['question'];
+            return $faq->update() ? response()->json([
                 'status' => 1,
-                'info' => ' Website updated.',
+                'info' => ' Faq updated.',
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,
@@ -128,26 +113,17 @@ class WebsitesController extends Controller
     {
 
         try {
-            $website = Website::find($id);
-            if (empty($website)) {
+            $faq = Faq::find($id);
+            if (empty($faq)) {
                 return response()->json([
                     'status' => 0,
                     'info' => 'Unknown error. Try again.'
                 ]);
             }
 
-            if ($website->verifications()->exists()) {
-                if ($website->verifications->count() > 0) {
-                    return response()->json([
-                        'status' => 0,
-                        'info' => 'Webiste is already in use.'
-                    ]);
-                }
-            }
-
-            return $website->delete() ? response()->json([
+            return $faq->delete() ? response()->json([
                 'status' => 1,
-                'info' => ' Website deleted.',
+                'info' => ' Faq deleted.',
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,

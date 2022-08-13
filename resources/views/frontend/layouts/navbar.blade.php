@@ -9,28 +9,38 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="{{ route('home') }}">Sms Verification</a>
             </li>
-            {{-- <li class="nav-item">
-              <a class="nav-link" href="{{ route('home') }}">Faq</a>
-            </li> --}}
-            @if(!auth()->check())
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('signup') }}">Signup</a>
-              </li>
-            @endif
-            {{-- <li class="nav-item">
-              <a class="nav-link" href="{{ route('signup') }}">Reviews</a>
-            </li> --}}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('faq') }}">Faq</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+            </li>
           </ul>
-          @if(auth()->check())
-            <div class="d-flex align-items-center">
-              <a href="{{ route('user.dashboard') }}" class="me-2 text-dark">Dashboard</a>
-              <a href="{{ route('logout') }}" class="btn btn-dark rounded-pill px-4">Logout</a>
-            </div>
-          @else
-            <div class="d-flex">
-              <a href="{{ route('login') }}" class="btn btn-dark rounded-pill px-4">Login</a>
-            </div>
-          @endif
+          <div class="d-flex">
+              @if(auth()->check())
+                <div class="me-3">
+                  <a class="" href="{{ route('logout') }}">Logout</a>
+                </div>
+                <div class="">
+                  @if(auth()->user()->role == 'user')
+                    <a class="text-dark" href="{{ route('user.dashboard') }}">
+                      <small><i class="icofont-ui-user"></i></small> {{ ucfirst(auth()->user()->username) }} (NGN{{ auth()->user()->account ? number_format(auth()->user()->account->balance) : 0 }})
+                    </a>
+                  @else
+                    <a class="text-dark" href="{{ route('admin.dashboard') }}">
+                      <small><i class="icofont-ui-user"></i></small> {{ ucfirst(auth()->user()->username) }}
+                    </a>
+                  @endif
+                </div>
+              @else
+                <div class="me-3">
+                  <a class="" href="{{ route('login') }}">Login</a>
+                </div>
+                <div class="">
+                    <a class="" href="{{ route('signup') }}">Signup</a>
+                  </div>
+              @endif
+          </div>
         </div>
       </div>
   </nav>

@@ -99,10 +99,25 @@
                         </div>
                         <div class="content">
                           <h6 class="mb-10">
-                            <a href="">Countries</a>
+                            <a href="{{ route('admin.countries') }}">Countries</a>
                           </h6>
                           <h5 class="text-bold mb-10">
                             +{{ \App\Models\Country::count() }}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                      <div class="icon-card mb-30">
+                        <div class="icon purple">
+                          <i class="lni lni-dollar"></i>
+                        </div>
+                        <div class="content">
+                          <h6 class="mb-10">
+                            <a href="{{ route('admin.faqs') }}">Faqs</a>
+                          </h6>
+                          <h5 class="text-bold mb-10">
+                            +{{ \App\Models\Faq::count() }}
                           </h5>
                         </div>
                       </div>

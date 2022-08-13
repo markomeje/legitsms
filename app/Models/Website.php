@@ -27,4 +27,12 @@ class Website extends Model
         'active' => true, 
         'inactive' => false
     ];
+
+    /**
+     * A website has many verifications
+     */
+    public function verifications()
+    {
+        return $this->hasMany(Verification::class);
+    }
 }

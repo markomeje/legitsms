@@ -4,9 +4,9 @@
     <main class="main-wrapper">
     	@include('admin.layouts.navbar')
         <div class="container-fluid">
-            <div class="pt-4 px-4 border bg-light border-raduis-lg mt-4">
+            <div class="p-4 shadow-sm bg-light border-raduis-lg mt-4">
               <div class="">
-                <h4 class="text-dark mb-3">
+                <h4 class="text-dark m-0">
                 +{{ number_format(\App\Models\User::count()) }} Users
               </h4>
               </div>

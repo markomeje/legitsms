@@ -35,6 +35,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('HELLO_SUBREFILL_USERNAME'), 'Contact Form')->view('mails.contact');
+        return $this->from($this->contact['email'], 'Contact Form Request')->view('mails.contact');
     }
 }
+
+

@@ -17,9 +17,14 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
     Route::get('/countries', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.countries');
     Route::get('/country', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.country');
+
     Route::get('/faq', [\App\Http\Controllers\Frontend\FaqController::class, 'index'])->name('faq');
 
+    Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
+    Route::post('/contact/send', [\App\Http\Controllers\Frontend\ContactController::class, 'send'])->name('contact.send');
+
     Route::get('/generated', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('phone.generated');
+
     Route::post('/verification', [\App\Http\Controllers\User\VerificationController::class, 'process'])->name('verification.process');
     Route::post('/read/sms', [\App\Http\Controllers\User\VerificationController::class, 'read'])->name('verification.read.sms');
 
@@ -51,11 +56,20 @@ Route::middleware(['web', 'auth', 'admin', 'revalidate'])->domain(env('ADMIN_URL
     Route::prefix('websites')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\WebsitesController::class, 'index'])->name('admin.websites');
         Route::post('/add', [\App\Http\Controllers\Admin\WebsitesController::class, 'add'])->name('admin.website.add');
-        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\WebsitesController::class, 'read'])->name('admin.website.edit');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\WebsitesController::class, 'edit'])->name('admin.website.edit');
+        Route::post('/delete/{id}', [\App\Http\Controllers\Admin\WebsitesController::class, 'delete'])->name('admin.website.delete');
+    });
+
+    Route::prefix('faqs')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\FaqsController::class, 'index'])->name('admin.faqs');
+        Route::post('/add', [\App\Http\Controllers\Admin\FaqsController::class, 'add'])->name('admin.faq.add');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\FaqsController::class, 'edit'])->name('admin.faq.edit');
+        Route::post('/delete/{id}', [\App\Http\Controllers\Admin\FaqsController::class, 'delete'])->name('admin.faq.delete');
     });
 
     Route::prefix('countries')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\CountriesController::class, 'index'])->name('admin.countries');
+        Route::post('/delete/{id}', [\App\Http\Controllers\Admin\CountriesController::class, 'delete'])->name('admin.country.delete');
     });
 
     Route::prefix('verifications')->group(function () {

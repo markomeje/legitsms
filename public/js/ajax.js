@@ -2,8 +2,12 @@
 
 	'use strict';
 
-    $('.delete-staff').on('click', function() {
-        handleAjax({that: $(this), button: 'staff-button', spinner: 'staff-spinner'});    
+    $('.delete-website-prompt').on('click', function() {
+        handleAjax({that: $(this), button: 'website-button', spinner: 'website-spinner'});    
+    });
+
+    $('.delete-faq-prompt').on('click', function() {
+        handleAjax({that: $(this), button: 'faq-button', spinner: 'faq-spinner'});    
     });
 
     $('.verify-sms-prompt').on('click', function() {

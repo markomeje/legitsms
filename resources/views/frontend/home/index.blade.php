@@ -6,16 +6,21 @@
 			<div class="row d-flex flex-sm-row-reverse flex-md-row">
 				<div class="col-12 col-md-5 col-lg-4 mb-4">
 					<div class="card mb-4">
-						<?php $all = request()->get('all') ?? ''; ?>
-						<div class="card-header">Sms Verification</div>
+						<?php $all_countries = request()->get('all_countries') ?? ''; ?>
+						<div class="card-header d-flex justify-content-between">
+							<div class="text-dark">
+								Sms Verification
+							</div>
+							{{-- <a href="javascript:;" class="btn btn-sm btn-primary">Real</a> --}}
+						</div>
 						<div class="card-body">
-							<?php $countries = \App\Models\Country::paginate($all ?? 20); ?>
+							<?php $countries = empty($all_countries) ? \App\Models\Country::paginate(20) : \App\Models\Country::all() ; ?>
 							@if(empty($countries))
 								<div class="alert alert-danger m-0">No countries available</div>
 							@else
 								@foreach($countries as $country)
 									<?php $iso2 = strtolower($country->iso2); ?>
-									<a href="{{ route('home.country', ['code' => $iso2, 'all' => $all]) }}" class="d-flex align-items-center w-100">
+									<a href="{{ route('home', ['code' => $iso2, 'all_countries' => $all_countries]) }}" class="d-flex align-items-center w-100">
 										<div class="me-2">
 											<img src="https://flagcdn.com/w20/{{ $iso2 }}.png" srcset="https://flagcdn.com/w40/{{ $iso2 }}.png 2x" width="20" alt="{{ ucwords($country->name) }}" class="border h-100 object-cover">
 										</div>
@@ -26,9 +31,9 @@
 								@endforeach
 							@endif
 						</div>
-						@if(empty($all))
+						@if(empty($all_countries))
 							<div class="card-footer">
-								<a href="{{ route('home.countries', ['all' => 250]) }}">Show all</a>
+								<a href="{{ route('home', ['all_countries' => 'true']) }}">Show all</a>
 							</div>
 						@endif
 					</div>
@@ -39,10 +44,26 @@
 							@if(empty($websites))
 								<div class="alert alert-danger m-0">No websites available</div>
 							@else
+								<?php 
+							     	$search = request()->get('search'); 
+							     	if(!empty($search)) {
+							     		session(['search' => $search]);
+							     		$websites = \App\Models\Website::query()->where('name', 'like', "%{$search}%")->get(); 
+							     	} 
+							     ?>
+								<form action="" method="get" class="d-flex mb-3">
+							        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{ $search ?? '' }}">
+							        <button class="btn btn-success" type="submit">Search</button>
+							     </form>
+
+							     @if(!empty($search) && empty($websites->count()))
+							     	<div class="alert alert-danger">No result found.</div>
+							     @endif
+
 								<div class="accordion" id="accordionExample">
 									@foreach($websites as $website)
 									<?php $code = request()->get('code'); $country = empty($code) ? \App\Models\Country::where('id', '>', 0)->first() : \App\Models\Country::where(['iso2' => $code])->first(); ?>
-									  <div class="accordion-item">
+									  <div class="accordion-item mb-3">
 									    <h2 class="accordion-header" id="heading-{{ $website->id }}">
 									      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $website->id }}" aria-expanded="true" aria-controls="collapse-{{ $website->id }}">
 									        <div class="d-flex align-items-center justify-content-between w-100">

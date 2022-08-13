@@ -9,6 +9,6 @@ class UsersController extends Controller
     //
     public function index()
     {
-        return view('admin.users.index', ['title' => 'All Users | Legitsms', 'users' => User::paginate(20)]);
+        return view('admin.users.index', ['title' => 'All Users | Legitsms', 'users' => User::where(['role' => 'user'])->paginate(20)]);
     }
 }

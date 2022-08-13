@@ -2,9 +2,29 @@
 
 	'use strict';
 
+    $('.contact-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'contact-button', spinner: 'contact-spinner', message: 'contact-message'});
+    });
+
+    $('.edit-faq-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'edit-faq-button', spinner: 'edit-faq-spinner', message: 'edit-faq-message'});
+    });
+
+    $('.add-faq-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'add-faq-button', spinner: 'add-faq-spinner', message: 'add-faq-message'});
+    });
+
     $('.add-website-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'add-website-button', spinner: 'add-website-spinner', message: 'add-website-message'});
+    });
+
+    $('.edit-website-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'edit-website-button', spinner: 'edit-website-spinner', message: 'edit-website-message'});
     });
 
     $('.update-personal-form').submit(function(event){

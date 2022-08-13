@@ -9,6 +9,6 @@ class CountriesController extends Controller
     //
     public function index()
     {
-        return view('admin.countries.index', ['title' => 'All Countries | Legitsms', 'countries' => Country::all()]);
+        return view('admin.countries.index', ['title' => 'All Countries | Legitsms', 'countries' => Country::paginate(20)]);
     }
 }
