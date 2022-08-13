@@ -4,7 +4,7 @@
 	<div class="mt-5 pt-5">
 		<div class="container mt-2">
 			<div class="row d-flex flex-sm-row-reverse flex-md-row">
-				<div class="col-12 col-md-5 col-lg-4 mb-4">
+				<div class="col-12 col-md-7 col-lg-5 mb-4">
 					<div class="card mb-4">
 						<?php $all_countries = request()->get('all_countries') ?? ''; ?>
 						<div class="card-header d-flex justify-content-between">
@@ -18,17 +18,22 @@
 							@if(empty($countries))
 								<div class="alert alert-danger m-0">No countries available</div>
 							@else
-								@foreach($countries as $country)
-									<?php $iso2 = strtolower($country->iso2); ?>
-									<a href="{{ route('home', ['code' => $iso2, 'all_countries' => $all_countries]) }}" class="d-flex align-items-center w-100">
-										<div class="me-2">
-											<img src="https://flagcdn.com/w20/{{ $iso2 }}.png" srcset="https://flagcdn.com/w40/{{ $iso2 }}.png 2x" width="20" alt="{{ ucwords($country->name) }}" class="border h-100 object-cover">
+								<div class="row">
+									@foreach($countries as $country)
+										<div class="col-12 col-md-6 mb-2">
+										<?php $iso2 = strtolower($country->iso2); ?>
+											<a href="{{ route('home', ['code' => $iso2, 'all_countries' => $all_countries]) }}" class="d-flex align-items-center w-100 {{ request()->get('code') == $iso2 ? 'bg-primary text-white px-1' : 'text-dark' }}">
+												<div class="me-2">
+													<img src="https://flagcdn.com/w20/{{ $iso2 }}.png" srcset="https://flagcdn.com/w40/{{ $iso2 }}.png 2x" width="20" alt="{{ ucwords($country->name) }}" class="border h-100 object-cover">
+												</div>
+												<small class="">
+													{{ ucfirst($country->name) }}
+												</small>
+											</a>
 										</div>
-										<div class="text-dark">
-											{{ ucfirst($country->name) }}
-										</div>
-									</a>
-								@endforeach
+									@endforeach
+								</div>
+									
 							@endif
 						</div>
 						@if(empty($all_countries))
@@ -103,7 +108,7 @@
 						<div class="card-footer"></div>
 					</div>
 				</div>
-				<div class="col-12 col-md-7 col-lg-8 mb-4">
+				<div class="col-12 col-md-5 col-lg-7 mb-4">
 					<?php $id = request()->get('id'); ?>
 					@if(empty($id))
 						<div class="card">
