@@ -72,7 +72,7 @@
                             <a href="{{ route('admin.verifications') }}">Verifications</a>
                           </h6>
                           <h5 class="text-bold mb-10">
-                            +{{ \App\Models\Sms::count()  }}
+                            +{{ \App\Models\Verification::count()  }}
                           </h5>
                         </div>
                       </div>
