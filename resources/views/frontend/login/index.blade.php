@@ -19,7 +19,7 @@
 							<div class="form-group input-group-lg col-12 mb-3">
 								<label class="text-muted d-flex justify-content-between mb-1">
 									<span>Password</span>
-									<a href="">
+									<a href="{{ route('forgot.password') }}">
 										<small>Forgot password?</small>
 									</a>
 								</label>

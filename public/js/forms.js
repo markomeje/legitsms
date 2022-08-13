@@ -2,6 +2,16 @@
 
 	'use strict';
 
+    $('.reset-password-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'reset-password-button', spinner: 'reset-password-spinner', message: 'reset-password-message'});
+    });
+
+    $('.forgot-password-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'forgot-password-button', spinner: 'forgot-password-spinner', message: 'forgot-password-message'});
+    });
+
     $('.contact-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'contact-button', spinner: 'contact-spinner', message: 'contact-message'});

@@ -29,6 +29,13 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::post('/read/sms', [\App\Http\Controllers\User\VerificationController::class, 'read'])->name('verification.read.sms');
 
     Route::get('/logout', [\App\Http\Controllers\Frontend\LoginController::class, 'logout'])->name('logout');
+
+    Route::group(['prefix' => 'password', 'middleware' => 'guest'], function () {
+        Route::get('/', [\App\Http\Controllers\Frontend\PasswordController::class, 'index'])->name('forgot.password');
+        Route::post('/reset/process', [\App\Http\Controllers\Frontend\PasswordController::class, 'process'])->name('password.reset.process');
+        Route::get('/reset/{token}', [\App\Http\Controllers\Frontend\PasswordController::class, 'verify'])->name('reset.verify');
+        Route::post('/reset', [\App\Http\Controllers\Frontend\PasswordController::class, 'reset'])->name('password.reset');
+    });
     
     Route::group(['middleware' => 'guest'], function () {
         Route::prefix('login')->group(function () {

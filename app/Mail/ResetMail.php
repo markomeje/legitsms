@@ -35,6 +35,6 @@ class ResetMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('HELLO_SUBREFILL_USERNAME'), 'Subrefill')->view('mails.password');
+        return $this->from(env('MAIL_FROM_ADDRESS'), 'Legitsms')->view('mails.password');
     }
 }

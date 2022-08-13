@@ -14,7 +14,7 @@
 							{{-- <a href="javascript:;" class="btn btn-sm btn-primary">Real</a> --}}
 						</div>
 						<div class="card-body">
-							<?php $countries = empty($all_countries) ? \App\Models\Country::paginate(20) : \App\Models\Country::all() ; ?>
+							<?php $countries = empty($all_countries) ? \App\Models\Country::paginate(50) : \App\Models\Country::all() ; ?>
 							@if(empty($countries))
 								<div class="alert alert-danger m-0">No countries available</div>
 							@else
