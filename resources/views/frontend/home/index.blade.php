@@ -150,7 +150,7 @@
 											      	{{ $verification->website->name }}
 											      </td>
 											      <td>
-											      	<a href="tel:{{ ucfirst($verification->phone) }}">+{{ ucfirst($verification->phone) }}</a>
+											      	<a href="tel:{{ $verification->phone }}">+{{ ucfirst($verification->phone) }}</a>
 											      </td>
 											      <td>
 											      	<small class="sms-code text-dark">

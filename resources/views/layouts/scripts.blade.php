@@ -40,9 +40,19 @@
                             loader.addClass('d-none');
                             code.html(response.code).fadeIn();
                         }else {
-                            var fiveMinutes = 60 * 10,
-                            display = $('#timer');
-                            startTimer(fiveMinutes, display);
+                            var minute = 10;
+                              var sec = 60;
+                              setInterval(function() {
+                                document.getElementById("timer").innerHTML = minute + " : " + sec;
+                                sec--;
+                                if (sec == 00) {
+                                  minute --;
+                                  sec = 60;
+                                  if (minute == 0) {
+                                    minute = 10;
+                                  }
+                                }
+                              }, 1000);
                             setTimeout(function() {
                                 verificationAsync();
                             }, 30000);
@@ -57,22 +67,6 @@
 
             verificationAsync();
 
-            function startTimer(duration, display) {
-                var timer = duration, minutes, seconds;
-                setInterval(function () {
-                    minutes = parseInt(timer / 60, 10);
-                    seconds = parseInt(timer % 60, 10);
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    display.text(minutes + ":" + seconds);
-
-                    if (--timer < 0) {
-                        timer = duration;
-                    }
-                }, 1000);
-            }
         @endif
     </script>
 </body>

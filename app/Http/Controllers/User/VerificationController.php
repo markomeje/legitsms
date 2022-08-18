@@ -41,8 +41,7 @@ class VerificationController extends Controller
         }
 
         try {
-            $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->iso2)]);
-            dd($autofications);
+            $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->id_number)]);
             // $autofications = ['response' => ['09098787656'], 'status' => 1];
             if ($autofications['status'] !== 1 || empty($autofications['response'])) {
                 return response()->json([
@@ -115,7 +114,7 @@ class VerificationController extends Controller
         try {
             $action = request()->get('action');
             if('blacklist' == $action) {
-                $autofications = Autofications::Blacklist(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
+                $autofications = Autofications::Blacklist(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->id_number), 'phone_number' => $verification->phone]);
 
                 if ($autofications['status'] !== 1) {
                     return response()->json([
@@ -138,12 +137,12 @@ class VerificationController extends Controller
                     ]);
                 }
             }else {
-                $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
+                $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->id_number), 'phone_number' => $verification->phone]);
 
                 if ($autofications['status'] !== 1) {
                     return response()->json([
                         'status' => 0,
-                        'info' => 'Reading sms failed. Try again.',
+                        'info' => 'Verification failed. Try again.',
                         'autofications' => $autofications,
                     ]);
                 }
@@ -152,7 +151,8 @@ class VerificationController extends Controller
                 if (empty($code)) {
                     return response()->json([
                         'status' => 0,
-                        'info' => 'Operation timeout. Try again.'
+                        'info' => 'Waiting code . . .',
+                        'autofications' => $autofications,
                     ]);
                 }
 
@@ -172,7 +172,7 @@ class VerificationController extends Controller
 
             return response()->json([
                 'status' => 0,
-                'info' => 'Unknown error. Try again.'
+                'info' => 'Operation override. Try again.'
             ]);
         } catch (Exception $exception) {
             Balance::save($price, $debit = false); //Credit back user balance incase
