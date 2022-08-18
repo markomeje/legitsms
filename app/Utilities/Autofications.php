@@ -52,7 +52,7 @@ class Autofications
         try {
             $params = ['action' => 'read', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code'], 'phone_number' => $data['phone_number']];
 
-            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), $params);
+            $response = Http::timeout(self::$timeout)->get('https://autofications.com/V2/API.php', $params);
             if ($response->failed()) {
                 return [
                     'status' => 0,
@@ -62,7 +62,7 @@ class Autofications
 
             return [
                 'status' => 1,
-                'response' => (array)$response->json(),
+                'response' => $response->json(),
                 'info' => 'Reading sms passed.'
             ];
         } catch (Exception $error) {
@@ -72,4 +72,34 @@ class Autofications
             ];
         }
     }
+
+    /**
+     * Generate phone number
+     */
+    public static function Blacklist($data = []) : array
+    {
+        try {
+            $params = ['action' => 'blacklist', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $data['website'], 'country' => $data['country_code'], 'phone_number' => $data['phone_number']];
+
+            $response = Http::timeout(self::$timeout)->get('https://autofications.com/V2/API.php', $params);
+            if ($response->failed()) {
+                return [
+                    'status' => 0,
+                    'info' => 'Reading Sms Failed. Try Again Later.'
+                ];
+            }
+
+            return [
+                'status' => 1,
+                'response' => $response->json(),
+                'info' => 'Reading sms passed.'
+            ];
+        } catch (Exception $error) {
+            return [
+                'status' => 0,
+                'info' => 'Network Error. Try Again.'
+            ];
+        }
+    }
+
 }

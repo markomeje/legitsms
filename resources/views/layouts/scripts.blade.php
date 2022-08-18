@@ -18,7 +18,7 @@
 
         @if(!empty($payment) && !empty($reference))
             @if(1 == $payment['status'] ?? '')
-                window.location.href = {{ route('user.dashboard') }}
+                window.location.replace('{{ route('user.dashboard') }}')
             @endif
         @endif
 
@@ -28,28 +28,51 @@
             loader.removeClass('d-none');
 
             function verificationAsync() {
+                console.log('ajax');
                 $.ajax({
-                    url: {{ route('verification.read.sms') }},
+                    url: '{{ route('verification.read.sms', ['id' => $verification_id]) }}',
                     method: 'post',
                     dataType: 'json',
                     success: function(response) {
+                        console.log(response);
                         if(response.status === 1) {
+                            document.getElementById("timer").innerHTML = '00:00';
                             loader.addClass('d-none');
                             code.html(response.code).fadeIn();
-                        }
-
-                        setTimeout(function() {
-                            verificationAsync();
-                        }, 30000);
+                        }else {
+                            var fiveMinutes = 60 * 10,
+                            display = $('#timer');
+                            startTimer(fiveMinutes, display);
+                            setTimeout(function() {
+                                verificationAsync();
+                            }, 30000);
+                        }    
                     },
 
                     error: function(response) {
-
+                        alert('Unknown error.')
                     }
                  });
             }
 
             verificationAsync();
+
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.text(minutes + ":" + seconds);
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+            }
         @endif
     </script>
 </body>

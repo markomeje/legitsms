@@ -6,6 +6,10 @@
         handleAjax({that: $(this), button: 'website-button', spinner: 'website-spinner'});    
     });
 
+    $('.blacklist-prompt').on('click', function() {
+        handleAjax({that: $(this), button: 'blacklist-button', spinner: 'blacklist-spinner'});    
+    });
+
     $('.delete-faq-prompt').on('click', function() {
         handleAjax({that: $(this), button: 'faq-button', spinner: 'faq-spinner'});    
     });

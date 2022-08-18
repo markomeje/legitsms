@@ -41,11 +41,9 @@ class VerificationController extends Controller
         }
 
         try {
-            Balance::save($price, $debit = true);
             $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->iso2)]);
             // $autofications = ['response' => ['09098787656'], 'status' => 1];
             if ($autofications['status'] !== 1 || empty($autofications['response'])) {
-                Balance::save($price, $debit = false); //Credit back user balnce
                 return response()->json([
                     'status' => 0,
                     'info' => 'Generating number failed. Try again.'
@@ -54,7 +52,6 @@ class VerificationController extends Controller
 
             $phone = $autofications['response'][0] ?? null;
             if (empty($phone)) {
-                Balance::save($price, $debit = false); //Credit back user balnce
                 return response()->json([
                     'status' => 0,
                     'info' => 'Generating number failed. Try again.'
@@ -79,7 +76,6 @@ class VerificationController extends Controller
                 'info' => 'Operation failed. Try again.'
             ]);
         } catch (Exception $exception) {
-            Balance::save($price, $debit = false); //Credit back user balnce
             return response()->json([
                 'status' => 0,
                 'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
@@ -106,46 +102,79 @@ class VerificationController extends Controller
             ]);
         }
 
+        $price = (int)$verification->website->price;
         if (!empty($verification->code)) {
             return response()->json([
                 'status' => 1,
-                'info' => 'Operation timeout. Try again.',
+                'info' => 'Operation Successful.',
                 'code' => $verification->code,
             ]);
         }
-
+            
         try {
-            $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
-            // dd($autofications);
-            // $autofications = ['response' => ['09098787656'], 'status' => 1];
-            if ($autofications['status'] !== 1 || empty($autofications['response'])) {
-                return response()->json([
-                    'status' => 0,
-                    'info' => 'Reading sms timeout. Try again.'
-                ]);
+            $action = request()->get('action');
+            if('blacklist' == $action) {
+                $autofications = Autofications::Blacklist(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
+
+                if ($autofications['status'] !== 1) {
+                    return response()->json([
+                        'status' => 0,
+                        'info' => 'Operation failed. Try again.',
+                        'autofications' => $autofications,
+                    ]);
+                }
+
+                $code = $autofications['response'] ?? 'Api empty';
+                $verification->code = $code;
+                $verification->status = 'done';
+
+                if($verification->update()) {
+                    response()->json([
+                        'status' => 1,
+                        'info' => 'Code recieved.',
+                        'code' => $code,
+                        'redirect' => '',
+                    ]);
+                }
+            }else {
+                $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
+
+                if ($autofications['status'] !== 1) {
+                    return response()->json([
+                        'status' => 0,
+                        'info' => 'Reading sms failed. Try again.',
+                        'autofications' => $autofications,
+                    ]);
+                }
+
+                $code = $autofications['response'] ?? null;
+                if (empty($code)) {
+                    return response()->json([
+                        'status' => 0,
+                        'info' => 'Operation timeout. Try again.'
+                    ]);
+                }
+
+                $verification->code = $code;
+                $verification->status = 'done';
+
+                if($verification->update()) {
+                    Balance::save($price, $debit = true); //Debit user
+                    response()->json([
+                        'status' => 1,
+                        'info' => 'Code recieved.',
+                        'code' => $code,
+                        'redirect' => '',
+                    ]);
+                } 
             }
 
-            $code = $autofications['response'][0] ?? null;
-            if (empty($code)) {
-                return response()->json([
-                    'status' => 0,
-                    'info' => 'Operation timeout. Try again.'
-                ]);
-            }
-
-            $verification->code = $code;
-            $verification->status = 'done';
-
-            return $verification->update() ? response()->json([
-                'status' => 1,
-                'info' => 'Code recieved.',
-                'code' => $code,
-                'redirect' => '',
-            ]) : response()->json([
+            return response()->json([
                 'status' => 0,
-                'info' => 'Operation failed. Try again.'
+                'info' => 'Unknown error. Try again.'
             ]);
         } catch (Exception $exception) {
+            Balance::save($price, $debit = false); //Credit back user balance incase
             return response()->json([
                 'status' => 0,
                 'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'

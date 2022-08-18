@@ -120,7 +120,7 @@
 							</div>
 						</div>
 					@else
-						<?php $verification = \App\Models\Verification::find($id); ?>
+						<?php $verification = \App\Models\Verification::find($verification_id); ?>
 						@if(empty($verification))
 							<div class="alert alert-danger mb-3">Verification not found.</div>
 							<a href="{{ route('user.dashboard') }}">Go to Dashboard.</a>
@@ -131,6 +131,7 @@
 								  		<table class="table table-striped table-hover">
 										  <thead>
 										    <tr>
+										      <th scope="col">Time</th>
 										      <th scope="col">Country</th>
 										      <th scope="col">Website</th>
 										      <th scope="col">Phone</th>
@@ -140,33 +141,33 @@
 										  </thead>
 											  <tbody>
 											    <tr>
+											    	<td id="timer"></td>
 											      <td>
-											      	{{ $verification->country->name }}
+											      	<img src="https://flagcdn.com/w20/{{ strtolower($verification->country->iso2) }}.png" srcset="https://flagcdn.com/w40/{{ strtolower($verification->country->iso2) }}.png 2x" width="20" alt="{{ ucwords($verification->website->name) }}" class="border h-100 object-cover">
+											      	
 											      </td>
 											      <td>
 											      	{{ $verification->website->name }}
 											      </td>
 											      <td>
-											      	<a href="tel:{{ ucfirst($verification->phone) }}">{{ ucfirst($verification->phone) }}</a>
+											      	<a href="tel:{{ ucfirst($verification->phone) }}">+{{ ucfirst($verification->phone) }}</a>
 											      </td>
 											      <td>
-											      	<small class="sms-code">
-											      		<img src="/images/spinner.svg" class="mr-2 d-none verification-loader mb-1">
-											      		{{ $verification->code ?? '. . .' }}
+											      	<small class="sms-code text-dark">
+											      		<img src="/images/spinner.svg" class="mr-2 bg-dark d-none verification-loader mb-1">
+											      		{{ $verification->code ?? '' }}
 											      	</small>
 											      </td>
 											      <td>
 											      	@if(empty($verification->code))
-												      	<div class="read-sms-prompt" data-url="{{ route('verification.read.sms', ['id' => $verification_id]) }}">
-												      		<button class="btn text-white btn-primary read-sms-button">
-													      		<img src="/images/spinner.svg" class="mr-2 d-none read-sms-spinner mb-1">
-													      		Read Sms
-													      	</button>
-												      	</div>
+												    <div class="blacklist-prompt" data-url="{{ route('verification.read.sms', ['id' => $verification_id, 'action' => 'blacklist']) }}">
+											      		<button class="btn text-white btn-primary blacklist-button">
+												      		<img src="/images/spinner.svg" class="mr-2 d-none blacklist-spinner mb-1">
+												      			Blacklist
+												      	</button>
+											      	</div>
 											      	@else
-											      		<div class="">
-												      		<button class="btn text-dark btn-secondary" disabled>Code Done</button>
-												      	</div>
+											      		<button class="btn text-white btn-primary" disabled>Blacklist</button>
 											      	@endif
 											      </td>
 											    </tr>
