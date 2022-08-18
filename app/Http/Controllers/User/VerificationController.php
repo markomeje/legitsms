@@ -124,16 +124,16 @@ class VerificationController extends Controller
                     ]);
                 }
 
-                $code = $autofications['response'] ?? 'Code empty';
+                $code = $autofications['response'] ?? 'Blacklisted';
                 $verification->code = $code;
                 $verification->status = 'done';
 
                 if($verification->update()) {
                     response()->json([
                         'status' => 1,
-                        'info' => 'Code recieved.',
+                        'info' => 'Number blacklisted.',
                         'code' => $code,
-                        'redirect' => '',
+                        'redirect' => route('user.dashboard'),
                     ]);
                 }
             }else {

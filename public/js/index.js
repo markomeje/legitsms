@@ -123,7 +123,7 @@ function handleAjax(info = {}) {
                 }else if(response.status === 1) {
                     alert(response.info);
                     spinner.addClass('d-none');
-                    return window.location.href = response.redirect;
+                    window.location.reload();
                 }else {
                     handleButton(button, spinner)
                     alert('Network error. Try again.');
