@@ -33,7 +33,7 @@ class Autofications
 
             return [
                 'status' => 1,
-                'response' => (array)$response->json(),
+                'response' => $response->json(),
                 'info' => 'Phone number generation successful.'
             ];
         } catch (Exception $error) {

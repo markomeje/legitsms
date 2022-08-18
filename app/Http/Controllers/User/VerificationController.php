@@ -42,6 +42,7 @@ class VerificationController extends Controller
 
         try {
             $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->iso2)]);
+            dd($autofications);
             // $autofications = ['response' => ['09098787656'], 'status' => 1];
             if ($autofications['status'] !== 1 || empty($autofications['response'])) {
                 return response()->json([
@@ -50,7 +51,7 @@ class VerificationController extends Controller
                 ]);
             }
 
-            $phone = $autofications['response'][0] ?? null;
+            $phone = $autofications['response'] ?? null;
             if (empty($phone)) {
                 return response()->json([
                     'status' => 0,
@@ -124,7 +125,7 @@ class VerificationController extends Controller
                     ]);
                 }
 
-                $code = $autofications['response'] ?? 'Api empty';
+                $code = $autofications['response'] ?? 'Code empty';
                 $verification->code = $code;
                 $verification->status = 'done';
 
