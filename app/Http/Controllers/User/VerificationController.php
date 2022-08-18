@@ -106,6 +106,14 @@ class VerificationController extends Controller
             ]);
         }
 
+        if (!empty($verification->code)) {
+            return response()->json([
+                'status' => 1,
+                'info' => 'Operation timeout. Try again.',
+                'code' => $verification->code,
+            ]);
+        }
+
         try {
             $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->iso2), 'phone_number' => $verification->phone]);
             // dd($autofications);
@@ -131,6 +139,7 @@ class VerificationController extends Controller
             return $verification->update() ? response()->json([
                 'status' => 1,
                 'info' => 'Code recieved.',
+                'code' => $code,
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,

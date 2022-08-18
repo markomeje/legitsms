@@ -114,8 +114,8 @@
 								  		<div class="card">
 								  			<div class="card-body">
 								  				<?php $verifications = auth()->user()->verifications; ?>
-								  				@if(empty($verifications))
-								  					<div class="alert alert-danger"></div>
+								  				@if(empty($verifications->count()))
+								  					<div class="alert alert-danger m-0">You have no verifications yet.</div>
 								  				@else
 								  					@include('user.verifications.partials.table')
 								  				@endif

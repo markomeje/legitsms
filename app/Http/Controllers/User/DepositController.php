@@ -40,7 +40,7 @@ class DepositController extends Controller
             ]);
         }
 
-        try {
+        // try {
             $reference = Str::uuid();
             $deposited = Deposit::create([
                 'amount' => $amount,
@@ -69,12 +69,12 @@ class DepositController extends Controller
                 'status' => 0,
                 'info' => 'Operation failed. Try again.'
             ]);
-        } catch (Exception $exception) {
-            return response()->json([
-                'status' => 0,
-                'info' => 'Unknown error. Try again later.'
-            ]);
-        }
+        // } catch (Exception $exception) {
+        //     return response()->json([
+        //         'status' => 0,
+        //         'info' => 'Unknown error. Try again later.'
+        //     ]);
+        // }
             
     }
 }

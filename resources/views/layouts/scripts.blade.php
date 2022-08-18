@@ -15,6 +15,42 @@
                 });
             @endforeach
         @endif
+
+        @if(!empty($payment) && !empty($reference))
+            @if(1 == $payment['status'] ?? '')
+                window.location.href = {{ route('user.dashboard') }}
+            @endif
+        @endif
+
+        @if(!empty($verification_id))
+            var code = $('.verification-code');
+            var loader = $('.verification-loader');
+            loader.removeClass('d-none');
+
+            function verificationAsync() {
+                $.ajax({
+                    url: {{ route('verification.read.sms') }},
+                    method: 'post',
+                    dataType: 'json',
+                    success: function(response) {
+                        if(response.status === 1) {
+                            loader.addClass('d-none');
+                            code.html(response.code).fadeIn();
+                        }
+
+                        setTimeout(function() {
+                            verificationAsync();
+                        }, 30000);
+                    },
+
+                    error: function(response) {
+
+                    }
+                 });
+            }
+
+            verificationAsync();
+        @endif
     </script>
 </body>
 </html>

@@ -109,8 +109,8 @@
 					</div>
 				</div>
 				<div class="col-12 col-md-5 col-lg-7 mb-4">
-					<?php $id = request()->get('id'); ?>
-					@if(empty($id))
+					<?php $verification_id = request()->get('id'); ?>
+					@if(empty($verification_id))
 						<div class="card">
 							<div class="card-header">{{ config('app.name') }}</div>
 							<div class="card-body">
@@ -150,13 +150,14 @@
 											      	<a href="tel:{{ ucfirst($verification->phone) }}">{{ ucfirst($verification->phone) }}</a>
 											      </td>
 											      <td>
-											      	<small>
-											      		{{ $verification->code ?? 'Waiting . . .' }}
+											      	<small class="sms-code">
+											      		<img src="/images/spinner.svg" class="mr-2 d-none verification-loader mb-1">
+											      		{{ $verification->code ?? '. . .' }}
 											      	</small>
 											      </td>
 											      <td>
 											      	@if(empty($verification->code))
-												      	<div class="read-sms-prompt" data-url="{{ route('verification.read.sms', ['id' => $id]) }}">
+												      	<div class="read-sms-prompt" data-url="{{ route('verification.read.sms', ['id' => $verification_id]) }}">
 												      		<button class="btn text-white btn-primary read-sms-button">
 													      		<img src="/images/spinner.svg" class="mr-2 d-none read-sms-spinner mb-1">
 													      		Read Sms
