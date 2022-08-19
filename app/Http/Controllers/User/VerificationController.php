@@ -55,7 +55,7 @@ class VerificationController extends Controller
         }
 
         try {
-            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => (int)$website->country->id_number]);
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $website->country->id_number]);
             
             if ($response->failed()) {
                 return response()->json([
