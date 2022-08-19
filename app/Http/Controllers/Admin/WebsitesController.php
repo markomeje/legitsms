@@ -69,10 +69,10 @@ class WebsitesController extends Controller
     //
     public function edit($id = 0)
     {
-        $data = request()->all(['price', 'name', 'code', 'status']);
+        $data = request()->all(['price', 'name', 'code', 'country']);
         $validator = Validator::make($data, [ 
             'code' => ['required'],  
-            'status' => ['nullable', 'boolean'],  
+            'country' => ['required'],  
             'name' => ['required', 'string'],  
             'price' => ['required', 'string'],  
         ]);
@@ -95,8 +95,8 @@ class WebsitesController extends Controller
         try {
             $website->name = $data['name'];
             $website->price = $data['price'];
-            $website->active = $data['status'] ?? true;
             $website->code = $data['code'];
+            $website->country_id = $data['country'];
 
             return $website->update() ? response()->json([
                 'status' => 1,
