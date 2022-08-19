@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between w-100">
         	<div class="d-flex align-items-center">
         		<div class="me-2">
-					<i class="cflag cflag-{{ \Str::slug($country->name) }}" alt="{{ $country->name }}"></i>
+					<i class="cflag cflag-{{ \Str::slug($website->country->name) }}" alt="{{ $website->country->name }}"></i>
 				</div>
 				<div class="text-dark">
 					{{ ucfirst($website->name) }}
@@ -19,10 +19,10 @@
     <div id="collapse-{{ $website->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $website->id }}" data-bs-parent="#accordionExample">
       <div class="accordion-body">
       	@if(auth()->check())
-	      	<div class="verify-sms-prompt" data-url="{{ route('verification.process', ['website_id' => $website->id, 'country_id' => $country->id]) }}">
+	      	<div class="verify-sms-prompt" data-url="{{ route('verification.process', ['website_id' => $website->id, 'country_id' => $website->country->id]) }}">
 	      		<button class="btn btn-block w-100 text-white btn-primary verify-sms-button">
 		      		<img src="/images/spinner.svg" class="mr-2 d-none verify-sms-spinner mb-1">
-		      		Verify {{ ucwords($country->name) }} Number
+		      		Verify {{ ucwords($website->country->name) }} Number
 		      	</button>
 	      	</div>
       	@else

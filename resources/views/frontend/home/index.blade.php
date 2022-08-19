@@ -73,14 +73,12 @@
 								        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{ $search ?? '' }}">
 								        <button class="btn btn-success" type="submit">Search</button>
 								     </form>
-
 								     @if(!empty($search) && empty($websites->count()))
 								     	<div class="alert alert-danger">No result found.</div>
 								     @endif
-
 									<div class="accordion" id="accordionExample">
 										@foreach($websites as $website)
-										<?php $country = \App\Models\Country::where(['id' => $website->country->id])->first(); ?>
+										{{-- <?php $country = \App\Models\Country::where(['id' => $website->country->id])->first(); ?> --}}
 										  @include('frontend.home.partials.countries')
 										@endforeach
 									</div>
