@@ -46,10 +46,9 @@
 						<div class="card-body">
 							<?php $code = request()->get('code'); $country = \App\Models\Country::where(['id_number' => $code])->first() ?>
 							<?php $websites = \App\Models\Website::all(); ?>
-							@if(empty($websites))
+							@if(empty($websites->count()))
 								<div class="alert alert-danger m-0">No websites listed</div>
 							@else
-								
 							     <?php $code = request()->get('code'); ?>
 							     @if(!empty($code))
 							     	<?php $country = \App\Models\Country::where(['id_number' => $code])->first(); ?>
@@ -81,7 +80,7 @@
 
 									<div class="accordion" id="accordionExample">
 										@foreach($websites as $website)
-										<?php $country = \App\Models\Country::where('id', '>', 0)->first(); ?>
+										<?php $country = \App\Models\Country::where(['id' => $website->country->id])->first(); ?>
 										  @include('frontend.home.partials.countries')
 										@endforeach
 									</div>
