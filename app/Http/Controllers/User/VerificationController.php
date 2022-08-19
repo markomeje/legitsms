@@ -15,9 +15,9 @@ class VerificationController extends Controller
 
     /**
      * API Request timeout
-     * 180 seconds or 3Minutes
+     * 300 seconds or 5Minutes
      */
-    public static $timeout = 180;
+    public static $timeout = 300;
 
     //
     public function process()
@@ -28,6 +28,13 @@ class VerificationController extends Controller
             return response()->json([
                 'status' => 0,
                 'info' => 'Invalid Operation. Try again.'
+            ]);
+        }
+
+        if (empty($website->country)) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'This website ID is not supported'
             ]);
         }
 
@@ -48,7 +55,7 @@ class VerificationController extends Controller
         }
 
         try {
-            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $website->country->id_number]);
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => (int)$website->country->id_number]);
             
             if ($response->failed()) {
                 return response()->json([
@@ -132,7 +139,7 @@ class VerificationController extends Controller
             ]);
         }
 
-        if(Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 5)) {
+        if(Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 25)) {
             if(empty($verification->code)){
 
                 $verification->code = 'This verification has expired.';
@@ -168,13 +175,6 @@ class VerificationController extends Controller
             }
 
             $response = $response->json();
-            if (empty($response)) {
-                return response()->json([
-                    'status' => 0,
-                    'info' => 'Awaiting code . . .',
-                ]);
-            }
-
             if (isset(Autofications::$errors[$response])) {
                 $verification->code = $response;
                 $verification->status = 'done';
@@ -184,6 +184,13 @@ class VerificationController extends Controller
                     'status' => 0,
                     'info' => 'System Error. Try again later',
                     'response' => $response,
+                ]);
+            }
+
+            if (empty($response)) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Awaiting code . . .',
                 ]);
             }
 
