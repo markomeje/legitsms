@@ -13,6 +13,10 @@
                 $('.read-sms-prompt-{{ $verification->id }}').on('click', function() {
                     handleAjax({that: $(this), button: 'read-sms-button-{{ $verification->id }}', spinner: 'read-sms-spinner-{{ $verification->id }}'});    
                 });
+
+                $('.blacklist-prompt-{{ $verification->id }}').on('click', function() {
+                    handleAjax({that: $(this), button: 'blacklist-button-{{ $verification->id }}', spinner: 'blacklist-spinner-{{ $verification->id }}'});    
+                });
             @endforeach
         @endif
 
@@ -23,36 +27,22 @@
         @endif
 
         @if(!empty($verification_id))
-            var code = $('.verification-code');
-            var loader = $('.verification-loader');
+            var code = $('.verification-code-{{ $verification_id }}');
+            var loader = $('.verification-loader-{{ $verification_id }}');
             loader.removeClass('d-none');
 
             function verificationAsync() {
-                console.log('ajax');
                 $.ajax({
                     url: '{{ route('verification.read.sms', ['id' => $verification_id]) }}',
                     method: 'post',
                     dataType: 'json',
                     success: function(response) {
                         console.log(response);
-                        if(response.status === 1) {
-                            document.getElementById("timer").innerHTML = '00:00';
+                        if(response.response !== undefined) {
                             loader.addClass('d-none');
-                            code.html(response.code).fadeIn();
+                            code.html(response.response).fadeIn();
+                            console.log(response.response);
                         }else {
-                            var minute = 10;
-                              var sec = 60;
-                              setInterval(function() {
-                                document.getElementById("timer").innerHTML = minute + " : " + sec;
-                                sec--;
-                                if (sec == 00) {
-                                  minute --;
-                                  sec = 60;
-                                  if (minute == 0) {
-                                    minute = 10;
-                                  }
-                                }
-                              }, 1000);
                             setTimeout(function() {
                                 verificationAsync();
                             }, 30000);

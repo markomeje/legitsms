@@ -17,10 +17,10 @@ class WebsitesController extends Controller
     //
     public function add()
     {
-        $data = request()->all(['name', 'price', 'status', 'code']);
+        $data = request()->all(['name', 'price', 'country', 'code']);
         $validator = Validator::make($data, [ 
             'code' => ['required', 'string'],  
-            'status' => ['nullable', 'boolean'],  
+            'country' => ['nullable', 'integer'],  
             'name' => ['required', 'string'],  
             'price' => ['required', 'integer'],  
         ]);
@@ -32,19 +32,11 @@ class WebsitesController extends Controller
             ]);
         }
 
-        $webiste = Website::where(['code' => $data['code']])->first();
+        $webiste = Website::where(['code' => $data['code'], 'country_id' => $data['country']])->first();
         if (!empty($webiste)) {
             return response()->json([
                 'status' => 0,
-                'info' => 'Website with code already added.'
-            ]);
-        }
-
-        $webiste = Website::where(['name' => $data['name']])->first();
-        if (!empty($webiste)) {
-            return response()->json([
-                'status' => 0,
-                'info' => 'Website with name already added.'
+                'info' => "Website already added for selected country",
             ]);
         }
 
@@ -54,7 +46,7 @@ class WebsitesController extends Controller
                 'name' => $data['name'],
                 'price' => $data['price'],
                 'code' => $data['code'],
-                'active' => true,
+                'country_id' => $data['country'],
             ]);
 
             return $website->id > 0 ? response()->json([

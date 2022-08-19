@@ -4,12 +4,20 @@ namespace App\Http\Controllers\User;
 use App\Utilities\{Autofications, Balance};
 use App\Http\Controllers\Controller;
 use App\Models\{Country, Website, Verification};
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 use Exception;
 use Validator;
 
 class VerificationController extends Controller
 {
+
+    /**
+     * API Request timeout
+     * 180 seconds or 3Minutes
+     */
+    public static $timeout = 180;
 
     //
     public function process()
@@ -41,20 +49,27 @@ class VerificationController extends Controller
         }
 
         try {
-            $autofications = Autofications::GeneratePhoneNumber(['website' => $website->code, 'country_code' => strtoupper($country->id_number)]);
-            // $autofications = ['response' => ['09098787656'], 'status' => 1];
-            if ($autofications['status'] !== 1 || empty($autofications['response'])) {
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $country->id_number]);
+            
+            if ($response->failed()) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Operation failed. Try again.'
+                ]);
+            }
+
+            $response = $response->json();
+            if (empty($response)) {
                 return response()->json([
                     'status' => 0,
                     'info' => 'Generating number failed. Try again.'
                 ]);
             }
 
-            $phone = $autofications['response'] ?? null;
-            if (empty($phone)) {
+            if (isset(Autofications::$errors[$response])) {
                 return response()->json([
                     'status' => 0,
-                    'info' => 'Generating number failed. Try again.'
+                    'info' => Autofications::$errors[$response]
                 ]);
             }
 
@@ -62,7 +77,7 @@ class VerificationController extends Controller
                 'website_id' => $website->id,
                 'country_id' => $country->id,
                 'user_id' => auth()->id(),
-                'phone' => $phone,
+                'phone' => $response,
                 'code' => null,
                 'status' => 'done',
             ]);
@@ -70,7 +85,7 @@ class VerificationController extends Controller
             return $generate->id > 0 ? response()->json([
                 'status' => 1,
                 'info' => 'Number generated successfully.',
-                'redirect' => route('phone.generated', ['id' => $generate->id]),
+                'redirect' => route('home.verifications', ['id' => $generate->id]),
             ]) : response()->json([
                 'status' => 0,
                 'info' => 'Operation failed. Try again.'
@@ -102,84 +117,154 @@ class VerificationController extends Controller
             ]);
         }
 
-        $price = (int)$verification->website->price;
-        if (!empty($verification->code)) {
+        $account = auth()->user()->account;
+        if (empty($account)) {
             return response()->json([
-                'status' => 1,
-                'info' => 'Operation Successful.',
-                'code' => $verification->code,
+                'status' => 0,
+                'info' => 'Insufficient funds'
             ]);
         }
+
+        $price = (int)$verification->website->price;
+        if ((int)$account->balance < $price) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Insufficient funds.'
+            ]);
+        }
+
+        if(Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 5)) {
+            if(empty($verification->code)){
+
+                $verification->code = 'This verification has expired.';
+                $verification->status = 'done';
+                $verification->update();
+
+                return response()->json([
+                    'status' => 1,
+                    'info' => 'Operation expired.',
+                    'response' => 'Verification expired',
+                ]);
+
+            }
+        }
+
+        if(!empty($verification->code)) {
+            response()->json([
+                'status' => 1,
+                'info' => 'Verification already recieved.',
+                'response' => $verification->code,
+            ]);
+        } 
             
         try {
-            $action = request()->get('action');
-            if('blacklist' == $action) {
-                $autofications = Autofications::Blacklist(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->id_number), 'phone_number' => $verification->phone]);
-
-                if ($autofications['status'] !== 1) {
-                    return response()->json([
-                        'status' => 0,
-                        'info' => 'Operation failed. Try again.',
-                        'autofications' => $autofications,
-                    ]);
-                }
-
-                $code = $autofications['response'] ?? 'Blacklisted';
-                $verification->code = $code;
-                $verification->status = 'done';
-
-                if($verification->update()) {
-                    response()->json([
-                        'status' => 1,
-                        'info' => 'Number blacklisted.',
-                        'code' => $code,
-                        'redirect' => route('user.dashboard'),
-                    ]);
-                }
-            }else {
-                $autofications = Autofications::ReadSms(['website' => $verification->website->code, 'country_code' => strtoupper($verification->country->id_number), 'phone_number' => $verification->phone]);
-
-                if ($autofications['status'] !== 1) {
-                    return response()->json([
-                        'status' => 0,
-                        'info' => 'Verification failed. Try again.',
-                        'autofications' => $autofications,
-                    ]);
-                }
-
-                $code = $autofications['response'] ?? null;
-                if (empty($code)) {
-                    return response()->json([
-                        'status' => 0,
-                        'info' => 'Waiting code . . .',
-                        'autofications' => $autofications,
-                    ]);
-                }
-
-                $verification->code = $code;
-                $verification->status = 'done';
-
-                if($verification->update()) {
-                    Balance::save($price, $debit = true); //Debit user
-                    response()->json([
-                        'status' => 1,
-                        'info' => 'Code recieved.',
-                        'code' => $code,
-                        'redirect' => '',
-                    ]);
-                } 
+            $params = ['action' => 'read', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $verification->website->code, 'country' => $verification->country->id_number, 'phone_number' => $verification->phone];
+            $response = Http::timeout(self::$timeout)->get('https://autofications.com/V2/API.php', $params);
+            
+            if ($response->failed()) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Reading SMS failed. Try again later.'
+                ]);
             }
+
+            $response = $response->json();
+            if (empty($response)) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Awaiting code . . .',
+                ]);
+            }
+
+            if (isset(Autofications::$errors[$response])) {
+                $verification->code = $response;
+                $verification->status = 'done';
+                $verification->update();
+
+                response()->json([
+                    'status' => 0,
+                    'info' => 'System Error. Try again later',
+                    'response' => $response,
+                ]);
+            }
+
+            $verification->code = $response;
+            $verification->status = 'done';
+
+            if($verification->update()) {
+                Balance::save($price, $debit = true); //Debit user
+                response()->json([
+                    'status' => 1,
+                    'info' => 'Code recieved.',
+                    'response' => $response,
+                    'redirect' => '',
+                ]);
+            } 
 
             return response()->json([
                 'status' => 0,
-                'info' => 'Operation override. Try again.'
+                'info' => 'Operation failed. Try again.',
+                'response' => 'Unknown Error'
             ]);
         } catch (Exception $exception) {
-            Balance::save($price, $debit = false); //Credit back user balance incase
             return response()->json([
                 'status' => 0,
                 'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
             ]);
         }    
+    }
+
+    //
+    public function blacklist()
+    {
+        $id = request()->get('id');
+        if (empty($id)) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Invalid Operation. Try again.'
+            ]);
+        }
+
+        $verification = Verification::find($id);
+        if (empty($verification)) {
+            return response()->json([
+                'status' => 0,
+                'info' => 'Invalid Operation. Try again.'
+            ]);
+        }
+            
+        try {
+            $params = ['action' => 'blacklist', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $verification->website->code, 'country' => $verification->country->id_number, 'phone_number' => $verification->phone];
+
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), $params);
+            
+            if ($response->failed()) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Operation failed. Try again.',
+                ]);
+            }
+
+            $response = $response->json();
+            if('Success' == $response || empty($response)) {
+                $verification->delete();
+                return response()->json([
+                    'status' => 1,
+                    'info' => 'Number blacklisted.',
+                    'redirect' => '',
+                ]);
+            }
+
+            return response()->json([
+                'status' => 0,
+                'info' => 'Operation failed.',
+            ]);
+
+        } catch (Exception $exception) {
+            return response()->json([
+                'status' => 0,
+                'info' => config('app.env') !== 'production' ? $exception->getMessage() : 'Unknown error. Try again later.'
+            ]);   
+        }
     }
 }

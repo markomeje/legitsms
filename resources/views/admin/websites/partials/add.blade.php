@@ -11,7 +11,18 @@
           <div class="row">
             <div class="form-group input-group-lg col-md-6 mb-4">
               <label class="text-muted mb-2">Website Name</label>
-              <input type="text" name="name" class="form-control name" placeholder="Enter website name">
+              <select class="form-control custom-select name" name="name">
+                <?php $websites = \App\Models\Website::$names; ?>
+                @if(empty($websites))
+                  <option value="">No websites names listed</option>
+                @else
+                  @foreach($websites as $name)
+                    <option value="{{ $name }}">
+                      {{ ucfirst($name) }}
+                    </option>
+                  @endforeach
+                @endif
+              </select>
               <small class="error text-danger name-error"></small>
             </div>
             <div class="form-group input-group-lg col-md-6 mb-4">
@@ -27,20 +38,20 @@
               <small class="error text-danger price-error"></small>
             </div>
             <div class="form-group input-group-lg col-md-6 mb-4">
-              <label class="text-muted mb-2">Status</label>
-              <select class="form-control custom-select status" name="status">
-                <?php $status = \App\Models\Website::STATUS; ?>
-                @if(empty($status))
-                  <option value="">No status listed</option>
+              <label class="text-muted mb-2">Country</label>
+              <select class="form-control custom-select country" name="country">
+                <?php $countries = \App\Models\Country::all(); ?>
+                @if(empty($countries))
+                  <option value="">No countries listed</option>
                 @else
-                  @foreach($status as $key => $value)
-                    <option value="{{ $value }}">
-                      {{ ucfirst($key) }}
+                  @foreach($countries as $country)
+                    <option value="{{ $country->id }}">
+                      {{ ucfirst($country->name) }}
                     </option>
                   @endforeach
                 @endif
               </select>
-              <small class="error text-danger status-error"></small>
+              <small class="error text-danger country-error"></small>
             </div>
           </div>
           <div class="add-website-message alert d-none mb-4"></div>

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/css/backend.css" />
     <link rel="stylesheet" href="/css/icofont.min.css" />
 
+    <link href="https://cdn.autofications.com/assets/css/flags.css" rel="stylesheet" />
+
     {{-- <link rel="stylesheet" href="/css/animate.css" /> --}}
     {{-- Custom Css --}}
     <link rel="stylesheet" href="/css/custom.css" />

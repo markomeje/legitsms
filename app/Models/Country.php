@@ -16,4 +16,12 @@ class Country extends Model
     {
         return $this->hasMany(Verification::class);
     }
+
+    /**
+     * A country has many websites
+     */
+    public function websites()
+    {
+        return $this->hasMany(Website::class);
+    }
 }

@@ -18,16 +18,7 @@ class CountrySeeder extends Seeder
 
         Country::truncate();
         foreach ($countries as $country) {
-            if (!empty($country['name'])) {
-                $phonecode = (string)$country['phonecode'];
-                $id_number = (string)$country['id_number'];
-                $country['phonecode'] = str_contains($phonecode, '+') ? $phonecode : '+'.$phonecode;
-                $country['id_number'] = strlen($id_number) > 2 ? substr($id_number, 0, 2) : $id_number;
-                $country['updated_at'] = now();
-                $country['created_at'] = now();
-                unset($country['currency']);
-                Country::create($country);  
-            }       
+            Country::create($country);         
         }
     }
 }

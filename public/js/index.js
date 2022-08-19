@@ -2,42 +2,6 @@
 
     'use strict';
 
-    $('.hanburger-icon').on('click', function() {
-        $('.navbar-menu').toggleClass('navbar-toggle');
-        $('.hanburger-icon').toggleClass('slide');
-    });
-
-    var backendSidebar = $('.backend-sidebar');
-    if (backendSidebar) {
-        var backendNavigationMenuCloseIcon = $('.backend-navigation-menu-close-icon');
-        var backendNavigationMenuIcon = $('.backend-navigation-menu-icon');
-        if (backendNavigationMenuIcon) {
-            backendNavigationMenuIcon.on('click', function() {
-                backendSidebar.removeClass('d-none').addClass('backend-sidebar-toggle');
-            });
-        }
-
-        if (backendNavigationMenuCloseIcon) {
-            backendNavigationMenuCloseIcon.on('click', function() {
-                backendSidebar.removeClass('backend-sidebar-toggle').addClass('d-none');
-            });
-        }
-    }
-
-    var logoutLink = document.querySelector('.logout-link');
-    if(logoutLink) {
-        const timeout = (900000/3);// 900000 ms = 15minutes : Logout @ 5minutes of inactivity
-        var idleTimer = null;
-        $('*').bind('mousemove click mouseup mousedown keydown keypress keyup submit change mouseenter scroll resize dblclick', function () {
-            clearTimeout(idleTimer);
-            idleTimer = setTimeout(function () {
-                logoutLink.click();
-            }, timeout);
-        });
-
-        $('body').trigger('mousemove');
-    }
-
     $('.dropdown-menu').click(function (event) {
         event.stopPropagation();
     });
@@ -113,6 +77,8 @@ function handleAjax(info = {}) {
         spinner.removeClass('d-none');
         $.ajax({
             method: 'post',
+            headers: {"Access-Control-Allow-Origin": "*"},
+            crossDomain: true,
             url: info.that.attr('data-url'),
             dataType: 'json',
 
@@ -123,7 +89,7 @@ function handleAjax(info = {}) {
                 }else if(response.status === 1) {
                     alert(response.info);
                     spinner.addClass('d-none');
-                    window.location.reload();
+                    window.location.href = response.redirect;
                 }else {
                     handleButton(button, spinner)
                     alert('Network error. Try again.');

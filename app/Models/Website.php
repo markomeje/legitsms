@@ -16,16 +16,126 @@ class Website extends Model
     protected $fillable = [
         'name',
         'price',
-        'active',
+        'country_id',
         'code',
     ];
 
     /**
-     * Status of each website
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
      */
-    public const STATUS = [
-        'active' => true, 
-        'inactive' => false
+    public static $names = [
+        'Telegram',
+        'WhatsApp',
+        'Facebook',
+        'PayPal',
+        'Gmail',
+        'Discord',
+        'Tinder',
+        '* Other Website *',
+        'Uber',
+        'Mail.RU',
+        'Microsoft(Hotmail)',
+        'Protonmail',
+        'Foodpanda',
+        'Blizzard',
+        'Amazon',
+        'VK',
+        'Yandex',
+        'eBay',
+        'Twitter',
+        'Viber',
+        'ICQ',
+        'Bolt',
+        'Qiwi',
+        'Steam',
+        'Instagram',
+        'VK.com',
+        'WeChat',
+        'DiDi',
+        'Snapchat',
+        'TikTok',
+        'Avito',
+        'BitClout',
+        'Foodora',
+        'Netflix',
+        'TaoBao',
+        'Twilio',
+        'AOL',
+        'Tencent QQ',
+        'LINE',
+        'LinkedIn',
+        'Eneba',
+        'Naver',
+        'WebMoney',
+        'League of Legends',
+        'Youtube',
+        'OlaCabs',
+        'Nike',
+        'KakaoTalk',
+        'LocalBitcoins',
+        'Nifty',
+        'Airbnb',
+        'Drom.RU',
+        'Fiverr',
+        'JD.com',
+        'MeetMe',
+        'Ubank.ru',
+        'TIER',
+        'TradingView',
+        '1688.com',
+        'Adidas',
+        'Auto.RU',
+        'Badoo',
+        'BetFair',
+        'BurgerKing',
+        'CDKeys.com',
+        'Careem',
+        'CityMobil',
+        'Craigslist',
+        'DENT',
+        'Dodopizza',
+        'DoorDash',
+        'Drug Vokrug',
+        'Dukascopy',
+        'Enjin Wallet',
+        'Skrill',
+        'Fastmail',
+        'Fotostrana',
+        'G2A',
+        'Gameflip',
+        'GetTaxi',
+        'GrabTaxi',
+        'Grailed',
+        'HQ Trivia',
+        'Holvi',
+        'ICard',
+        'Keybase',
+        'Kriptomat.io',
+        'Lazada',
+        'LiveScore',
+        'Lyft',
+        'MS Office',
+        'Mamba',
+        'MiChat',
+        'OD',
+        'OLX',
+        'Plenty Of Fish',
+        'Post Bank',
+        'Rambler',
+        'SEOsprint.net',
+        'Saicmobility',
+        'Sipnet.ru',
+        'Spotify',
+        'Steemit',
+        'Soumi24',
+        'TAN',
+        'Taxi Maksim',
+        'The Insiders',
+        'Tinkoff',
+        'Weebly',
+        'PapaJohns',
     ];
 
     /**
@@ -34,5 +144,13 @@ class Website extends Model
     public function verifications()
     {
         return $this->hasMany(Verification::class);
+    }
+
+    /**
+     * A website belongs to a country
+     */
+    public function country()
+    {
+        return $this->belongsTo(country::class);
     }
 }

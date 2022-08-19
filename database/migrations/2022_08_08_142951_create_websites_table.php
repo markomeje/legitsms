@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('price');
             $table->string('code');
-            $table->boolean('active')->default(true);
+            $table->foreignId('country_id');
             $table->timestamps();
         });
     }

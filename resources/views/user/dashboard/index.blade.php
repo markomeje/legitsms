@@ -117,7 +117,25 @@
 								  				@if(empty($verifications->count()))
 								  					<div class="alert alert-danger m-0">You have no verifications yet.</div>
 								  				@else
-								  					@include('user.verifications.partials.table')
+								  					<div class="table-responsive table-responsive-sm">
+												  		<table class="table table-striped table-hover">
+														  <thead>
+														    <tr>
+														      {{-- <th scope="col">Time</th> --}}
+														      <th scope="col">Country</th>
+														      <th scope="col">Website</th>
+														      <th scope="col">Phone</th>
+														      <th scope="col">Code</th>
+														      <th scope="col">Action</th>
+														    </tr>
+														  </thead>
+															  <tbody>
+															  	@foreach($verifications as $verification)
+															    	@include('user.verifications.partials.tr')
+															    @endforeach
+															</tbody>
+														</table>
+													</div>
 								  				@endif
 								  			</div>
 								  		</div>

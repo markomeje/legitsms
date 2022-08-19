@@ -24,9 +24,11 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::post('/contact/send', [\App\Http\Controllers\Frontend\ContactController::class, 'send'])->name('contact.send');
 
     Route::get('/generated', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('phone.generated');
+    Route::get('/verifications', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.verifications');
 
     Route::post('/verification', [\App\Http\Controllers\User\VerificationController::class, 'process'])->name('verification.process');
     Route::post('/read/sms', [\App\Http\Controllers\User\VerificationController::class, 'read'])->name('verification.read.sms');
+    Route::post('/blacklist', [\App\Http\Controllers\User\VerificationController::class, 'blacklist'])->name('verification.blacklist');
 
     Route::get('/logout', [\App\Http\Controllers\Frontend\LoginController::class, 'logout'])->name('logout');
 
