@@ -151,6 +151,6 @@ class Website extends Model
      */
     public function country()
     {
-        return $this->belongsTo(country::class);
+        return $this->belongsTo(Country::class);
     }
 }
