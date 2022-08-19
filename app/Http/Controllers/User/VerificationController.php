@@ -22,10 +22,9 @@ class VerificationController extends Controller
     //
     public function process()
     {
-        $data = request()->all(['website_id', 'country_id']);
-        $country = Country::find($data['country_id']);
+        $data = request()->all(['website_id']);
         $website = Website::find($data['website_id']);
-        if (empty($country) || empty($website)) {
+        if (empty($website)) {
             return response()->json([
                 'status' => 0,
                 'info' => 'Invalid Operation. Try again.'
@@ -49,7 +48,7 @@ class VerificationController extends Controller
         }
 
         try {
-            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $country->id_number]);
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $website->country->id_number]);
             
             if ($response->failed()) {
                 return response()->json([
@@ -59,13 +58,6 @@ class VerificationController extends Controller
             }
 
             $response = $response->json();
-            if (empty($response)) {
-                return response()->json([
-                    'status' => 0,
-                    'info' => 'Generating number failed. Try again.'
-                ]);
-            }
-
             if (isset(Autofications::$errors[$response])) {
                 return response()->json([
                     'status' => 0,
@@ -73,9 +65,16 @@ class VerificationController extends Controller
                 ]);
             }
 
+            if (empty($response)) {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Autofications returned empty response. Try again.'
+                ]);
+            }
+
             $generate = Verification::create([
                 'website_id' => $website->id,
-                'country_id' => $country->id,
+                'country_id' => $website->country->id,
                 'user_id' => auth()->id(),
                 'phone' => $response,
                 'code' => null,
