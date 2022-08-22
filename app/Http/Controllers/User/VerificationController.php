@@ -75,7 +75,8 @@ class VerificationController extends Controller
             if (empty($response)) {
                 return response()->json([
                     'status' => 0,
-                    'info' => 'Autofications returned empty response. Try again.'
+                    'info' => 'Autofications returned empty response. Try again.',
+                    'data' => ['website' => $website->code, 'country' => $website->country->id_number],
                 ]);
             }
 
