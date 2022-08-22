@@ -175,7 +175,7 @@ class VerificationController extends Controller
                 ]);
             }
 
-            $response = $response->json();
+            $response = $response->body();
             if (isset(Autofications::$errors[$response])) {
                 $verification->code = $response;
                 $verification->status = 'done';
@@ -252,8 +252,8 @@ class VerificationController extends Controller
                 ]);
             }
 
-            $response = $response->json();
-            if('Success' == $response || empty($response)) {
+            $response = $response->body();
+            if('Success' == $response) {
                 $verification->delete();
                 return response()->json([
                     'status' => 1,
