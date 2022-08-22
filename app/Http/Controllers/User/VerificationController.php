@@ -55,16 +55,16 @@ class VerificationController extends Controller
         }
 
         try {
-            $http = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $website->country->id_number]);
+            $response = Http::timeout(self::$timeout)->get(env('AUTOFICATIONS_BASE_URL'), ['action' => 'generate', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $website->code, 'country' => $website->country->id_number]);
             
-            if ($http->failed()) {
+            if ($response->failed()) {
                 return response()->json([
                     'status' => 0,
                     'info' => 'Operation failed. Try again.'
                 ]);
             }
 
-            $response = $http->json();
+            $response = $response->body();
             if (isset(Autofications::$errors[$response])) {
                 return response()->json([
                     'status' => 0,
@@ -76,7 +76,7 @@ class VerificationController extends Controller
                 return response()->json([
                     'status' => 0,
                     'info' => 'Autofications returned empty response. Try again.',
-                    'response' => [$http],
+                    'response' => $response,
                 ]);
             }
 
