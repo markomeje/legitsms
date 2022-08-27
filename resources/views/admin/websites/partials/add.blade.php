@@ -46,7 +46,7 @@
                 @else
                   @foreach($countries as $country)
                     <option value="{{ $country->id }}">
-                      {{ ucfirst($country->name) }}
+                      {{ ucfirst($country->name).' ('.$country->id_number.')' }}
                     </option>
                   @endforeach
                 @endif
