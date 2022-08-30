@@ -1,7 +1,7 @@
 <aside class="sidebar-nav-wrapper">
   <div class="navbar-logo">
-    <a href="">
-      <img src="/images/logo.svg" alt="logo" />
+    <a href="{{ route('admin.dashboard') }}" class="w-100">
+      <img src="/images/logo-sm.jpeg" alt="logo" class="img-fluid" />
     </a>
   </div>
   <nav class="sidebar-nav px-4">

@@ -18,7 +18,7 @@
               </div>
             </div>
             <section class="section mt-4">
-                @if(empty($websites))
+                @if(empty($websites->count()))
                   <div class="alert alert-info">You have no websites yet</div>
                 @else
                   <div class="row">
@@ -29,6 +29,7 @@
                       @include('admin.websites.partials.edit')
                     @endforeach
                   </div>
+                  {{ $websites->links('vendor.pagination.default') }}
                 @endif
             </section>
         </div>

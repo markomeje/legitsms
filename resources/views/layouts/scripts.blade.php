@@ -7,6 +7,10 @@
     <script src="{{ config('app.url') }}/js/ajax.js"></script>
     <script src="{{ config('app.url') }}/js/forms.js"></script>
 
+    @if(config('app.env') === 'production')
+        <script src="//code.tidio.co/zkxbfhkokgtbwluy4jx6g4h0iz3ggyml.js" async></script>
+    @endif
+
     <script type="text/javascript">
         @if(!empty($verifications))
             @foreach($verifications as $verification)
@@ -49,9 +53,7 @@
                         }    
                     },
 
-                    error: function(response) {
-                        alert('Unknown error.')
-                    }
+                    error: function(response) {}
                  });
             }
 

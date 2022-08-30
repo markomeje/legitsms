@@ -21,7 +21,7 @@
 									@foreach($countries as $country)
 										<div class="col-12 col-md-6 mb-2">
 										<?php $iso2 = strtolower($country->iso2); $id_number = $country->id_number; ?>
-											<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}" class="d-flex align-items-center w-100 {{ request()->get('code') == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
+											<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}#country-websites" class="d-flex align-items-center w-100 {{ request()->get('code') == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
 												<div class="me-2">
 													<i class="cflag cflag-{{ \Str::slug($country->name) }}" alt="{{ $country->name }}"></i>
 												</div>
@@ -43,6 +43,7 @@
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">Sms Verification</div>
+						<a name="country-websites"></a>
 						<div class="card-body">
 							<?php $code = request()->get('code'); $country = \App\Models\Country::where(['id_number' => $code])->first() ?>
 							<?php $websites = \App\Models\Website::all(); ?>

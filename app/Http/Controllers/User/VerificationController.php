@@ -171,7 +171,8 @@ class VerificationController extends Controller
             if ($response->failed()) {
                 return response()->json([
                     'status' => 0,
-                    'info' => 'Reading SMS failed. Try again later.'
+                    'info' => 'Reading SMS failed. Try again later.',
+                    'response' => 'Operation failed.'
                 ]);
             }
 
@@ -192,6 +193,7 @@ class VerificationController extends Controller
                 return response()->json([
                     'status' => 0,
                     'info' => 'Awaiting code . . .',
+                    'response' => 'Awaiting code . . .',
                 ]);
             }
 
