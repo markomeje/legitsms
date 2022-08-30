@@ -13,15 +13,15 @@
 							</div>
 						</div>
 						<div class="card-body">
-							<?php $countries = empty($globe) ? \App\Models\Country::paginate(50) : \App\Models\Country::all() ; ?>
+							<?php $countries = empty($globe) ? \App\Models\Country::paginate(20) : \App\Models\Country::all() ; ?>
 							@if(empty($countries))
 								<div class="alert alert-danger m-0">No countries available</div>
 							@else
 								<div class="row">
 									@foreach($countries as $country)
 										<div class="col-12 col-md-6 mb-2">
-										<?php $iso2 = strtolower($country->iso2); $id_number = $country->id_number; ?>
-											<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}#country-websites" class="d-flex align-items-center w-100 {{ request()->get('code') == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
+										<?php $id_number = $country->id_number; $code = request()->get('code') ?? 'UK'; ?>
+											<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}#country-websites" class="d-flex align-items-center w-100 {{ $code == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
 												<div class="me-2">
 													<i class="cflag cflag-{{ \Str::slug($country->name) }}" alt="{{ $country->name }}"></i>
 												</div>
@@ -32,7 +32,6 @@
 										</div>
 									@endforeach
 								</div>
-									
 							@endif
 						</div>
 						@if(empty($globe))
@@ -45,14 +44,43 @@
 						<div class="card-header">Sms Verification</div>
 						<a name="country-websites"></a>
 						<div class="card-body">
-							<?php $code = request()->get('code'); $country = \App\Models\Country::where(['id_number' => $code])->first() ?>
+							<?php $code = request()->get('code'); ?>
 							<?php $websites = \App\Models\Website::all(); ?>
 							@if(empty($websites->count()))
 								<div class="alert alert-danger m-0">No websites listed</div>
 							@else
-							     <?php $code = request()->get('code'); ?>
-							     @if(!empty($code))
-							     	<?php $country = \App\Models\Country::where(['id_number' => $code])->first(); ?>
+							    <?php $search = request()->get('search'); $code = request()->get('code'); ?>
+								<form action="" method="get" class="d-flex mb-3">
+							        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{ $search ?? '' }}">
+							        <button class="btn btn-success" type="submit">Search</button>
+							    </form>
+							    @if(empty($code))
+							     	<?php $code = 'UK'; ?>
+								    <?php $country = \App\Models\Country::where(['id_number' => $code])->first(); ?>
+								    @if(empty($search))
+								    	<?php $websites = $country->websites; ?>
+								    @else
+								     	<?php $websites = \App\Models\Website::query()->where('name', 'LIKE', "%{$search}%")->orWhere('code', 'LIKE', "%{$search}%") ->get(); ?>
+								    @endif
+								     @if(empty($websites->count()))
+								     	<div class="alert alert-danger">No websites result found for your search.</div>
+								     	@if(!empty($search))
+								     		<?php $websites = $country->websites; ?>
+								     		<div class="accordion" id="accordionExample">
+												@foreach($websites as $website)
+												  @include('frontend.home.partials.countries')
+												@endforeach
+											</div>
+								     	@endif
+								     @else
+										<div class="accordion" id="accordionExample">
+											@foreach($websites as $website)
+											  @include('frontend.home.partials.countries')
+											@endforeach
+										</div>
+									@endif
+							     @else
+								     <?php $country = \App\Models\Country::where(['id_number' => $code])->first(); ?>
 							     	@if(empty($country->websites->count()))
 							     		<div class="alert alert-danger">No websites listed for {{ $country->name }}</div>
 							     	@else
@@ -62,27 +90,6 @@
 											@endforeach
 										</div>
 							     	@endif
-							     @else
-								     <?php 
-								     	$search = request()->get('search'); 
-								     	if(!empty($search)) {
-								     		session(['search' => $search]);
-								     		$websites = \App\Models\Website::query()->where('name', 'like', "%{$search}%")->get(); 
-								     	} 
-								     ?>
-									<form action="" method="get" class="d-flex mb-3">
-								        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" value="{{ $search ?? '' }}">
-								        <button class="btn btn-success" type="submit">Search</button>
-								     </form>
-								     @if(!empty($search) && empty($websites->count()))
-								     	<div class="alert alert-danger">No result found.</div>
-								     @endif
-									<div class="accordion" id="accordionExample">
-										@foreach($websites as $website)
-										{{-- <?php $country = \App\Models\Country::where(['id' => $website->country->id])->first(); ?> --}}
-										  @include('frontend.home.partials.countries')
-										@endforeach
-									</div>
 								@endif	
 							@endif
 						</div>
