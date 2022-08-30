@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="pt-4 px-4 border border-raduis-lg mt-4">
               <div class="">
-                <h4 class="text-dark mb-3">+{{ number_format($websites->count()) }} Websites</h4>
+                <h4 class="text-dark mb-3">+{{ number_format($websites->total()) }} Websites</h4>
               </div>
               <div>
                 <div class="row">
