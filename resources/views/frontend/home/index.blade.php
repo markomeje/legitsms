@@ -44,7 +44,7 @@
 						<div class="card-header">Sms Verification</div>
 						<a name="country-websites"></a>
 						<div class="card-body">
-							<?php $websites = \App\Models\Website::all(); $limit = 2; $total = 0; ?>
+							<?php $websites = \App\Models\Website::all(); $limit = 10; $total = 0; ?>
 							@if(empty($websites->count()))
 								<div class="alert alert-danger m-0">No websites listed</div>
 							@else
