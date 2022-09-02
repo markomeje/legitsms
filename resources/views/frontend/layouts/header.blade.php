@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Legitsms | Automated SMS Verification</title>
+    <title>{{ config('app.name') }} | Automated SMS Verification</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png"/>
     <!-- Place favicon.ico in the root directory -->
     <!-- ======== CSS here ======== -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" />

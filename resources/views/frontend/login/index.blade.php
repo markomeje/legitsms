@@ -6,7 +6,7 @@
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="my-5">
 					<div class="p-4 bg-white mb-4">
-						<h3 class="m-0 text-dark"><a href="{{ route('home') }}" class="text-primary">Legitsms</a> Login</h3>
+						<h3 class="m-0 text-dark">Login Here</h3>
 					</div>
 					<form class="login-form p-4 bg-white mb-4" method="post" action="javascript:;" data-action="{{ route('login.auth') }}">
 						@csrf

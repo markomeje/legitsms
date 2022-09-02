@@ -2,7 +2,7 @@
 	@include('layouts.header')
 	@include('frontend.layouts.navbar')
 	<div class="mt-5 pt-5">
-		<div class="container mt-2">
+		<div class="container mt-5">
 			<div class="row d-flex flex-sm-row-reverse flex-md-row">
 				<div class="col-12 col-md-7 col-lg-5 mb-4">
 					<div class="card mb-4">
@@ -99,8 +99,12 @@
 				<div class="col-12 col-md-5 col-lg-7 mb-4">
 					<?php $verification_id = request()->get('id'); ?>
 					@if(empty($verification_id))
-						<div class="card">
-							<div class="card-header">{{ config('app.name') }}</div>
+						<div class="card border-0">
+							<div class="card-header bg-dark">
+								<a class="navbar-brand" href="{{ route('home') }}" style="width: 180px;">
+							          <img src="/images/logo-lite.png" alt="logo" class="img-fluid" />
+							        </a>
+							</div>
 							<div class="card-body">
 								<h3 class="text-dark mb-4">Do you need a SMS verification? Stop looking.</h3>
 								<div class="text-muted mb-3">We have been providing fully automated SMS verifications for any website for you.</div>
@@ -146,5 +150,6 @@
 			</div>
 		</div>
 	</div>
+	@include('frontend.layouts.footer')
 	@include('layouts.scripts')
 </div>
