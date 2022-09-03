@@ -2,7 +2,7 @@
 	@include('layouts.header')
 	@include('frontend.layouts.navbar')
 	<div class="mt-5 pt-5">
-		<div class="container mt-2">
+		<div class="container mt-5">
 			<?php $reference = request()->get('reference'); ?>
             @if(!empty($reference))
               <div class="">
