@@ -20,6 +20,10 @@ Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
 
     Route::get('/faq', [\App\Http\Controllers\Frontend\FaqController::class, 'index'])->name('faq');
 
+    Route::get('/cookies', [\App\Http\Controllers\Frontend\LegalController::class, 'cookies'])->name('legal.cookies');
+    Route::get('/terms', [\App\Http\Controllers\Frontend\LegalController::class, 'terms'])->name('legal.terms');
+    Route::get('/privacy', [\App\Http\Controllers\Frontend\LegalController::class, 'privacy'])->name('legal.privacy');
+
     Route::get('/contact', [\App\Http\Controllers\Frontend\ContactController::class, 'index'])->name('contact');
     Route::post('/contact/send', [\App\Http\Controllers\Frontend\ContactController::class, 'send'])->name('contact.send');
 

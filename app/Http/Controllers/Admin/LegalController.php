@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Legal;
+use Validator;
 
 class LegalController extends Controller
 {
     //
-    //
     public function add()
     {
-        $data = request()->all(['question', 'answer']);
+        $data = request()->all(['cookies', 'privacy', 'terms']);
         $validator = Validator::make($data, [ 
-            'answer' => ['required', 'string'],  
-            'question' => ['required', 'string'],  
+            'privacy' => ['required', 'string'],  
+            'cookies' => ['required', 'string'],  
+            'terms' => ['required', 'string'],  
         ]);
 
         if ($validator->fails()) {
@@ -23,25 +24,16 @@ class LegalController extends Controller
             ]);
         }
 
-        $faq = Faq::where(['question' => $data['question']])->first();
-        if (!empty($faq)) {
-            return response()->json([
-                'status' => 0,
-                'info' => 'Faq with already added.'
-            ]);
-        }
-
         try {
-
-            $faq = Faq::create([
-                'answer' => $data['answer'],
-                'question' => $data['question'],
-                'status' => true,
+            $legal = Legal::create([
+                'privacy' => $data['privacy'],
+                'cookies' => $data['cookies'],
+                'terms' => $data['terms'],
             ]);
 
-            return $faq->id > 0 ? response()->json([
+            return $legal->id > 0 ? response()->json([
                 'status' => 1,
-                'info' => ' Faq added.',
+                'info' => 'Operation successful.',
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,
@@ -59,10 +51,11 @@ class LegalController extends Controller
     //
     public function edit($id = 0)
     {
-        $data = request()->all(['question', 'answer']);
+        $data = request()->all(['cookies', 'privacy', 'terms']);
         $validator = Validator::make($data, [ 
-            'answer' => ['required', 'string'],  
-            'question' => ['required', 'string'],  
+            'privacy' => ['required', 'string'],  
+            'cookies' => ['required', 'string'],  
+            'terms' => ['required', 'string'],  
         ]);
 
         if ($validator->fails()) {
@@ -72,8 +65,8 @@ class LegalController extends Controller
             ]);
         }
 
-        $faq = Faq::find($id);
-        if (empty($faq)) {
+        $legal = Legal::find($id);
+        if (empty($legal)) {
             return response()->json([
                 'status' => 0,
                 'info' => 'Unknown error. Try again.'
@@ -82,11 +75,12 @@ class LegalController extends Controller
 
         try {
 
-            $faq->answer = $data['answer'];
-            $faq->question = $data['question'];
-            return $faq->update() ? response()->json([
+            $legal->privacy = $data['privacy'];
+            $legal->cookies = $data['cookies'];
+            $legal->terms = $data['terms'];
+            return $legal->update() ? response()->json([
                 'status' => 1,
-                'info' => ' Faq updated.',
+                'info' => 'Successfully updated.',
                 'redirect' => '',
             ]) : response()->json([
                 'status' => 0,

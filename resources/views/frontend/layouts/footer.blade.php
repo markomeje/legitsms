@@ -15,9 +15,9 @@
           Copyright © 2022 {{ config('app.name') }}.
         </div>
         <div>
-          <a href="javascript:;" class="me-2">Cookies Policy</a>
-          <a href="javascript:;" class="me-2">Terms of Service</a>
-          <a href="javascript:;" class="">Privacy Policy</a>
+          <a href="{{ route('legal.cookies') }}" class="me-2">Cookies Policy</a>
+          <a href="{{ route('legal.terms') }}" class="me-2">Terms of Service</a>
+          <a href="{{ route('legal.privacy') }}" class="">Privacy Policy</a>
         </div>
       </div>
     </div>

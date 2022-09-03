@@ -34,5 +34,6 @@
             </div>
         </div>
     </section>
-    @include('layouts.scripts')
 </div>
+@include('frontend.layouts.footer')
+@include('layouts.scripts')

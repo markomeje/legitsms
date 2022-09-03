@@ -101,7 +101,7 @@
                 <div class="">
                   <?php $socials = \App\Models\Social::all(); ?>
                   @if(empty($socials->count()))
-                    <div class="alert alert-info m-0">No social media handles</div>
+                    <div class="alert alert-info mb-4">No social media handles</div>
                   @else
                     <div class="row">
                       @foreach($socials as $social)
@@ -145,26 +145,26 @@
                     </button>
                   </form>
                 @else
-                  <form class="add-legal-form" method="post" action="javascript:;" data-action="{{ route('admin.legal.add') }}">
-                    <div class="form-group col-12">
+                  <form class="edit-legal-form" method="post" action="javascript:;" data-action="{{ route('admin.legal.edit', ['id' => $legal->id]) }}">
+                    <div class="form-group col-12 mb-4">
                       <label class="mb-2 text-bold">Cookies policy</label>
                       <textarea class="form-control cookies description" name="cookies">{{ $legal->cookies }}</textarea>
                       <small class="cookies-error text-danger"></small>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mb-4">
                       <label class="mb-2 text-bold">Terms of Service</label>
                       <textarea class="form-control terms description" name="terms">{{ $legal->terms }}</textarea>
                       <small class="terms-error text-danger"></small>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mb-4">
                       <label class="mb-2 text-bold">Privacy policy</label>
                       <textarea class="form-control privacy description" name="privacy">{{ $legal->privacy }}</textarea>
                       <small class="privacy-error text-danger"></small>
                     </div>
-                    <div class="add-legal-message alert d-none mb-4"></div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-hover text-white add-legal-button mb-4">
-                        <img src="/images/spinner.svg" class="mr-2 d-none add-legal-spinner mb-1">
-                        Edit
+                    <div class="edit-legal-message alert d-none mb-4"></div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-hover text-white edit-legal-button mb-4">
+                        <img src="/images/spinner.svg" class="mr-2 d-none edit-legal-spinner mb-1">
+                        Save
                     </button>
                   </form>
                 @endif

@@ -11,7 +11,7 @@ class WebsitesController extends Controller
     //
     public function index()
     {
-        return view('admin.websites.index', ['title' => 'All Websites | Legitsms', 'websites' => Website::paginate(2)]);
+        return view('admin.websites.index', ['title' => 'All Websites | Legitsms', 'websites' => Website::paginate(20)]);
     }
 
     //
