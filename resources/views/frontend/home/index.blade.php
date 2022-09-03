@@ -21,17 +21,14 @@
 									@foreach($countries as $country)
 										<div class="col-12 col-md-6 mb-2">
 										<?php $id_number = $country->id_number; ?>
-											<h4 class="m-0">
-												<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}#country-websites" class="d-flex text-dark font-weight-bold align-items-center w-100 {{ $code == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
-													<div class="me-2">
-														<i class="cflag cflag-{{ \Str::slug($country->name) }}" alt="{{ $country->name }}"></i>
-													</div>
-													<small class="">
-														{{ ucfirst($country->name) }}
-													</small>
-												</a>
-											</h4>
-											
+											<a href="{{ route('home', ['code' => $id_number, 'countries' => $globe]) }}#country-websites" class="d-flex align-items-center w-100 {{ $code == $id_number ? 'bg-primary text-white px-1' : 'text-dark' }}">
+												<div class="me-2">
+													<i class="cflag cflag-{{ \Str::slug($country->name) }}" alt="{{ $country->name }}"></i>
+												</div>
+												<h5 class="font-weight-bolder m-0">
+													{{ ucfirst($country->name) }}
+												</h5>
+											</a>
 										</div>
 									@endforeach
 								</div>
