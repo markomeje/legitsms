@@ -39,7 +39,7 @@ class DashboardController extends Controller
             auth()->logout();
             return response()->json([
                 'status' => 1,
-                'info' => 'Operation failed. Try again.',
+                'info' => 'Operation Successful. Please wait . . .',
                 'redirect' => route('logout')
             ]);
         }
