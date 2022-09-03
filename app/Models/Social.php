@@ -20,11 +20,11 @@ class Social extends Model
     ];
 
     /**
-     * The socail media companies
+     * The socail media platforms
      *
      * @var string[]
      */
-    public static $companies = [
+    public static $platforms = [
         'facebook',
         'twitter',
         'instagram',

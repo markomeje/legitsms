@@ -79,10 +79,23 @@ Route::middleware(['web', 'auth', 'admin', 'revalidate'])->domain(env('ADMIN_URL
     Route::prefix('countries')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\CountriesController::class, 'index'])->name('admin.countries');
         Route::post('/delete/{id}', [\App\Http\Controllers\Admin\CountriesController::class, 'delete'])->name('admin.country.delete');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\CountriesController::class, 'edit'])->name('admin.country.edit');
+        Route::post('/add', [\App\Http\Controllers\Admin\CountriesController::class, 'add'])->name('admin.country.add');
+    });
+
+    Route::prefix('social')->group(function () {
+        Route::post('/add', [\App\Http\Controllers\Admin\SocialController::class, 'add'])->name('admin.social.add');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'edit'])->name('admin.social.edit');
+        Route::post('/delete/{id}', [\App\Http\Controllers\Admin\SocialController::class, 'delete'])->name('admin.social.delete');
     });
 
     Route::prefix('verifications')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\CountriesController::class, 'index'])->name('admin.verifications');
+    });
+
+    Route::prefix('legal')->group(function () {
+        Route::post('/add', [\App\Http\Controllers\Admin\LegalController::class, 'add'])->name('admin.legal.add');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\LegalController::class, 'edit'])->name('admin.legal.edit');
     });
 });
 

@@ -10,6 +10,16 @@ class Country extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'id_number',
+    ];
+
+    /**
      * A country has many verifications
      */
     public function verifications()

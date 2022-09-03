@@ -2,6 +2,26 @@
 
 	'use strict';
 
+    $('.add-country-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'add-country-button', spinner: 'add-country-spinner', message: 'add-country-message'});
+    });
+
+    $('.edit-country-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'edit-country-button', spinner: 'edit-country-spinner', message: 'edit-country-message'});
+    });
+
+    $('.add-social-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'add-social-button', spinner: 'add-social-spinner', message: 'add-social-message'});
+    });
+
+    $('.edit-social-form').submit(function(event){
+        event.preventDefault();
+        handleForm({form: $(this), button: 'edit-social-button', spinner: 'edit-social-spinner', message: 'edit-social-message'});
+    });
+
     $('.reset-password-form').submit(function(event){
         event.preventDefault();
         handleForm({form: $(this), button: 'reset-password-button', spinner: 'reset-password-spinner', message: 'reset-password-message'});

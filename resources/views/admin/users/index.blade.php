@@ -7,7 +7,7 @@
             <div class="p-4 shadow-sm bg-light border-raduis-lg mt-4">
               <div class="">
                 <h4 class="text-dark m-0">
-                +{{ number_format(\App\Models\User::count()) }} Users
+                +{{ \App\Models\User::where(['role' => 'user'])->get()->count()  }} Users
               </h4>
               </div>
             </div>
@@ -22,6 +22,7 @@
                       </div>
                     @endforeach
                   </div>
+                  {{ $users->links('vendor.pagination.default') }}
                 @endif
             </section>
         </div>

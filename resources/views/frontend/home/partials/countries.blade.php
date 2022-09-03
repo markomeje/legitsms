@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-between w-100">
         	<div class="d-flex align-items-center">
         		<div class="me-2">
-					<i class="cflag cflag-{{ \Str::slug($website->country->name) }}" alt="{{ $website->country->name }}"></i>
+					<i class="cflag cflag-{{ \Str::slug(strtolower($website->country->name)) }}" alt="{{ $website->country->name }}"></i>
 				</div>
 				<div class="text-dark">
 					{{ ucfirst($website->name) }}

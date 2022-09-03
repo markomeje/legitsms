@@ -11,7 +11,18 @@
         <script src="//code.tidio.co/zkxbfhkokgtbwluy4jx6g4h0iz3ggyml.js" async></script>
     @endif
 
+    <!-- Summernote -->
+    <script src="{{ config('app.url') }}/summernote/summernote-lite.min.js" type="text/javascript"></script>
+
     <script type="text/javascript">
+        var description = $('.description');
+        if (description) {
+            description.summernote({
+                tabsize: 4,
+                height: 400
+            });
+        }
+
         @if(!empty($verifications))
             @foreach($verifications as $verification)
                 $('.read-sms-prompt-{{ $verification->id }}').on('click', function() {

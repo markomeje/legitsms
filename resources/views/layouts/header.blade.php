@@ -18,5 +18,7 @@
     {{-- <link rel="stylesheet" href="/css/animate.css" /> --}}
     {{-- Custom Css --}}
     <link rel="stylesheet" href="/css/custom.css" />
+    <!-- summernote CSS -->
+    <link rel="stylesheet" type="text/css" href="/summernote/summernote-lite.min.css">
   </head>
   <body>
