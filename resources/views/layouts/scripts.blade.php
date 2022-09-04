@@ -42,8 +42,52 @@
         @endif
 
         @if(!empty($verification_id))
+            
+            function startTimer(duration, display) {
+                var start = Date.now(),
+                    diff,
+                    minutes,
+                    seconds;
+                function timer() {
+                    // get the number of seconds that have elapsed since 
+                    // startTimer() was called
+                    diff = duration - (((Date.now() - start) / 1000) | 0);
+
+                    // does the same job as parseInt truncates the float
+                    minutes = (diff / 60) | 0;
+                    seconds = (diff % 60) | 0;
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds; 
+
+                    if (diff <= 0) {
+                        display.textContent = "00:00"; 
+                        return;
+                        // add one second so that the count down starts at the full duration
+                        // example 05:00 not 04:59
+                        start = Date.now() + 1000;
+                    }
+                };
+                // we don't want to wait a full second before the timer starts
+                timer();
+                var intervalId = setInterval(timer, 1000);
+                // setTimeout(function() {
+                //     clearInterval(intervalId);
+                //     display.textContent = "00:00"; 
+                // }, duration);
+            }
+
+            var display = document.querySelector('#timer-active');
+            if (display) {
+                var tenMinutes = 10 * 60;
+                startTimer(tenMinutes, display);
+            }
+
             var code = $('.verification-code-{{ $verification_id }}');
             var loader = $('.verification-loader-{{ $verification_id }}');
+            var timer = $('.verification-timer-{{ $verification_id }}');
             loader.removeClass('d-none');
 
             function verificationAsync() {
@@ -53,14 +97,22 @@
                     dataType: 'json',
                     success: function(response) {
                         console.log(response);
-                        if(response.response !== undefined) {
+                        var status = response.status || 0;
+                        if(status == 1){
                             loader.addClass('d-none');
-                            code.html(response.response).fadeIn();
-                            console.log(response.response);
+                            code.html(response.code).fadeIn();
+                            console.log(response.code);
+
+                        }else if(status == -1) {
+                            loader.addClass('d-none');
+                            code.html(response.info).fadeIn();
+                            // code.html(response.info).fadeIn();
+                            console.log(response.info);
+
                         }else {
                             setTimeout(function() {
                                 verificationAsync();
-                            }, 30000);
+                            }, 20000);
                         }    
                     },
 

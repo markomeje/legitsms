@@ -86,7 +86,7 @@ class VerificationController extends Controller
                 'user_id' => auth()->id(),
                 'phone' => $response,
                 'code' => null,
-                'status' => 'done',
+                'status' => 'pending',
             ]);
 
             return $generate->id > 0 ? response()->json([
@@ -124,10 +124,20 @@ class VerificationController extends Controller
             ]);
         }
 
+        $code = $verification->code ?? '';
+        $status = $verification->status ?? '';
+        if($status === 'done') {
+            return response()->json([
+                'status' => 1,
+                'info' => 'Verification already recieved.',
+                'code' => $verification->code,
+            ]);
+        } 
+
         $account = auth()->user()->account;
         if (empty($account)) {
             return response()->json([
-                'status' => 0,
+                'status' => -1,
                 'info' => 'Insufficient funds'
             ]);
         }
@@ -135,34 +145,24 @@ class VerificationController extends Controller
         $price = (int)$verification->website->price;
         if ((int)$account->balance < $price) {
             return response()->json([
-                'status' => 0,
+                'status' => -1,
                 'info' => 'Insufficient funds.'
             ]);
         }
 
-        if(Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 25)) {
-            if(empty($verification->code)){
+        $ten_minutes_passed = Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 10);
+        if($ten_minutes_passed && empty($verification->code)) {
+            $verification->code = 'Verification expired.';
+            $verification->status = 'expired';
+            $verification->update();
 
-                $verification->code = 'This verification has expired.';
-                $verification->status = 'done';
-                $verification->update();
-
-                return response()->json([
-                    'status' => 1,
-                    'info' => 'Operation expired.',
-                    'response' => 'Verification expired',
-                ]);
-
-            }
-        }
-
-        if(!empty($verification->code)) {
-            response()->json([
-                'status' => 1,
-                'info' => 'Verification already recieved.',
-                'response' => $verification->code,
+            return response()->json([
+                'status' => -1,
+                'info' => 'Verification expired.',
+                'verification' => $verification
             ]);
-        } 
+
+        }
             
         try {
             $params = ['action' => 'read', 'username' => env('AUTOFICATIONS_USERNAME'), 'key' => env('AUTOFICATIONS_API_KEY'), 'website' => $verification->website->code, 'country' => $verification->country->id_number, 'phone_number' => $verification->phone];
@@ -171,49 +171,46 @@ class VerificationController extends Controller
             if ($response->failed()) {
                 return response()->json([
                     'status' => 0,
-                    'info' => 'Reading SMS failed. Try again later.',
-                    'response' => 'Operation failed.'
+                    'info' => 'Reading SMS failed.',
                 ]);
             }
 
             $response = $response->body();
-            if (isset(Autofications::$errors[$response])) {
+            if ($response == 'Not_received') {
+                return response()->json([
+                    'status' => 0,
+                    'info' => 'Awaiting code . . .',
+                ]);
+            }
+
+            if (isset(Autofications::$errors[$response]) && $response !== 'Not_received') {
                 $verification->code = $response;
                 $verification->status = 'done';
                 $verification->update();
 
-                response()->json([
-                    'status' => 0,
-                    'info' => 'System Error. Try again later',
-                    'response' => $response,
-                ]);
-            }
-
-            if (empty($response)) {
                 return response()->json([
-                    'status' => 0,
-                    'info' => 'Awaiting code . . .',
-                    'response' => 'Awaiting code . . .',
+                    'status' => -1,
+                    'info' => $response,
                 ]);
             }
 
-            $verification->code = $response;
-            $verification->status = 'done';
+            for ($i = 0; $i < 10; $i++) { 
+                if (str_contains($response, $i)) {
+                    Balance::save($price, $debit = true); //Debit user
+                    $verification->code = $response;
+                    $verification->status = 'done';
+                    $verification->update();
 
-            if($verification->update()) {
-                Balance::save($price, $debit = true); //Debit user
-                response()->json([
-                    'status' => 1,
-                    'info' => 'Code recieved.',
-                    'response' => $response,
-                    'redirect' => '',
-                ]);
-            } 
+                    return response()->json([
+                        'status' => 1,
+                        'code' => $response,
+                    ]);
+                }
+            }
 
             return response()->json([
                 'status' => 0,
                 'info' => 'Operation failed. Try again.',
-                'response' => 'Unknown Error'
             ]);
         } catch (Exception $exception) {
             return response()->json([
@@ -254,19 +251,11 @@ class VerificationController extends Controller
                 ]);
             }
 
-            $response = $response->body();
-            if('Success' == $response) {
-                $verification->delete();
-                return response()->json([
-                    'status' => 1,
-                    'info' => 'Number blacklisted.',
-                    'redirect' => '',
-                ]);
-            }
-
+            $verification->delete();
             return response()->json([
-                'status' => 0,
-                'info' => 'Operation failed.',
+                'status' => 1,
+                'info' => $response->body(),
+                'redirect' => '',
             ]);
 
         } catch (Exception $exception) {
