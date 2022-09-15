@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web'])->domain(env('APP_URL'))->group(function() {
     Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+    
     Route::get('/countries', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.countries');
     Route::get('/country', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home.country');
 

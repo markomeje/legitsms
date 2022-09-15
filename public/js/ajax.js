@@ -2,6 +2,10 @@
 
 	'use strict';
 
+    $('.blacklist-prompt').on('click', function() {
+        handleAjax({that: $(this), button: 'blacklist-button', spinner: 'blacklist-spinner'});    
+    });
+
     $('.delete-country-prompt').on('click', function() {
         handleAjax({that: $(this), button: 'country-button', spinner: 'country-spinner'});    
     });

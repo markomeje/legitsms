@@ -113,38 +113,31 @@
 						</div>
 					@else
 						<?php $verification = \App\Models\Verification::find($verification_id); ?>
-						@if(auth()->check())
-							<?php $verifications = \App\Models\Verification::latest('created_at')->where(['user_id' => auth()->id()])->get(); ?>
-							@if(empty($verifications->count()))
-								<div class="alert alert-danger mb-3">Verification not found.</div>
-								<a href="{{ route('user.dashboard') }}" class="btn btn-primary">Go to Dashboard.</a>
-							@else
-								<div class="card">
-									<div class="card-body">
-										<div class="table-responsive table-responsive-sm">
-									  		<table class="table table-striped table-hover">
-											  <thead>
-											    <tr>
-											      <th scope="col">Timer</th>
-											      <th scope="col">Country</th>
-											      <th scope="col">Website</th>
-											      <th scope="col">Phone</th>
-											      <th scope="col">Code</th>
-											      <th scope="col">Action</th>
-											    </tr>
-											  </thead>
-												  <tbody>
-												  	@foreach($verifications as $verification)
-												    	@include('user.verifications.partials.tr')
-												    @endforeach
-												</tbody>
-											</table>
-										</div>
+						@if(empty($verification))
+							<div class="alert alert-danger mb-3">Verification not found.</div>
+							<a href="{{ route('user.dashboard') }}" class="btn btn-primary">Go to Dashboard.</a>
+						@else
+							<div class="card">
+								<div class="card-body">
+									<div class="table-responsive table-responsive-sm">
+								  		<table class="table table-striped table-hover">
+										  <thead>
+										    <tr>
+										      <th scope="col">Timer</th>
+										      <th scope="col">Country</th>
+										      <th scope="col">Website</th>
+										      <th scope="col">Phone</th>
+										      <th scope="col">Code</th>
+										      <th scope="col">Action</th>
+										    </tr>
+										  </thead>
+											 <tbody>
+											    @include('user.verifications.partials.tr')
+											</tbody>
+										</table>
 									</div>
 								</div>
-							@endif
-						@else
-							<div class="alert alert-danger">Please login to continue</div>
+							</div>
 						@endif
 					@endif
 				</div>

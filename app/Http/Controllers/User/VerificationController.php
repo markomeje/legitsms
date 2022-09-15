@@ -129,7 +129,7 @@ class VerificationController extends Controller
         if($status === 'done') {
             return response()->json([
                 'status' => 1,
-                'info' => 'Verification already recieved.',
+                'info' => 'Verification done.',
                 'code' => $verification->code,
             ]);
         } 
@@ -150,9 +150,9 @@ class VerificationController extends Controller
             ]);
         }
 
-        $ten_minutes_passed = Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 10);
-        if($ten_minutes_passed && empty($verification->code)) {
-            $verification->code = 'Verification expired.';
+        $tenMinutesPassed = Carbon::parse($verification->created_at)->diffInSeconds(Carbon::now()) > (60 * 10);
+        if($tenMinutesPassed) {
+            $verification->code = empty($verification->code) ? 'Verification expired.' : $verification->code;
             $verification->status = 'expired';
             $verification->update();
 
@@ -161,7 +161,6 @@ class VerificationController extends Controller
                 'info' => 'Verification expired.',
                 'verification' => $verification
             ]);
-
         }
             
         try {
@@ -183,7 +182,7 @@ class VerificationController extends Controller
                 ]);
             }
 
-            if (isset(Autofications::$errors[$response]) && $response !== 'Not_received') {
+            if (isset(Autofications::$errors[$response])){
                 $verification->code = $response;
                 $verification->status = 'done';
                 $verification->update();
@@ -206,6 +205,15 @@ class VerificationController extends Controller
                         'code' => $response,
                     ]);
                 }
+
+                $verification->code = $response;
+                $verification->status = 'done';
+                $verification->update();
+
+                return response()->json([
+                    'status' => 1,
+                    'info' => $response,
+                ]);
             }
 
             return response()->json([
@@ -255,7 +263,7 @@ class VerificationController extends Controller
             return response()->json([
                 'status' => 1,
                 'info' => $response->body(),
-                'redirect' => '',
+                'redirect' => route('home'),
             ]);
 
         } catch (Exception $exception) {

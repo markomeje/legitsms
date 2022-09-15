@@ -67,16 +67,12 @@
                         return;
                         // add one second so that the count down starts at the full duration
                         // example 05:00 not 04:59
-                        start = Date.now() + 1000;
+                        start = Date.now() + duration;
                     }
                 };
                 // we don't want to wait a full second before the timer starts
                 timer();
-                var intervalId = setInterval(timer, 1000);
-                // setTimeout(function() {
-                //     clearInterval(intervalId);
-                //     display.textContent = "00:00"; 
-                // }, duration);
+                setInterval(timer, 1000);
             }
 
             var display = document.querySelector('#timer-active');

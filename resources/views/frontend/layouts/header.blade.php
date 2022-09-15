@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>{{ config('app.name') }} | Automated SMS Verification</title>
-    <meta name="description" content="" />
+    <meta name="description" content="{{ config('app.name') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Place favicon.ico in the root directory -->
     <!-- ======== CSS here ======== -->
